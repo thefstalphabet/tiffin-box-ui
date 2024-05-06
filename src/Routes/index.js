@@ -1,7 +1,7 @@
-import Dashboard from './Home/Home';
+import Home from './Home/Home';
 import PageNotFound from './PageNotFound/PageNotFound';
 
 export {
-    Dashboard,
+    Home,
     PageNotFound
 }
