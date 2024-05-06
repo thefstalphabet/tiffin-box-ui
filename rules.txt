@@ -1,0 +1,4 @@
+### Rule to write code ###
+1. Do not create js files
+2. Add proper comments in methods
+3. Create files with only Camel Case
