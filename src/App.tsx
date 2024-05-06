@@ -1,11 +1,15 @@
-import { Button } from "antd";
-import Navbar from "./Componets/Navbar/Navbar";
+import { Route, Routes } from "react-router-dom";
+import { routes } from "./Configs/Routes";
+import { IRoutes } from "./Interfaces/Configs/Routes.interface";
 export default function App() {
   return (
-    <div className="App">
-      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button>Click me</Button> */}
-      <Navbar/>
+    <div>
+      <Routes>
+        {routes.map((route: IRoutes) => {
+          const { path, element } = route;
+          return <Route key={path} element={element} path={path} />;
+        })}
+      </Routes>
     </div>
   );
 }
