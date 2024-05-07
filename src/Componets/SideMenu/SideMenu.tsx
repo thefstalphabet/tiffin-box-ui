@@ -5,7 +5,7 @@ import { IProps } from "../../Interfaces/Components/SideMenu.interface";
 export default function SideMenu(props: IProps) {
   const { visibility } = props;
   return (
-    <div>
+    <div className="flex md:hidden">
       {visibility && (
         <Menu
           style={{
