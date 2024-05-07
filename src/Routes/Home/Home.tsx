@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../Componets/Header/Header";
 import SideMenu from "../../Componets/SideMenu/SideMenu";
-const Dashboard = () => {
+const Home = () => {
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
   return (
     <div className="w-full h-screen overflow-hidden flex items-center justify-center">
@@ -11,4 +11,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;
