@@ -2,6 +2,8 @@ import { Menu } from "antd";
 import { items } from "../../Configs/MenuItems";
 import { IProps } from "../../Interfaces/Components/SideMenu.interface";
 import { CloseOutlined } from "@ant-design/icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SideMenu(props: IProps) {
   const { visibility, setSideMenuVisibility } = props;
@@ -18,10 +20,11 @@ export default function SideMenu(props: IProps) {
           }}
         >
           <header style={{ textAlign: "right", padding: "16px" }}>
-            <CloseOutlined
+            <FontAwesomeIcon
               onClick={() => {
                 setSideMenuVisibility(false);
               }}
+              icon={faXmark}
             />
           </header>
           <Menu
