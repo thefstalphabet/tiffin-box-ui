@@ -4,9 +4,9 @@ import SideMenu from "../../Componets/SideMenu/SideMenu";
 const Home = () => {
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
   return (
-    <div className="w-full h-screen overflow-hidden flex items-center justify-center">
-      <Header setSideMenuVisibility={setSideMenuOpen}/>
-      <SideMenu visibility={sideMenuOpen}/>
+    <div className="">
+      <Header setSideMenuVisibility={setSideMenuOpen} visibilitymenu={sideMenuOpen}/>
+      <SideMenu visibility={sideMenuOpen} setSideMenuVisibility={setSideMenuOpen}/>
     </div>
   );
 };
