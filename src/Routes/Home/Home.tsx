@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="">
       <Header setSideMenuVisibility={setSideMenuOpen} visibilitymenu={sideMenuOpen}/>
-      <SideMenu visibility={sideMenuOpen}/>
+      <SideMenu visibility={sideMenuOpen} setSideMenuVisibility={setSideMenuOpen}/>
     </div>
   );
 };

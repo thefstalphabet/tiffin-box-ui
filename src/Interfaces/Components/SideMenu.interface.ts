@@ -1,3 +1,4 @@
 export interface IProps {
-    visibility: boolean
+    visibility: boolean;
+    setSideMenuVisibility: Function
 }

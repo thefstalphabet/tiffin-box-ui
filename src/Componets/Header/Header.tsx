@@ -1,9 +1,5 @@
 import { Button } from "antd";
-import {
-  RightOutlined,
-  UnorderedListOutlined,
-  CloseOutlined,
-} from "@ant-design/icons";
+import { UnorderedListOutlined, CloseOutlined } from "@ant-design/icons";
 import { IProps } from "../../Interfaces/Components/Header.interface";
 export default function Header(props: IProps) {
   const { setSideMenuVisibility, visibilitymenu } = props;
@@ -24,12 +20,10 @@ export default function Header(props: IProps) {
         </li>
       </div>
       <div className="flex items-center space-x-4">
-        <h1 className="mr-4 text-black font-bold text-xl">
-          Log In
-        </h1>
+        <h1 className="mr-4 text-black font-bold text-xl">Log In</h1>
         <Button
           className=" bg-blue-500 text-black rounded hover:bg-blue-600 focus:outline-none cursor-pointer  text-center  md:flex hidden"
-          type="primary"          
+          type="primary"
         >
           Sign up
         </Button>
