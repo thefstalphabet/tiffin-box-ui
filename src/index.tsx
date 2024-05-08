@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { ConfigProvider, theme } from "antd";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +12,19 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <ConfigProvider
+        theme={{
+          token: {
+            // Seed Token
+            colorPrimary: "#00b96b",
+            borderRadius: 5,
+            fontFamily:"Segoe UI Symbol",
+            fontSize: 14,
+          },
+        }}
+      >
+        <App />
+      </ConfigProvider>
     </React.StrictMode>
   </BrowserRouter>
 );

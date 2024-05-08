@@ -1,24 +1,27 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  HomeOutlined,
-  UsergroupAddOutlined,
-  ContactsOutlined,
-} from "@ant-design/icons";
-import { ItemType, MenuItemType } from "antd/es/menu/hooks/useItems";
-
-export const items: ItemType<MenuItemType>[] = [
+  faUser,
+  faPhone,
+  faAddressCard,
+} from "@fortawesome/free-solid-svg-icons";
+import { IMenuItems } from "../Interfaces/Configs/MenuItems.interface";
+export const menuItems: Array<IMenuItems> = [
   {
     key: "sub1",
-    label: "Home",
-    icon: <HomeOutlined />,
+    label: "About",
+    icon: <FontAwesomeIcon icon={faAddressCard} />,
+    path: "/about",
   },
   {
     key: "sub2",
-    label: "About",
-    icon: <UsergroupAddOutlined />,
+    label: "Contact Us",
+    icon: <FontAwesomeIcon icon={faPhone} />,
+    path: "contact-us",
   },
   {
     key: "sub3",
-    label: "CntactUs",
-    icon: <ContactsOutlined />,
+    label: "Profile",
+    icon: <FontAwesomeIcon icon={faUser} />,
+    path: "profile",
   },
 ];
