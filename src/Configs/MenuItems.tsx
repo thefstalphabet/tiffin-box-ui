@@ -1,24 +1,20 @@
-import {
-  HomeOutlined,
-  UsergroupAddOutlined,
-  ContactsOutlined,
-} from "@ant-design/icons";
 import { ItemType, MenuItemType } from "antd/es/menu/hooks/useItems";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser,faPhone,faAddressCard } from "@fortawesome/free-solid-svg-icons";
 export const items: ItemType<MenuItemType>[] = [
   {
     key: "sub1",
-    label: "Home",
-    icon: <HomeOutlined />,
+    label: "About",
+    icon: <FontAwesomeIcon icon={faAddressCard}/>,
   },
   {
     key: "sub2",
-    label: "About",
-    icon: <UsergroupAddOutlined />,
+    label: "Contact Us",
+    icon: <FontAwesomeIcon icon={faPhone} />,
   },
   {
     key: "sub3",
-    label: "CntactUs",
-    icon: <ContactsOutlined />,
+    label: "Profile",
+    icon: <FontAwesomeIcon icon={faUser} />,
   },
 ];
