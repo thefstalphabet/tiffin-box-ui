@@ -3,7 +3,9 @@ import { menuItems } from "../../Configs/MenuItems";
 import { IProps } from "../../Interfaces/Components/SideMenu.interface";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 export default function SideMenu(props: IProps) {
+  const navigate = useNavigate();
   const { visibility, setSideMenuVisibility } = props;
   return (
     <div className="flex md:hidden">
@@ -24,6 +26,9 @@ export default function SideMenu(props: IProps) {
             defaultOpenKeys={["sub1"]}
             mode="inline"
             items={menuItems}
+            onClick={({ item }: any) => {
+              navigate(item?.props?.path);
+            }}
           />
           <div className="p-4 my-10">
             <Button className="w-full" type="primary">
