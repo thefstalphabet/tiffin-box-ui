@@ -3,3 +3,4 @@
 2. Add proper comments in methods
 3. Create files with only Camel Case
 4. If you are creating any new component first look into the ant design documentation
+5. Try to use tailwind css insted of custom

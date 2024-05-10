@@ -1,14 +1,16 @@
 import { Button } from "antd";
-import { IProps } from "../../Interfaces/Components/Header.interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { appName } from "../../Configs/GlobalText";
 import { menuItems } from "../../Configs/MenuItems";
 import { Link } from "react-router-dom";
 import { IMenuItems } from "../../Interfaces/Configs/MenuItems.interface";
+import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
+import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
 
-export default function Header(props: IProps) {
-  const { setSideMenuVisibility } = props;
+export default function Header() {
+  const dispatch = useAppDispatch();
+  const { collapse } = useAppSelector((store) => store.sideMenu);
   return (
     <div className="flex justify-between items-center bg-white text-white p-6 px-32">
       <div className="items-center flex">
@@ -36,7 +38,7 @@ export default function Header(props: IProps) {
           icon={faBars}
           className="text-xl text-black flex md:hidden "
           onClick={() => {
-            setSideMenuVisibility(true);
+            dispatch(setCollapse(!collapse));
           }}
         />
       </div>

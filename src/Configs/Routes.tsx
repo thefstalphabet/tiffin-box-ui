@@ -1,10 +1,12 @@
 import { IRoutes } from "../Interfaces/Configs/Routes.interface";
 import { Home, PageNotFound } from "../Routes";
-import { About,ContactUs,Profile,Kitchen } from "../Componets";
+import { About, ContactUs, Profile, Kitchen } from "../Componets";
 export const routes: Array<IRoutes> = [
   {
     path: "/",
     element: <Home />,
+    header: true,
+    sideMenu: true,
   },
   {
     path: "/about",
@@ -21,6 +23,8 @@ export const routes: Array<IRoutes> = [
   {
     path: "/Kitchen",
     element: <Kitchen />,
+    header: true,
+    sideMenu: true,
   },
   {
     path: "*",
