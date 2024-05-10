@@ -1,21 +1,23 @@
 import { Menu, Button } from "antd";
 import { menuItems } from "../../Configs/MenuItems";
-import { IProps } from "../../Interfaces/Components/SideMenu.interface";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-export default function SideMenu(props: IProps) {
+import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
+import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
+export default function SideMenu() {
   const navigate = useNavigate();
-  const { visibility, setSideMenuVisibility } = props;
+  const dispatch = useAppDispatch();
+  const { collapse } = useAppSelector((store) => store.sideMenu);
   return (
     <div className="flex md:hidden">
-      {visibility && (
+      {collapse && (
         <div className="fixed top-0 right-0 bg-white shadow-md  h-full">
           <header className="text-right p-4">
             <FontAwesomeIcon
               className="text-xl text-stone-400"
               onClick={() => {
-                setSideMenuVisibility(false);
+                dispatch(setCollapse(!collapse));
               }}
               icon={faXmark}
             />
