@@ -1,7 +1,7 @@
 import React from "react";
 import landingImg from "../../Assets/Images/landingImg.jpg"; 
 import { Button } from "antd";
-export default function Kitchen() {
+export default function Landing() {
   return (
     <div className="flex h-screen">
       <div
