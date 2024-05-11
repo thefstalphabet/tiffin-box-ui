@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <div className="flex justify-between items-center bg-white text-white p-6 px-32">
       <div className="items-center flex">
-        <h1 className="text-xl font-bold text-black text-nowrap">{appName}</h1>
+        <h1 className="font-bold text-black text-nowrap">{appName}</h1>
         <div className="items-center space-x-4 md:flex hidden mx-8">
           {menuItems.map((item: IMenuItems) => {
             const { label, key, path } = item;
