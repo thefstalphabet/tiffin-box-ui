@@ -15,7 +15,7 @@ export default function SideMenu() {
         <div className="fixed top-0 right-0 bg-white shadow-md  h-full">
           <header className="text-right p-4">
             <FontAwesomeIcon
-              className="text-xl text-stone-400"
+              className="text-xl"
               onClick={() => {
                 dispatch(setCollapse(!collapse));
               }}

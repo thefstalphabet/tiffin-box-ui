@@ -1,5 +1,5 @@
-import About from "./About/About";
-import ContactUs from "./ContactUS/ContactUs";
-import Profile from "./Profile/Profile";
-import Kitchen from "./Kitchen/Kitchen";
+import About from "../Routes/About/About";
+import ContactUs from "../Routes/contactUs/ContactUs";
+import Profile from "../Routes/Profile/Profile";
+import Kitchen from "../Routes/Kitchen/Kitchen";
 export { About, ContactUs, Profile, Kitchen };
