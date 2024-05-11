@@ -26,7 +26,7 @@ export const routes: Array<IRoutes> = [
     sideMenu: true,
   },
   {
-    path: "/BeAKitchen",
+    path: "/be-a-kitchen",
     element: <BeAKitchen />,
     header: true,
     sideMenu: true,
