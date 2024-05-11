@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* text styles */
+.h1 {
+    font-size: 3rem;
+}
+
+/* global styles */
+.container {
+
+}
+
+.subContainer {
+    padding: 1rem
+}
