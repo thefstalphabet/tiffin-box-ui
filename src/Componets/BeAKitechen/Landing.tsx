@@ -1,9 +1,9 @@
-import { landingPage, kitchenImg } from "../../Assets";
+import { kitchenImg } from "../../Assets";
 import { Button } from "antd";
 export default function Landing() {
   return (
     <div
-      className="subContainer items-center justify-center  grid grid-cols-1 sm:grid-cols-2 gap-3 sm:justify-center sm:items-center "
+      className="subContainer items-center justify-center  grid grid-cols-1 sm:grid-cols-2 gap-2 sm:justify-center sm:items-center "
       style={{ height: "89.5vh" }}
     >
       <div className="grid gap-6 justify-center ">
@@ -28,7 +28,7 @@ export default function Landing() {
         className="w-50"
         style={{ height: "80vh" }}
         src={kitchenImg}
-        alt="Image not found"
+        alt="Banner"
       />
     </div>
   );
