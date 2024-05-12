@@ -1,5 +1,13 @@
 import { IRoutes } from "../Interfaces/Configs/Routes.interface";
-import { Home, PageNotFound,About,ContactUs,Profile,BeAKitchen} from "../Routes";
+import {
+  Home,
+  PageNotFound,
+  About,
+  ContactUs,
+  Profile,
+  KitchenRegistration,
+  Login,
+} from "../Routes";
 export const routes: Array<IRoutes> = [
   {
     path: "/",
@@ -27,12 +35,16 @@ export const routes: Array<IRoutes> = [
   },
   {
     path: "/be-a-kitchen",
-    element: <BeAKitchen />,
+    element: <KitchenRegistration />,
     header: true,
     sideMenu: true,
   },
   {
     path: "*",
     element: <PageNotFound />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ];

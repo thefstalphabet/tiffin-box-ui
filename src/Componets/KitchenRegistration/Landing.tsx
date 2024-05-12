@@ -19,7 +19,7 @@ export default function Landing() {
             type="primary"
             size="large"
           >
-            Registration
+            Start Today
           </Button>
         </div>
       </div>

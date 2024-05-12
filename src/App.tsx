@@ -13,11 +13,11 @@ export default function App() {
             <Route
               key={path}
               element={
-                <div>
+                <>
                   {header && <Header />}
-                  {sideMenu && <SideMenu/>}
+                  {sideMenu && <SideMenu />}
                   {element}
-                </div>
+                </>
               }
               path={path}
             />

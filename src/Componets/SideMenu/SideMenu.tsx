@@ -13,7 +13,7 @@ export default function SideMenu() {
     <div className="flex md:hidden">
       {collapse && (
         <div className="fixed top-0 right-0 bg-white shadow-md  h-full">
-          <header className="text-right p-4">
+          <header className="text-right py-2 px-5">
             <FontAwesomeIcon
               className="text-xl"
               onClick={() => {
