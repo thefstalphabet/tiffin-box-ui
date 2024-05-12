@@ -1,4 +1,4 @@
-import { landingPage, hero } from "../../Assets";
+import { landingPage, kitchenImg } from "../../Assets";
 import { Button } from "antd";
 export default function Landing() {
   return (
@@ -27,7 +27,7 @@ export default function Landing() {
       <img
         className="w-50"
         style={{ height: "80vh" }}
-        src={hero}
+        src={kitchenImg}
         alt="Image not found"
       />
     </div>
