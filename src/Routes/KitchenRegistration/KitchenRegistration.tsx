@@ -1,5 +1,5 @@
 import { Landing,SearchToStart} from "../../Componets";
-export default function BeAKitchen() {
+export default function KitchenRegistration() {
   return (
     <div className="grid gap-5">
       <Landing />
