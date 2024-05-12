@@ -29,6 +29,6 @@ export const menuItems: Array<IMenuItems> = [
     key: "sub4",
     label: "Be a kitchen",
     icon: <FontAwesomeIcon icon={faFireBurner} />,
-    path: "/kitchen",
+    path: "/be-a-kitchen",
   },
 ];
