@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-// import { user } from "../../Apis/User";
+import { user } from "../../Apis/User";
+import { auth } from "../../Apis/Auth";
 
 const Home = () => {
   const call = async () => {
@@ -12,6 +13,12 @@ const Home = () => {
     //   city: "Jabalpur",
     //   address: "Golbazar"
     // });
+    // await auth.refreshToken()
+    await auth.login({
+      email: "dev@gamil.com",
+      password: "123456789",
+    });
+    // auth.logout()
   };
   useEffect(() => {
     call();

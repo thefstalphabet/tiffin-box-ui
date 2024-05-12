@@ -6,6 +6,7 @@ import {
   ContactUs,
   Profile,
   KitchenRegistration,
+  Login,
 } from "../Routes";
 export const routes: Array<IRoutes> = [
   {
@@ -41,5 +42,9 @@ export const routes: Array<IRoutes> = [
   {
     path: "*",
     element: <PageNotFound />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ];
