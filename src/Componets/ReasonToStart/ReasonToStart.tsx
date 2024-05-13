@@ -11,7 +11,7 @@ export default function ReasonToStart() {
           const { icon, key, heading, desc } = item;
           return (
             <div className="flex flex-col items-center justify-center">
-              <div className="w-40 h-40 flex justify-center items-center">
+              <div className="w-40 h-40 flex justify-center items-center p-4">
                 {icon}
               </div>
               <h1 className="text-lg font-bold text-center">{heading}</h1>
