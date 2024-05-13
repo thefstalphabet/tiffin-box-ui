@@ -1,6 +1,6 @@
 import { MakeRequest } from "./MakeRequest";
 
-class User extends MakeRequest {
+class Kitchen extends MakeRequest {
     async findOne(id: string) {
         return this.makeApiRequest("get", id)
     }
@@ -12,4 +12,4 @@ class User extends MakeRequest {
     }
 }
 
-export const user = new User("user")
+export const user = new Kitchen("kitchen")

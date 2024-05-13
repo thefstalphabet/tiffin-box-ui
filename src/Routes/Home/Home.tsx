@@ -4,7 +4,8 @@ import { auth } from "../../Apis/Auth";
 
 const Home = () => {
   const call = async () => {
-    // await user.find("0f4dc1d4-f0e5-4b7d-b899-c2e273266e75");
+    // await user.findOne("0f4dc1d4-f0e5-4b7d-b899-c2e273266e75");
+    await user.findAll()
     // await user.create({
     //   email: "dev1@gamil.com",
     //   name: "Developer",
@@ -14,10 +15,10 @@ const Home = () => {
     //   address: "Golbazar"
     // });
     // await auth.refreshToken()
-    await auth.login({
-      email: "dev@gamil.com",
-      password: "123456789",
-    });
+    // await auth.login({
+    //   email: "dev@gamil.com",
+    //   password: "123456789",
+    // });
     // auth.logout()
   };
   useEffect(() => {
