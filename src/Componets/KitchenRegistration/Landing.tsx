@@ -7,15 +7,17 @@ export default function Landing() {
       style={{ height: "89.5vh" }}
     >
       <div className="grid gap-6 justify-center ">
-        <div className="">
+        <div className="sm:flex sm:flex-col">
           <h1 className="h1 font-semibold text-center">
             Join Our Kitchen Network
           </h1>
-          <p className="md:items-center">Deliver Delicious Meals to Busy Customers.</p>
+          <div className="flex justify-center sm:justify-start">
+            <p>Deliver Delicious Meals to Busy Customers.</p>
+          </div>
         </div>
-        <div>
+        <div className="flex justify-center sm:justify-start">
           <Button
-            className="w-40 justify-center sm:justify-start sm:items-center"
+            className="w-40 "
             type="primary"
             size="large"
           >
