@@ -3,7 +3,7 @@ import { Button } from "antd";
 export default function Landing() {
   return (
     <div
-      className="subContainer items-center justify-center  grid grid-cols-1 sm:grid-cols-2 gap-2 sm:justify-center sm:items-center "
+      className="subContainer items-center justify-center  grid grid-cols-1 sm:grid-cols-2 gap-2 sm:justify-center sm:items-center"
       style={{ height: "89.5vh" }}
     >
       <div className="grid gap-6 justify-center ">
