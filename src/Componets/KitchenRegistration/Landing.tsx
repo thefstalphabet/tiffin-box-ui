@@ -16,22 +16,17 @@ export default function Landing() {
           </div>
         </div>
         <div className="flex justify-center sm:justify-start">
-          <Button
-            className="w-40 "
-            type="primary"
-            size="large"
-          >
+          <Button className="w-40 " type="primary" size="large">
             Start Today
           </Button>
         </div>
       </div>
-
-      <img
-        className="w-50"
-        style={{ height: "80vh" }}
-        src={kitchenImg}
-        alt="Banner"
-      />
+        <img
+          className="w-50 md:w-25 h-4/5"
+          // style={{ height: "80vh" }}
+          src={kitchenImg}
+          alt="Banner"
+        />
     </div>
   );
 }
