@@ -15,7 +15,7 @@ export class MakeRequest {
     }
 
     async makeApiRequest(requestType: "post" | "get" | "patch" | "delete", endPoint?: string, payload?: any) {
-        const apiUrl = `${ApiUrl}/${this.path}/${endPoint}`
+        const apiUrl = `${ApiUrl}/${this.path}/${endPoint ? endPoint : ""}`
         let res;
         try {
             switch (requestType) {
@@ -34,7 +34,9 @@ export class MakeRequest {
                 default:
                     break;
             }
-            console.log("API response: ", res);
+            if (!res?.ok) {
+                console.error(`Error: ${res?.statusText} (${res?.status})`);
+            }
             return await res?.json()
         } catch (error) {
             console.error(error)
@@ -50,12 +52,16 @@ export class MakeRequest {
         })
     }
 
-    async makeGetRequest(apiUrl: string, payload: any) {
-        const query = Object.keys(payload)
-            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(payload[key])}`)
-            .join('&');
+    async makeGetRequest(apiUrl: string, payload?: any) {
         const headers = await this.getRequestHeader()
-        return await fetch(`${apiUrl}?${query}`, {
+        // url query when payload is given
+        if (payload) {
+            const query = Object.keys(payload)
+                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(payload[key])}`)
+                .join('&');
+            apiUrl = `${apiUrl}?${query}`
+        }
+        return await fetch(apiUrl, {
             method: "GET",
             headers: headers,
         })
