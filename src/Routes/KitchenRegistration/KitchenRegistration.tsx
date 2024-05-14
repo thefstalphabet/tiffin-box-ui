@@ -3,7 +3,7 @@ import { Landing,
   Stats} from "../../Componets";
 export default function KitchenRegistration() {
   return (
-    <div className="grid gap-11">
+    <div>
     <Landing />
     <ReasonToStart />
     <Stats/>
