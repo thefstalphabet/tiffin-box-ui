@@ -20,6 +20,7 @@ export const MenuItems = styled.div`
     gap: 1rem;
     list-style: none;
     align-items: center;
+    margin-top: 4px;
     a{
         color: inherit;
         text-decoration: none;

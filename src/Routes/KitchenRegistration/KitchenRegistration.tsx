@@ -5,8 +5,8 @@ export default function KitchenRegistration() {
   return (
     <div>
     <Landing />
-    <ReasonToStart />
-    <Stats/>
+    {/* <ReasonToStart /> */}
+    {/* <Stats/> */}
   </div>
   );
 }

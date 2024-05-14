@@ -8,6 +8,7 @@ import { IMenuItems } from "../../Interfaces/Configs/MenuItems.interface";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
 import * as Styles from "./HeaderStyles";
+import { logo } from "../../Assets";
 
 export default function Header() {
   const dispatch = useAppDispatch();
@@ -15,7 +16,7 @@ export default function Header() {
   return (
     <Styles.Container>
       <div className="content">
-        <h1>{appName}</h1>
+        <img style={{width: "11rem"}} src={logo} alt="brand logo"/>
         <Styles.MenuItems>
           {menuItems.map((item: IMenuItems) => {
             const { label, key, path } = item;
