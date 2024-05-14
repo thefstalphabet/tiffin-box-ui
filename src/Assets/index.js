@@ -1,2 +1,3 @@
 import kitchenImg from '../Assets/Images/kitchenImg.png';
-export {  kitchenImg };
+import logo from './Logos/logo-no-background.png';
+export {  kitchenImg, logo };
