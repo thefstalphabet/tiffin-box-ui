@@ -1,7 +1,6 @@
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { appName } from "../../Configs/GlobalText";
 import { menuItems } from "../../Configs/MenuItems";
 import { Link } from "react-router-dom";
 import { IMenuItems } from "../../Interfaces/Configs/MenuItems.interface";
