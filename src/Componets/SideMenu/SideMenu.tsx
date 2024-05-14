@@ -5,15 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
+import * as Styles from "./SideMenuStyles";
 export default function SideMenu() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { collapse } = useAppSelector((store) => store.sideMenu);
   return (
-    <div className="flex md:hidden">
+    <Styles.Container>
       {collapse && (
-        <div className="fixed top-0 right-0 bg-white shadow-md  h-full">
-          <header className="text-right py-2 px-5">
+        <Styles.SideMenu>
+          <div className="header">
             <FontAwesomeIcon
               className="text-xl"
               onClick={() => {
@@ -21,24 +22,20 @@ export default function SideMenu() {
               }}
               icon={faXmark}
             />
-          </header>
+          </div>
           <Menu
-            className="w-64 h-3/4 text-stone-400"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
+            className="ant-menu"
             mode="inline"
             items={menuItems}
             onClick={({ item }: any) => {
               navigate(item?.props?.path);
             }}
           />
-          <div className="p-4 my-10">
-            <Button className="w-full" type="primary">
-              Log In
-            </Button>
+          <div className="login-btn">
+            <Button type="primary">Log In</Button>
           </div>
-        </div>
+        </Styles.SideMenu>
       )}
-    </div>
+    </Styles.Container>
   );
 }

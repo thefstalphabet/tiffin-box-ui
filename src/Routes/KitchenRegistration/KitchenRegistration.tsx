@@ -1,9 +1,12 @@
-import { Landing,SearchToStart} from "../../Componets";
+import { Landing, 
+  ReasonToStart, 
+  Stats} from "../../Componets";
 export default function KitchenRegistration() {
   return (
-    <div className="grid gap-5">
-      <Landing />
-      <SearchToStart/>
-    </div>
+    <div>
+    <Landing />
+    <ReasonToStart />
+    <Stats/>
+  </div>
   );
 }
