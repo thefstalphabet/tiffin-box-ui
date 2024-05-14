@@ -1,5 +1,5 @@
-import { landingImg,kitchenImg } from "../Assets";
-import { IReasonStartItem } from "../Interfaces/ReasonToStart.interface";
+import {kitchenImg } from "../Assets";
+import { IReasonStartItem } from "../Interfaces/Configs/ReasonToStart.interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -7,19 +7,19 @@ import {
 export const ReasonToStartItems: Array<IReasonStartItem> = [
   {
     key: "sub1",
-    icon:<FontAwesomeIcon icon={faUser} className="h-40 w-40"  />,
+    icon:<FontAwesomeIcon icon={faUser} className="h-20 w-20"  />,
     heading: "Teach your way",
     desc: " Publish the course you want, in the way you want, and always have control of your own content.",
   },
   {
     key: "sub2",
-    icon:<FontAwesomeIcon icon={faUser} className="h-40 w-40"  />,
+    icon:<FontAwesomeIcon icon={faUser}  className="h-20 w-20"  />,
     heading: "Inspire learners",
     desc: "Teach what you know and help learners explore their interests, gain new skills, and advance their careers.",
   },
   {
     key: "sub3",
-    icon:<FontAwesomeIcon icon={faUser} className="h-40 w-40"  />,
+    icon:<FontAwesomeIcon icon={faUser}  className="h-20 w-20"  />,
     heading: "Get rewarded",
     desc: "Expand your professional network, build your expertise, and earn money on each paid enrollment.",
   },
