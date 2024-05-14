@@ -1,5 +1,5 @@
 import { ReasonToStartItems } from "../../Configs/ReasonToStartItems";
-import { IReasonStartItem } from "../../Interfaces/ReasonToStart.interface";
+import { IReasonStartItem } from "../../Interfaces/Configs/ReasonToStart.interface";
 export default function ReasonToStart() {
   return (
     <div className="subContainer p-4">
