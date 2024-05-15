@@ -4,7 +4,7 @@ import { IStats } from "../../../Interfaces/Configs/Stats.interface";
 import * as Styles from "./StatsStyle";
 export default function Stats() {
   return (
-    <Styles.Container>
+    <Styles.Container className="container">
       {StartItem.map((item: IStats) => {
         const { key, heading, desc } = item;
         return (

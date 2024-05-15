@@ -1,21 +1,21 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReasonToStartItems } from "../../../Configs/ReasonToStartItems";
-import { IReasonStartItem } from "../../../Interfaces/Configs/ReasonToStart.interface";
 import * as Styles from "./ReasonToStartStyle";
 export default function ReasonToStart() {
   return (
-    <Styles.Container>
-      <h1 className="reason-text">So many reasons to start</h1>
-      <Styles.itemCard className="reasons-grid">
+    <Styles.Container className="container">
+      <h1>So many reasons to start</h1>
+      <Styles.ItemCard className="reasons-grid">
         {ReasonToStartItems.map((item) => (
-          <div key={item.key}>
-            <div className="icon-wrapper">
-              {item.icon}
+          <div className="item" key={item.key}>
+            <FontAwesomeIcon icon={item.icon} size="3x" />
+            <div className="content">
+              <h2>{item.heading}</h2>
+              <p>{item.desc}</p>
             </div>
-            <h1 className="reason-heading">{item.heading}</h1>
-            <p className="reason-desc">{item.desc}</p>
           </div>
         ))}
-      </Styles.itemCard>
+      </Styles.ItemCard>
     </Styles.Container>
   );
 }

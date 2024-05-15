@@ -1,23 +1,23 @@
 import { IStats } from "../Interfaces/Configs/Stats.interface";
 export const StartItem: Array<IStats> = [
   {
-    key: "sub1",
+    key: "1",
     heading: "75M",
-    desc: "student",
+    desc: "Kitchen",
   },
   {
-    key: "sub2",
+    key: "2",
     heading: "75+",
-    desc: "Language",
+    desc: "Active Kitchen",
   },
   {
-    key: "sub3",
+    key: "3",
     heading: "80M",
-    desc: "Enrollments",
+    desc: "Active User",
   },
   {
-    key: "sub4",
+    key: "4",
     heading: "80+",
-    desc: "Contries",
+    desc: "Cities",
   },
 ];

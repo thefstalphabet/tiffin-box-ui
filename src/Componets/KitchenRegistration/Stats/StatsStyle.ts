@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { primaryColor } from "../../../Configs/GlobalColour";
 export const Container = styled.div`
  display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color:green;
+  background-color:${primaryColor};
   padding: 1rem;
 `;
 export const subContainer = styled.div`

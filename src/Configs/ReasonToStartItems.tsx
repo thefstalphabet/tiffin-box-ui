@@ -1,26 +1,22 @@
-import {kitchenImg } from "../Assets";
 import { IReasonStartItem } from "../Interfaces/Configs/ReasonToStart.interface";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 export const ReasonToStartItems: Array<IReasonStartItem> = [
   {
-    key: "sub1",
-    icon:<FontAwesomeIcon icon={faUser} style={{height:"50px",width:"50px"}}  />,
-    heading: "Teach your way",
-    desc: " Publish the course you want, in the way you want, and always have control of your own content.",
+    key: "1",
+    icon: faUser,
+    heading: "Increased Exposure",
+    desc: "By listing in our app, You can expand your reach and visibility to a wider audience of potential customers who are actively seeking convenient meal options for monthly bases.",
   },
   {
-    key: "sub2",
-    icon:<FontAwesomeIcon icon={faUser}  style={{height:"50px",width:"50px"}} />,
-    heading: "Inspire learners",
-    desc: "Teach what you know and help learners explore their interests, gain new skills, and advance their careers.",
+    key: "2",
+    icon: faUser,
+    heading: "Additional Revenue",
+    desc: "Our platform opens up new opportunities for you to generate additional revenue through subscription-based orders. This steady stream of income can complement their existing sales and contribute to overall business growth.",
   },
   {
-    key: "sub3",
-    icon:<FontAwesomeIcon icon={faUser}  style={{height:"50px",width:"50px"}}  />,
-    heading: "Get rewarded",
-    desc: "Expand your professional network, build your expertise, and earn money on each paid enrollment.",
+    key: "3",
+    icon: faUser,
+    heading: "Customer Insights",
+    desc: "Our app provides valuable analytics and data insights that help kitchens better understand their customers' preferences, behavior, and ordering patterns.",
   },
 ];

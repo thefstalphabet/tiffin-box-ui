@@ -1,6 +1,6 @@
 export interface IReasonStartItem {
     key: string,
-    icon: JSX.Element;
+    icon: any;
     heading: string
     desc: string
 }

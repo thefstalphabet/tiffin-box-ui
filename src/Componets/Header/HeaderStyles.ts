@@ -27,7 +27,7 @@ export const MenuItems = styled.div`
         font-weight: 500;
         color: ${textGray};
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1072px) {
         display: none; 
     }
 `;
@@ -38,7 +38,7 @@ export const Actions = styled.div`
     .toggle-icon{
         cursor: pointer;
         font-size: 1.75rem; 
-        @media (min-width: 1000px) {
+        @media (min-width: 1072px) {
             display: none; 
         }
     }
