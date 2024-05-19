@@ -3,13 +3,9 @@ import * as Styles from "./LoginFormStyles";
 import { Button, Form, Card } from "antd";
 import ReForm from "../../reusable-antd-components/ReForm";
 import ReInput from "../../reusable-antd-components/ReFormFields/ReInput";
-import { chef } from "../../Assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleCheck,
-  faUsers,
-  faUtensils,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { capitalizeFirstLetter } from "../../Helper/Methods";
 export default function LoginForm() {
   const [userType, setUserType] = useState("");
   const [form] = Form.useForm();
@@ -18,63 +14,49 @@ export default function LoginForm() {
   }
   return (
     <Styles.Container>
-      <div className="signup_account">
-        <h2>Don't have an account?</h2>
-        <Button className="Signup_btn" type="text" color="green">
-          Signup
-        </Button>
-      </div>
+      
       <Styles.FormContainer>
         <ReForm formInstance={form} onSubmit={handleFormSubmit}>
-          <div className="Heading">
+          <div className="heading">
             <h1>Login</h1>
             <h3>Choose Account type</h3>
           </div>
           <Styles.CardContainer>
-            <Card
-              style={{
-                textAlign: "center",
-                boxShadow:
-                  userType === "Kitchen"
-                    ? "rgba(0, 187, 6, 0.16) 0px 1px 4px"
-                    : " rgba(0, 0, 0, 0.16) 0px 1px 4px",
-                width: 190,
-              }}
-              onClick={() => {
-                setUserType("Kitchen");
-              }}
-            >
-              <FontAwesomeIcon icon={faUtensils} size="4x" />
-              <p>Kitchen</p>
-              {userType == "Kitchen" && (
-                <div className="customContextMenu">
-                  <FontAwesomeIcon icon={faCircleCheck} color="green" />
-                </div>
-              )}
-            </Card>
-            <Card
-              style={{
-                textAlign: "center",
-                boxShadow:
-                  userType === "User"
-                    ? "rgba(0, 187, 6, 0.16) 0px 2px 4px"
-                    : " rgba(0, 0, 0, 0.16) 0px 1px 4px",
-                width: 190,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              onClick={() => {
-                setUserType("User");
-              }}
-            >
-              <FontAwesomeIcon icon={faUsers} size="4x" />
-              <p>User</p>
-              {userType == "User" && (
-                <div className="customContextMenu">
-                  <FontAwesomeIcon icon={faCircleCheck} color="green" />
-                </div>
-              )}
-            </Card>
+            {[
+              {
+                type: "kitchen",
+                icon: faUtensils,
+              },
+              {
+                type: "user",
+                icon: faCircleCheck,
+              },
+            ].map((item: any) => {
+              const { type, icon } = item;
+              return (
+                <Card
+                  style={{
+                    textAlign: "center",
+                    boxShadow:
+                      userType === type
+                        ? "rgba(0, 187, 6, 0.16) 0px 1px 4px"
+                        : " rgba(0, 0, 0, 0.16) 0px 1px 4px",
+                    width: 190,
+                  }}
+                  onClick={() => {
+                    setUserType(type);
+                  }}
+                >
+                  <FontAwesomeIcon icon={icon} size="4x" />
+                  <p>{capitalizeFirstLetter(type)}</p>
+                  {userType === type && (
+                    <div className="customContextMenu">
+                      <FontAwesomeIcon icon={faCircleCheck} color="green" />
+                    </div>
+                  )}
+                </Card>
+              );
+            })}
           </Styles.CardContainer>
           <ReInput
             label="Email"
@@ -91,7 +73,7 @@ export default function LoginForm() {
             required
           />
           <Styles.Action>
-            <Button className="Forgot_btn" type="text" color="green">
+            <Button className="Forgot_btn" type="text">
               Forgot Password
             </Button>
             <Button

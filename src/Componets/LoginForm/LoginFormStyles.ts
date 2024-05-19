@@ -1,47 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  .signup_account {
-    display: flex;
-    justify-content: flex-end;
-    margin: 2rem;
-    align-items: flex-end;
-    text-align: end;
-    align-self: flex-end;
-    .Signup_btn {
-      color: green;
-      text-align: center;
-    }
-    @media (min-width: 300px) and (max-width: 1000px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      align-self: center;
-    }
-  }
-`;
+export const Container = styled.div``;
 export const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  margin: 0 auto;
-  max-width: 480px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 5px;
-  .Heading {
-    display: grid;
-    gap: 0.5rem;
-  }
-  h1 {
-    text-align: center;
-    color: green;
-  }
-  h3 {
-    text-align: center;
-  }
+    padding: 2rem;
+    width: 32rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    .heading {
+      display: grid;
+      gap: 0.5rem;
+      text-align: center;
+    }
 `;
 
 export const CardContainer = styled.div`
@@ -75,6 +44,7 @@ export const Action = styled.div`
   .Forgot_btn {
     justify-self: start;
     color: green;
+    padding: 0;
   }
   .Login_btn {
     justify-self: end;
