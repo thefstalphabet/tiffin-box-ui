@@ -29,7 +29,7 @@ export default function Header() {
         </Styles.MenuItems>
       </div>
       <Styles.Actions>
-        <Button
+        <Button className="login_btn"
           onClick={() => {
             navigate("/login");
           }}

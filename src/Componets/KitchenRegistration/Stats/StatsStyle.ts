@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { primaryColor } from "../../../Configs/GlobalColour";
 export const Container = styled.div`
- display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color:${primaryColor};
+  background-color: ${primaryColor};
   padding: 1rem;
 `;
 export const subContainer = styled.div`
-  width: 200px; /* Adjust according to your design */
-  margin: 10px; /* Adjust spacing between boxes */
+  width: 200px;
+  margin: 10px;
   text-align: center;
   color: white;
 `;
