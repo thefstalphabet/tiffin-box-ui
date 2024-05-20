@@ -6,6 +6,8 @@ import ReInput from "../../reusable-antd-components/ReFormFields/ReInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { capitalizeFirstLetter } from "../../Helper/Methods";
+import { CardItem } from "../../Configs/CardItem";
+import { ICardItem } from "../../Interfaces/Configs/CardItem.interface";
 export default function LoginForm() {
   const [userType, setUserType] = useState("");
   const [form] = Form.useForm();
@@ -14,7 +16,6 @@ export default function LoginForm() {
   }
   return (
     <Styles.Container>
-      
       <Styles.FormContainer>
         <ReForm formInstance={form} onSubmit={handleFormSubmit}>
           <div className="heading">
@@ -22,16 +23,7 @@ export default function LoginForm() {
             <h3>Choose Account type</h3>
           </div>
           <Styles.CardContainer>
-            {[
-              {
-                type: "kitchen",
-                icon: faUtensils,
-              },
-              {
-                type: "user",
-                icon: faCircleCheck,
-              },
-            ].map((item: any) => {
+            {CardItem.map((item: ICardItem) => {
               const { type, icon } = item;
               return (
                 <Card
@@ -47,7 +39,7 @@ export default function LoginForm() {
                     setUserType(type);
                   }}
                 >
-                  <FontAwesomeIcon icon={icon} size="4x" />
+                  {icon}
                   <p>{capitalizeFirstLetter(type)}</p>
                   {userType === type && (
                     <div className="customContextMenu">
