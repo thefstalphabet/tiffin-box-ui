@@ -3,38 +3,38 @@ import {
   faUser,
   faPhone,
   faAddressCard,
-  faFireBurner
+  faFireBurner,
 } from "@fortawesome/free-solid-svg-icons";
-import { IMenuItems } from "../Interfaces/Configs/MenuItems.interface";
-export const menuItems: Array<IMenuItems> = [
+import { ISocialMedia } from "../Interfaces/Configs/SocailMediaIcon.interface";
+export const socialMediaIcon: Array<ISocialMedia> = [
   {
     key: "1",
-    label: "Home",
+    label: "Facebook",
     icon: <FontAwesomeIcon icon={faAddressCard} />,
-    path: "/",
+    path: "/facebook",
   },
   {
     key: "2",
-    label: "Profile",
+    label: "Instagram",
     icon: <FontAwesomeIcon icon={faUser} />,
-    path: "/profile",
+    path: "/instgram",
   },
   {
     key: "3",
-    label: "Be a Kitchen",
+    label: "Twitter",
     icon: <FontAwesomeIcon icon={faFireBurner} />,
-    path: "/be-a-kitchen",
+    path: "/twitter",
   },
   {
     key: "4",
-    label: "About",
+    label: "Google",
     icon: <FontAwesomeIcon icon={faAddressCard} />,
-    path: "/about",
+    path: "/google",
   },
   {
     key: "5",
-    label: "Contact Us",
+    label: "Youtube",
     icon: <FontAwesomeIcon icon={faPhone} />,
-    path: "/contactus",
+    path: "/youtube",
   },
 ];
