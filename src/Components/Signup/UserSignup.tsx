@@ -2,13 +2,28 @@ import * as Styles from "./UserSignupStyle";
 import ReInput from "../../reusable-antd-components/ReFormFields/ReInput";
 import ReForm from "../../reusable-antd-components/ReForm";
 import ReCheckBox from "../../reusable-antd-components/ReFormFields/ReCheckbox";
-import { Button, Form, Card } from "antd";
+import { Button, Form } from "antd";
 import { appName } from "../../Configs/GlobalText";
 import { primaryColor } from "../../Configs/GlobalColour";
+import { user } from "../../Apis/User";
+import { useNavigate } from "react-router-dom";
+import { ReNotification } from "../../reusable-antd-components/ReNotification";
+
 export default function UserSignup() {
   const [form] = Form.useForm();
-  function handleFormSubmit(values: any) {
-    console.log(values);
+  const navigate = useNavigate();
+  async function handleFormSubmit(values: any) {
+    const userInfo = await user.create(values);
+    if (userInfo) {
+      ReNotification({
+        header: "Signup",
+        description: "User Created Succesfully",
+        duration: 2,
+        placement: "topRight",
+        type: "success",
+      });
+      navigate("/login");
+    }
   }
   return (
     <Styles.FormContainer>
@@ -16,6 +31,13 @@ export default function UserSignup() {
         <div className="heading">
           <h1>SignUp</h1>
         </div>
+        <ReInput
+          label="Name"
+          placeholder="Enter your name"
+          name="name"
+          type="simple"
+          required
+        />
         <ReInput
           label="Email"
           placeholder="Enter your email"
@@ -28,13 +50,6 @@ export default function UserSignup() {
           placeholder="Enter your password"
           name="password"
           type="password"
-          required
-        />
-        <ReInput
-          label="Number"
-          placeholder="Enter your number"
-          name="number"
-          type="number"
           required
         />
         <ReCheckBox label="Remember me" name="agree" disable={false} />

@@ -12,10 +12,13 @@ import { auth } from "../../Apis/Auth";
 import { TLoginUserType } from "../../Interfaces/Apis/Auth.interface";
 import { user } from "../../Apis/User";
 import { kitchen } from "../../Apis/Kitchen";
+import { useNavigate } from "react-router-dom";
+import { ReNotification } from "../../reusable-antd-components/ReNotification";
 export default function LoginForm() {
   const [loginUserType, setLoginloginUserType] =
     useState<TLoginUserType>("kitchen");
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   async function handleFormSubmit(values: any) {
     const loginPersonId = await auth.login(values, loginUserType);
@@ -27,6 +30,14 @@ export default function LoginForm() {
         loginPerson = await user.findOne(loginPersonId);
       }
       sessionStorage.setItem("user", JSON.stringify(loginPerson));
+      ReNotification({
+        header: "Login",
+        description: "User Login Succesfully",
+        duration: 2,
+        placement: "topRight",
+        type: "success",
+      });
+      navigate("/dashboard");
     }
   }
   return (
