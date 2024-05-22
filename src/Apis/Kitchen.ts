@@ -12,4 +12,4 @@ class Kitchen extends MakeRequest {
     }
 }
 
-export const user = new Kitchen("kitchen")
+export const kitchen = new Kitchen("kitchen")

@@ -1,4 +1,5 @@
 import { ApiUrl } from "../Configs/ApiConfig";
+import { ReNotification } from "../reusable-antd-components/ReNotification";
 
 export class MakeRequest {
     path: string
@@ -34,10 +35,18 @@ export class MakeRequest {
                 default:
                     break;
             }
-            if (!res?.ok) {
-                console.error(`Error: ${res?.statusText} (${res?.status})`);
+            const data = await res?.json()
+            if (data?.error) {
+                const { error, message } = data
+                ReNotification({
+                    header: error,
+                    description: message,
+                    duration: 2,
+                    placement: "topRight",
+                    type: "error"
+                })
             }
-            return await res?.json()
+            return data
         } catch (error) {
             console.error(error)
         }

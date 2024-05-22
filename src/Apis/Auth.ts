@@ -1,16 +1,19 @@
+import { TLoginUserType } from "../Interfaces/Apis/Auth.interface";
 import { MakeRequest } from "./MakeRequest";
 import { jwtDecode } from "jwt-decode";
 
 class Auth extends MakeRequest {
-    async login(payload: { email: string, password: string }) {
-        const { accessToken, refreshToken } = await this.makeApiRequest("post", "login", payload)
+    async login(payload: { email: string, password: string }, loginUserType: TLoginUserType) {
+        const res = await this.makeApiRequest("post", `login/${loginUserType}`, payload)
+        if (res?.accessToken && res?.refreshToken) {
+            // setting tokens in local storage
+            sessionStorage.setItem('accessToken', res?.accessToken);
+            sessionStorage.setItem('refreshToken', res?.refreshToken);
 
-        // setting tokens in local storage
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('refreshToken', refreshToken);
-
-        const decodedToken = jwtDecode(accessToken);
-        return decodedToken?.sub; // returning userid
+            const decodedToken = jwtDecode(res?.accessToken);
+            return decodedToken?.sub; // returning userid
+        }
+        return false
     }
 
     async refreshToken() {

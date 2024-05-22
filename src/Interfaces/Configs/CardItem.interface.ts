@@ -1,4 +1,6 @@
+import { TLoginUserType } from "../Apis/Auth.interface";
+
 export interface ICardItem {
-    type:string,
+    type:TLoginUserType,
     icon: JSX.Element,
 }
