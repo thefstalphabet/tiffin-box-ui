@@ -1,7 +1,7 @@
 import * as Styles from "./LoginStyle";
-import LoginForm from "../../Componets/LoginForm/LoginForm";
 import { Space } from "antd";
 import { Link } from "react-router-dom";
+import LoginForm from "../../Components/LoginForm/LoginForm";
 export default function Login() {
   return (
     <Styles.Container>

@@ -1,29 +1,27 @@
+import { Button, message, theme, Steps as AntdStep } from "antd";
 import React, { useState } from "react";
-import { Button, message, Steps, theme } from "antd";
-import * as Styles from "./KitchenSignUpstepStyle";
-import FirstStep from "./FirstStep/FirstStep";
-import SecondStep from "./SecondStep/SecondStep";
-import ThirdStep from "./ThirdStep/ThirdStep";
-const steps = [
-  {
-    title: "First",
-    content: <FirstStep />,
-  },
-  {
-    title: "Second",
-    content: <SecondStep />,
-  },
-  {
-    title: "Last",
-    content: <ThirdStep />,
-  },
-];
 
-export default function KitchenSignUpStep() {
+export default function Steps() {
   const { token } = theme.useToken();
-  const [current, setCurrent] = useState(0);
-
-  const items = steps.map((item) => ({ key: item.title, title: item.title }));
+  const [current, setCurrent] = useState<number>(0);
+  const stepsItems = [
+    {
+      title: "Sign Up Info",
+      content: <>Sign Up Info</>,
+    },
+    {
+      title: "Personal Info",
+      content: <>Personal Info</>,
+    },
+    {
+      title: "Account Setup",
+      content: <>Account Setup</>,
+    },
+  ];
+  const items = stepsItems.map((item) => ({
+    key: item.title,
+    title: item.title,
+  }));
 
   const contentStyle: React.CSSProperties = {
     lineHeight: "260px",
@@ -42,16 +40,16 @@ export default function KitchenSignUpStep() {
     setCurrent(current - 1);
   };
   return (
-    <Styles.Container>
-      <Steps current={current} items={items} />
-      <div style={contentStyle}>{steps[current].content}</div>
+    <div>
+      <AntdStep current={current} items={items} />
+      <div style={contentStyle}>{stepsItems[current].content}</div>
       <div style={{ marginTop: 24 }}>
-        {current < steps.length - 1 && (
+        {current < stepsItems.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next
           </Button>
         )}
-        {current === steps.length - 1 && (
+        {current === stepsItems.length - 1 && (
           <Button
             type="primary"
             onClick={() => message.success("Processing complete!")}
@@ -65,6 +63,6 @@ export default function KitchenSignUpStep() {
           </Button>
         )}
       </div>
-    </Styles.Container>
+    </div>
   );
 }

@@ -1,10 +1,11 @@
 import React from 'react'
-import * as Styles from "./KitchenSignUpStyle"
-import KitchenSignUpStep from '../../Componets/KitchenSignUpStep/KitchenSignUpStep'
+import * as Styles from './KitchenSignupStyles';
+import { KitchenSignupForm } from '../../Components';
+
 export default function KitchenSignUp() {
-  return (
-    <Styles.Container>
-      <KitchenSignUpStep/>
-    </Styles.Container>
-  )
+    return (
+        <Styles.Container>
+            <KitchenSignupForm/>
+        </Styles.Container>
+      )
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import { UserSignup } from "../../Componets";
 import * as Styles from "./SignupStyle";
+import { UserSignup } from "../../Components";
 export default function Signup() {
   return (
     <Styles.Container>

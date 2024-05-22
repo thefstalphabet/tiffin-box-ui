@@ -5,10 +5,7 @@ import ReasonToStart from "./KitchenRegistration/ReasonToStart/ReasonToStart";
 import Stats from "./KitchenRegistration/Stats/Stats";
 import Footer from "./Footer/Footer";
 import UserSignup from "./Signup/UserSignup";
-import KitchenSignupstep from "./KitchenSignUpStep/KitchenSignUpStep";
-import FirstStep from "./KitchenSignUpStep/FirstStep/FirstStep";
-import SecondStep from "./KitchenSignUpStep/SecondStep/SecondStep";
-import ThirdStep from "./KitchenSignUpStep/ThirdStep/ThirdStep";
+import KitchenSignupForm from "./KitchenSignupForm/KitchenSignupForm";
 export {
   Header,
   SideMenu,
@@ -17,8 +14,5 @@ export {
   Stats,
   Footer,
   UserSignup,
-  KitchenSignupstep,
-  FirstStep,
-  SecondStep,
-  ThirdStep,
+  KitchenSignupForm,
 };

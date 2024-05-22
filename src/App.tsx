@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { routes } from "./Configs/Routes";
 import { IRoutes } from "./Interfaces/Configs/Routes.interface";
-import Header from "./Componets/Header/Header";
-import SideMenu from "./Componets/SideMenu/SideMenu";
+import { Header, SideMenu } from "./Components";
 export default function App() {
   return (
     <div>
