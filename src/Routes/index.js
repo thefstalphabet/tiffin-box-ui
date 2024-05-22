@@ -6,4 +6,5 @@ import Profile from "../Routes/Profile/Profile";
 import KitchenRegistration from "./KitchenRegistration/KitchenRegistration";
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
-export { Home, PageNotFound, About, ContactUs, Profile, KitchenRegistration, Login, Signup };
+import KitchenSignUp from "./KitchenSignUp/KitchenSignUp";
+export { Home, PageNotFound, About, ContactUs, Profile, KitchenRegistration, Login, Signup,KitchenSignUp };

@@ -1,6 +1,4 @@
-import { subContainer } from "./../KitchenRegistration/Stats/StatsStyle";
 import styled from "styled-components";
-import { textGray } from "../../Configs/GlobalColour";
 export const Container = styled.div`
   background-color: #232b2b;
   gap: 1rem;

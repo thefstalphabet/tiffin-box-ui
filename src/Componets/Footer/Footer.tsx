@@ -1,7 +1,5 @@
 import * as Styles from "./FooterStyle";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { IMenuItems } from "../../Interfaces/Configs/MenuItems.interface";
 import { menuItems } from "../../Configs/MenuItems";
 import { socialMediaIcon } from "../../Configs/SocialMediaIcon";
