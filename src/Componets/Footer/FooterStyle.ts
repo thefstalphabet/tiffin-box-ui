@@ -1,11 +1,9 @@
-import { subContainer } from "./../KitchenRegistration/Stats/StatsStyle";
 import styled from "styled-components";
-import { textGray } from "../../Configs/GlobalColour";
 export const Container = styled.div`
   background-color: #232b2b;
   gap: 1rem;
   .sub_container {
-    padding: 1rem;
+    padding: 2rem;
   }
   .footer_text {
     display: flex;
@@ -22,7 +20,7 @@ export const Container = styled.div`
 `;
 export const SocailMedia = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
   text-align: center;
   align-self: center;
   justify-content: center;
@@ -36,7 +34,7 @@ export const MenuItems = styled.div`
   gap: 1rem;
   list-style: none;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   justify-content: center;
   text-align: center;
   @media (max-width: 768px) {

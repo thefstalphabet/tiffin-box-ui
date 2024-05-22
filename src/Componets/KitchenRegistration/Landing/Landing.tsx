@@ -2,7 +2,10 @@ import { kitchenImg } from "../../../Assets";
 import { Button } from "antd";
 import * as Styles from "./LandingStyles";
 import { appName } from "../../../Configs/GlobalText";
+import { useNavigate } from "react-router-dom";
 export default function Landing() {
+  const navigate = useNavigate();
+
   return (
     <Styles.Container className="container">
       <Styles.Content>
@@ -13,7 +16,14 @@ export default function Landing() {
             Subscription Platform!
           </p>
         </div>
-        <Button style={{ width: "7rem" }} type="primary" size="large">
+        <Button
+          style={{ width: "7rem" }}
+          type="primary"
+          size="large"
+          onClick={() => {
+            navigate("/kitchenSignUp");
+          }}
+        >
           Start Today
         </Button>
       </Styles.Content>

@@ -1,11 +1,9 @@
 import * as Styles from "./FooterStyle";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { IMenuItems } from "../../Interfaces/Configs/MenuItems.interface";
 import { menuItems } from "../../Configs/MenuItems";
 import { socialMediaIcon } from "../../Configs/SocialMediaIcon";
-import { ISocialMedia } from "../../Interfaces/Configs/SocailMediaIcon.interface";
+import { ISocialMedia } from "../../Interfaces/Configs/SocialMediaIcon.interface";
 export default function Footer() {
   return (
     <Styles.Container>
@@ -13,11 +11,7 @@ export default function Footer() {
         <Styles.SocailMedia>
           {socialMediaIcon.map((item: ISocialMedia) => {
             const { label, key, path, icon } = item;
-            return (
-              <div key={key}>
-                <h1>{icon}</h1>
-              </div>
-            );
+            return <div key={key}>{icon}</div>;
           })}
         </Styles.SocailMedia>{" "}
         <Styles.MenuItems>

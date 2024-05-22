@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div``;
 export const FormContainer = styled.div`
-    padding: 2rem;
-    width: 32rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 5px;
-    .heading {
-      display: grid;
-      gap: 0.5rem;
-      text-align: center;
-    }
+  padding: 2rem;
+  max-width: 32rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
+  .heading {
+    display: grid;
+    gap: 0.5rem;
+    text-align: center;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -21,8 +21,8 @@ export const CardContainer = styled.div`
   margin-top: 1rem;
   margin-bottom: 1rem;
 
-  p{
-    margin-top:5px;
+  p {
+    margin-top: 5px;
   }
   .customContextMenu {
     display: flex;
