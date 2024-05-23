@@ -1,11 +1,10 @@
-import React from 'react'
-import * as Styles from './KitchenSignupStyles';
-import { KitchenSignupForm } from '../../Components';
-
+import React from "react";
+import { KitchenSignupForm } from "../../Components";
+import * as Styles from "./KitchenSignUpStyle"
 export default function KitchenSignUp() {
-    return (
-        <Styles.Container>
-            <KitchenSignupForm/>
-        </Styles.Container>
-      )
+  return (
+    <Styles.Container>
+      <KitchenSignupForm />
+    </Styles.Container>
+  );
 }

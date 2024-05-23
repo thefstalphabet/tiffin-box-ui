@@ -1,21 +1,23 @@
 import { Button, message, theme, Steps as AntdStep } from "antd";
 import React, { useState } from "react";
-
+import SignupInfo from "./SignupInfo/SignupInfo";
+import PersonalInfo from "./PersonalInfo/PersonalInfo";
+import AccountSetup from "./AccountSetup/AccountSetup";
 export default function Steps() {
   const { token } = theme.useToken();
   const [current, setCurrent] = useState<number>(0);
   const stepsItems = [
     {
       title: "Sign Up Info",
-      content: <>Sign Up Info</>,
+      content: <SignupInfo />,
     },
     {
       title: "Personal Info",
-      content: <>Personal Info</>,
+      content: <PersonalInfo />,
     },
     {
       title: "Account Setup",
-      content: <>Account Setup</>,
+      content: <AccountSetup />,
     },
   ];
   const items = stepsItems.map((item) => ({
@@ -24,13 +26,14 @@ export default function Steps() {
   }));
 
   const contentStyle: React.CSSProperties = {
-    lineHeight: "260px",
-    textAlign: "center",
+    lineHeight: "350px",
+    // textAlign: "center",
     color: token.colorTextTertiary,
     backgroundColor: token.colorFillAlter,
     borderRadius: token.borderRadiusLG,
     border: `1px dashed ${token.colorBorder}`,
     marginTop: 16,
+    marginLeft: "0px",
   };
   const next = () => {
     setCurrent(current + 1);
@@ -43,7 +46,7 @@ export default function Steps() {
     <div>
       <AntdStep current={current} items={items} />
       <div style={contentStyle}>{stepsItems[current].content}</div>
-      <div style={{ marginTop: 24 }}>
+      <div style={{ marginTop: 5 }}>
         {current < stepsItems.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next

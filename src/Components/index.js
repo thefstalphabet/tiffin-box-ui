@@ -6,6 +6,9 @@ import Stats from "./KitchenRegistration/Stats/Stats";
 import Footer from "./Footer/Footer";
 import UserSignup from "./Signup/UserSignup";
 import KitchenSignupForm from "./KitchenSignupForm/KitchenSignupForm";
+import SignupInfo from "./KitchenSignupForm/Steps/SignupInfo/SignupInfo";
+import PersonalInfo from "./KitchenSignupForm/Steps/PersonalInfo/PersonalInfo";
+import AccountSetup from "./KitchenSignupForm/Steps/AccountSetup/AccountSetup";
 export {
   Header,
   SideMenu,
@@ -15,4 +18,7 @@ export {
   Footer,
   UserSignup,
   KitchenSignupForm,
+  SignupInfo,
+  PersonalInfo,
+  AccountSetup
 };
