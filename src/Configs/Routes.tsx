@@ -18,7 +18,7 @@ export const routes: Array<IRoutes> = [
     sideMenu: true,
   },
   {
-    path: "/about",
+    path: "/about-us",
     element: <About />,
     header: true,
     sideMenu: true,
@@ -54,7 +54,7 @@ export const routes: Array<IRoutes> = [
     element: <Signup />,
   },
   {
-    path: "/kitchenSignUp",
+    path: "/kitchen-signup",
     element: <KitchenSignUp />,
   },
   {

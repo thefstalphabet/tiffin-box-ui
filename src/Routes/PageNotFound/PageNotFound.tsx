@@ -1,7 +1,9 @@
-import React from 'react'
-
+import * as Styles from "./PageNotFoundStyle";
+import { pageNotfoundImage } from "../../Assets";
 export default function PageNotFound() {
   return (
-    <div>PageNotFound</div>
-  )
+    <Styles.Container>
+      <img src={pageNotfoundImage} alt="Page Not Found"/>
+    </Styles.Container>
+  );
 }
