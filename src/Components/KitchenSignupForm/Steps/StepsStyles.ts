@@ -20,4 +20,7 @@ export const Fields = styled.div`
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
+    @media (max-width: 1110px) {
+        grid-template-columns: 1fr;
+    }
 `

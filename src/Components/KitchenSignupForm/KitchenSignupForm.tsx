@@ -8,14 +8,13 @@ export default function KitchenSignupForm() {
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState<any>({});
 
-  function handleFormSubmit(values: any) {}
-  function handleFormChanges(changedValues: any, allValues: any) {
-    setFormValues((prev: any) => {
-      setFormValues(allValues);
-    });
+  function handleFormSubmit() {
+    console.log(formValues);
+    // call signup api
   }
-  console.log(formValues);
-
+  function handleFormChanges(changedValues: any, allValues: any) {
+    setFormValues({ ...formValues, ...allValues });
+  }
   return (
     <Styles.Container className="container">
       <ReForm

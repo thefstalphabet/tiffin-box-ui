@@ -43,13 +43,6 @@ export default function Steps(props: IStepsProps) {
             required
           />
           <ReInput
-            label="phone number"
-            placeholder="Enter your phone number"
-            name="phone number"
-            type="number"
-            required
-          />
-          <ReInput
             label="city"
             placeholder="Enter your city"
             name="city"
@@ -94,11 +87,6 @@ export default function Steps(props: IStepsProps) {
     },
   ];
 
-  const items = stepsItems.map((item) => ({
-    key: item.title,
-    title: item.title,
-  }));
-
   const next = () => {
     setCurrent(current + 1);
   };
@@ -108,8 +96,10 @@ export default function Steps(props: IStepsProps) {
   };
   return (
     <Styles.Container>
-      <AntdStep current={current} items={items} />
-      <div className="content">{stepsItems[current].content}</div>
+      <AntdStep current={current} items={stepsItems} />
+      <div className="content" key={current}>
+        {stepsItems[current].content}
+      </div>
       <div className="action">
         {current > 0 && (
           <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
