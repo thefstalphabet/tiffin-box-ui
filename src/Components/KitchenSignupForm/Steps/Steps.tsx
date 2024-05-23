@@ -1,40 +1,104 @@
-import { Button, message, theme, Steps as AntdStep } from "antd";
-import React, { useState } from "react";
-import SignupInfo from "./SignupInfo/SignupInfo";
-import PersonalInfo from "./PersonalInfo/PersonalInfo";
-import AccountSetup from "./AccountSetup/AccountSetup";
-export default function Steps() {
-  const { token } = theme.useToken();
+import { Button, Steps as AntdStep } from "antd";
+import { useState } from "react";
+import * as Styles from "./StepsStyles";
+import { IStepsProps } from "../../../Interfaces/Components/Steps.interface";
+import ReInput from "../../../reusable-antd-components/ReFormFields/ReInput";
+import ReCheckBox from "../../../reusable-antd-components/ReFormFields/ReCheckbox";
+
+export default function Steps(props: IStepsProps) {
+  const { formInstance } = props;
   const [current, setCurrent] = useState<number>(0);
+
   const stepsItems = [
     {
-      title: "Sign Up Info",
-      content: <SignupInfo />,
+      title: "Signup Info",
+      content: (
+        <Styles.Fields>
+          <ReInput
+            label="Name"
+            placeholder="Enter your name"
+            name="name"
+            type="simple"
+            required
+          />
+          <ReInput
+            label="Email"
+            placeholder="Enter your email"
+            name="email"
+            type="email"
+            required
+          />
+        </Styles.Fields>
+      ),
     },
     {
       title: "Personal Info",
-      content: <PersonalInfo />,
+      content: (
+        <Styles.Fields>
+          <ReInput
+            label="phone number"
+            placeholder="Enter your phone number"
+            name="phone number"
+            type="number"
+            required
+          />
+          <ReInput
+            label="phone number"
+            placeholder="Enter your phone number"
+            name="phone number"
+            type="number"
+            required
+          />
+          <ReInput
+            label="city"
+            placeholder="Enter your city"
+            name="city"
+            type="simple"
+            required
+          />
+          <ReInput
+            label="address"
+            placeholder="Enter your address"
+            name="address"
+            type="simple"
+            required
+          />
+        </Styles.Fields>
+      ),
     },
     {
-      title: "Account Setup",
-      content: <AccountSetup />,
+      title: "Kitchen Info",
+      content: (
+        <Styles.Fields>
+          <ReInput
+            label="Kitchen name"
+            placeholder="Enter your Kitchen name"
+            name="Kitchen name"
+            type="simple"
+            required
+          />
+          <ReInput
+            label="Minium order price"
+            placeholder="Enter your price"
+            name="order price"
+            type="number"
+            required
+          />
+          <ReCheckBox label="Vegan" name="agree" disable={false} />
+        </Styles.Fields>
+      ),
+    },
+    {
+      title: "Account Info",
+      content: <Styles.Fields> Noting for now</Styles.Fields>,
     },
   ];
+
   const items = stepsItems.map((item) => ({
     key: item.title,
     title: item.title,
   }));
 
-  const contentStyle: React.CSSProperties = {
-    lineHeight: "350px",
-    // textAlign: "center",
-    color: token.colorTextTertiary,
-    backgroundColor: token.colorFillAlter,
-    borderRadius: token.borderRadiusLG,
-    border: `1px dashed ${token.colorBorder}`,
-    marginTop: 16,
-    marginLeft: "0px",
-  };
   const next = () => {
     setCurrent(current + 1);
   };
@@ -43,10 +107,15 @@ export default function Steps() {
     setCurrent(current - 1);
   };
   return (
-    <div>
+    <Styles.Container>
       <AntdStep current={current} items={items} />
-      <div style={contentStyle}>{stepsItems[current].content}</div>
-      <div style={{ marginTop: 5 }}>
+      <div className="content">{stepsItems[current].content}</div>
+      <div className="action">
+        {current > 0 && (
+          <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
+            Previous
+          </Button>
+        )}
         {current < stepsItems.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next
@@ -55,17 +124,14 @@ export default function Steps() {
         {current === stepsItems.length - 1 && (
           <Button
             type="primary"
-            onClick={() => message.success("Processing complete!")}
+            onClick={() => {
+              formInstance.submit();
+            }}
           >
             Done
           </Button>
         )}
-        {current > 0 && (
-          <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
-            Previous
-          </Button>
-        )}
       </div>
-    </div>
+    </Styles.Container>
   );
 }
