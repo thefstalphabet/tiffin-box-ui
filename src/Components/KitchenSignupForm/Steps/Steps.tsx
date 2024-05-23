@@ -1,4 +1,4 @@
-import { Button, Steps as AntdStep } from "antd";
+import { Button, Steps as AntdStep, Space } from "antd";
 import { useState } from "react";
 import * as Styles from "./StepsStyles";
 import { IStepsProps } from "../../../Interfaces/Components/Steps.interface";
@@ -36,21 +36,21 @@ export default function Steps(props: IStepsProps) {
       content: (
         <Styles.Fields>
           <ReInput
-            label="phone number"
+            label="Phone number"
             placeholder="Enter your phone number"
             name="phone number"
             type="number"
             required
           />
           <ReInput
-            label="city"
+            label="City"
             placeholder="Enter your city"
             name="city"
             type="simple"
             required
           />
           <ReInput
-            label="address"
+            label="Address"
             placeholder="Enter your address"
             name="address"
             type="simple"
@@ -83,7 +83,17 @@ export default function Steps(props: IStepsProps) {
     },
     {
       title: "Account Info",
-      content: <Styles.Fields> Noting for now</Styles.Fields>,
+      content: (
+        <Styles.Fields>
+          <ReInput
+            disable
+            label="Account number"
+            placeholder="Enter your account number"
+            name="accountNumber"
+            type="simple"
+          />
+        </Styles.Fields>
+      ),
     },
   ];
 
@@ -100,12 +110,8 @@ export default function Steps(props: IStepsProps) {
       <div className="content" key={current}>
         {stepsItems[current].content}
       </div>
-      <div className="action">
-        {current > 0 && (
-          <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
-            Previous
-          </Button>
-        )}
+      <Space className="action">
+        {current > 0 && <Button onClick={() => prev()}>Previous</Button>}
         {current < stepsItems.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next
@@ -121,7 +127,7 @@ export default function Steps(props: IStepsProps) {
             Done
           </Button>
         )}
-      </div>
+      </Space>
     </Styles.Container>
   );
 }
