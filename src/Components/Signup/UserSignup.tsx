@@ -73,7 +73,6 @@ export default function UserSignup() {
           >
             Privacy Policy
           </a>
-          .
         </p>
         <Styles.Action>
           <Button
