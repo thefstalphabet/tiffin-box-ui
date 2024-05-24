@@ -6,7 +6,7 @@ import Profile from "../Routes/Profile/Profile";
 import KitchenRegistration from "./KitchenRegistration/KitchenRegistration";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
-import KitchenSignUp from "./KitchenSignUp/KitchenSignUp";
+import KitchenSignup from './KitchenSignup/KitchenSignup';
 export {
   Home,
   PageNotFound,
@@ -16,5 +16,5 @@ export {
   KitchenRegistration,
   Login,
   Signup,
-  KitchenSignUp,
+  KitchenSignup
 };
