@@ -8,8 +8,9 @@ import {
   KitchenRegistration,
   Login,
   Signup,
-  KitchenSignUp,
+  KitchenSignup
 } from "../Routes";
+import Testing from "../Routes/Testing/Testing";
 export const routes: Array<IRoutes> = [
   {
     path: "/",
@@ -54,11 +55,15 @@ export const routes: Array<IRoutes> = [
     element: <Signup />,
   },
   {
-    path: "/kitchen-signup",
-    element: <KitchenSignUp />,
+    path: "/kitchenSignUp",
+    element: <KitchenSignup />,
   },
   {
     path: "/dashboard",
     element: <>Dashboard</>,
+  },
+  {
+    path: "/testing",
+    element: <Testing/>
   },
 ];
