@@ -16,16 +16,18 @@ class Auth extends MakeRequest {
         return false
     }
 
-    async refreshToken() {
-        const refreshToken = localStorage.getItem('refreshToken')
-        return this.makeApiRequest("post", "refresh-token", { refreshToken })
+    logout() {
+        sessionStorage.removeItem("accessToken")
+        sessionStorage.removeItem("refreshToken")
+        sessionStorage.removeItem("user")
+        window.location.href = "/login"
     }
 
-    logout() {
-        localStorage.removeItem("accessToken")
-        localStorage.removeItem("refreshToken")
-        localStorage.removeItem("user")
-        window.location.href = "/login"
+    isUserLoggedIn() {
+        const user = sessionStorage.getItem("user")
+        if (user) {
+            return user
+        } else return false
     }
 }
 

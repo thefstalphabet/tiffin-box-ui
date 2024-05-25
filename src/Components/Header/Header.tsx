@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Avatar, Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { menuItems } from "../../Configs/MenuItems";
@@ -8,11 +8,15 @@ import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
 import * as Styles from "./HeaderStyles";
 import { logo } from "../../Assets";
+import { auth } from "../../Apis/Auth";
 
 export default function Header() {
+  const { isUserLoggedIn, logout } = auth;
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { collapse } = useAppSelector((store) => store.sideMenu);
+  const user = useAppSelector((store) => store.user);
+
   return (
     <Styles.Container>
       <div className="content">
@@ -29,30 +33,46 @@ export default function Header() {
         </Styles.MenuItems>
       </div>
       <Styles.Actions>
-        <Button className="login_btn"
-          onClick={() => {
-            navigate("/login");
-          }}
-          type="default"
-          block
-        >
-          Log In
-        </Button>
-        <Button
-          type="primary"
-          onClick={() => {
-            navigate("/signup");
-          }}
-        >
-          Sign Up
-        </Button>
-        <FontAwesomeIcon
-          icon={faBars}
-          className="toggle-icon"
-          onClick={() => {
-            dispatch(setCollapse(!collapse));
-          }}
-        />
+        {isUserLoggedIn() ? (
+          <>
+            <Avatar size="large">{user?.data?.name?.slice(0, 2)}</Avatar>
+            <Button
+              onClick={() => {
+                logout();
+              }}
+            >
+              Logout
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              className="login_btn"
+              onClick={() => {
+                navigate("/login");
+              }}
+              type="default"
+              block
+            >
+              Log In
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Sign Up
+            </Button>
+            <FontAwesomeIcon
+              icon={faBars}
+              className="toggle-icon"
+              onClick={() => {
+                dispatch(setCollapse(!collapse));
+              }}
+            />
+          </>
+        )}
       </Styles.Actions>
     </Styles.Container>
   );
