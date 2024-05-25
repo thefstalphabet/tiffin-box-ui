@@ -21,7 +21,7 @@ export default function Landing() {
           type="primary"
           size="large"
           onClick={() => {
-            navigate("/kitchenSignUp");
+            navigate("/kitchen-signup");
           }}
         >
           Start Today

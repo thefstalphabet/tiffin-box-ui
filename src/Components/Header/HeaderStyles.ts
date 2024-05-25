@@ -5,7 +5,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 5rem;
+  padding: 3rem 8rem;
+  @media (max-width: 1072px) {
+    padding: 3rem 1rem;
+  }
   h1 {
     white-space: nowrap;
   }

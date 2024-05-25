@@ -27,7 +27,7 @@ export const menuItems: Array<IMenuItems> = [
   },
   {
     key: "4",
-    label: "About",
+    label: "About Us",
     icon: <FontAwesomeIcon icon={faAddressCard} />,
     path: "/about",
   },

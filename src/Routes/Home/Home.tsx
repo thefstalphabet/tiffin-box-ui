@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { user } from "../../Apis/User";
 import { auth } from "../../Apis/Auth";
-
+import { SearchKitchen } from "../../Components";
+import * as Styles from "./HomeStyle"
 const Home = () => {
   const call = async () => {
     // await user.findOne("0f4dc1d4-f0e5-4b7d-b899-c2e273266e75");
-    await user.findAll()
+    await user.findAll();
     // await user.create({
     //   email: "dev1@gamil.com",
     //   name: "Developer",
@@ -25,7 +26,11 @@ const Home = () => {
     call();
   }, []);
 
-  return <div></div>;
+  return (
+    <Styles.Container>
+      <SearchKitchen />
+    </Styles.Container>
+  );
 };
 
 export default Home;

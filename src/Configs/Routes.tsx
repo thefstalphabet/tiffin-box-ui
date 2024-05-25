@@ -19,7 +19,7 @@ export const routes: Array<IRoutes> = [
     sideMenu: true,
   },
   {
-    path: "/about",
+    path: "/about-us",
     element: <About />,
     header: true,
     sideMenu: true,
