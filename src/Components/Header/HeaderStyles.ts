@@ -41,6 +41,7 @@ export const Actions = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: center;
   .toggle-icon {
     cursor: pointer;
     font-size: 1.75rem;

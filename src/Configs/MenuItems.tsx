@@ -29,12 +29,12 @@ export const menuItems: Array<IMenuItems> = [
     key: "4",
     label: "About Us",
     icon: <FontAwesomeIcon icon={faAddressCard} />,
-    path: "/about",
+    path: "/about-us",
   },
   {
     key: "5",
     label: "Contact Us",
     icon: <FontAwesomeIcon icon={faPhone} />,
-    path: "/contactus",
+    path: "/contact-us",
   },
 ];

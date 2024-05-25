@@ -25,7 +25,7 @@ export const routes: Array<IRoutes> = [
     sideMenu: true,
   },
   {
-    path: "/contactus",
+    path: "/contact-us",
     element: <ContactUs />,
     header: true,
     sideMenu: true,
@@ -55,7 +55,7 @@ export const routes: Array<IRoutes> = [
     element: <Signup />,
   },
   {
-    path: "/kitchenSignUp",
+    path: "/kitchen-signup",
     element: <KitchenSignup />,
   },
   {

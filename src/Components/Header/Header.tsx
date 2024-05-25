@@ -35,7 +35,7 @@ export default function Header() {
       <Styles.Actions>
         {isUserLoggedIn() ? (
           <>
-            <Avatar size="large">{user?.data?.name?.slice(0, 2)}</Avatar>
+            <Avatar>{user?.data?.name?.slice(0, 2)}</Avatar>
             <Button
               onClick={() => {
                 logout();
@@ -64,15 +64,15 @@ export default function Header() {
             >
               Sign Up
             </Button>
-            <FontAwesomeIcon
-              icon={faBars}
-              className="toggle-icon"
-              onClick={() => {
-                dispatch(setCollapse(!collapse));
-              }}
-            />
           </>
         )}
+        <FontAwesomeIcon
+          icon={faBars}
+          className="toggle-icon"
+          onClick={() => {
+            dispatch(setCollapse(!collapse));
+          }}
+        />
       </Styles.Actions>
     </Styles.Container>
   );
