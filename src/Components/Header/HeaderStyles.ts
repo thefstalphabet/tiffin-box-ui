@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 1rem;
+  padding: 3rem 5rem;
   h1 {
     white-space: nowrap;
   }
@@ -13,6 +13,9 @@ export const Container = styled.div`
     display: flex;
     gap: 4rem;
     align-items: center;
+  }
+  @media (max-width: 1072px) {
+    padding: 3rem 2rem;
   }
 `;
 export const MenuItems = styled.div`
