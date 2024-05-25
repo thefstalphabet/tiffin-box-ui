@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const FormContainer = styled.div`
   padding: 2rem;
-  width: 40vw;
+  width: 35rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 5px;
   .heading {
@@ -13,9 +13,6 @@ export const FormContainer = styled.div`
   a {
     margin-left: 10px;
     margin-right: 10px;
-  }
-  @media (max-width: 1000px) {
-    width: 100vw;
   }
 `;
 export const Action = styled.div`
