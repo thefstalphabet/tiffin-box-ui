@@ -1,6 +1,5 @@
 import { ApiUrl } from "../Configs/ApiConfig";
 import { ReNotification } from "../reusable-antd-components/ReNotification";
-import { token } from "./Token";
 
 export class MakeRequest {
     path: string
@@ -39,7 +38,7 @@ export class MakeRequest {
             const data = await res?.json()
             if (data?.error) {
                 const { error, message } = data
-                ReNotification({
+                return ReNotification({
                     header: error,
                     description: message,
                     duration: 2,
