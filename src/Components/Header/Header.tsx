@@ -1,6 +1,11 @@
 import { Avatar, Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faArrowRightFromBracket,
+  faBars,
+  faBookmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { menuItems } from "../../Configs/MenuItems";
 import { Link, useNavigate } from "react-router-dom";
 import { IMenuItems } from "../../Interfaces/Configs/MenuItems.interface";
@@ -9,6 +14,7 @@ import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
 import * as Styles from "./HeaderStyles";
 import { logo } from "../../Assets";
 import { auth } from "../../Apis/Auth";
+import ReDropdown from "../../reusable-antd-components/ReDropdown";
 
 export default function Header() {
   const { isUserLoggedIn, logout } = auth;
@@ -36,13 +42,29 @@ export default function Header() {
         {isUserLoggedIn() ? (
           <>
             <Avatar>{user?.data?.name?.slice(0, 2)}</Avatar>
-            <Button
-              onClick={() => {
-                logout();
-              }}
-            >
-              Logout
-            </Button>
+            <ReDropdown
+              child={<FontAwesomeIcon icon={faAngleDown} />}
+              items={[
+                {
+                  key: "2",
+                  label: "Bookmarks",
+                  icon: <FontAwesomeIcon icon={faBookmark} />,
+                },
+                {
+                  key: "3",
+                  label: (
+                    <span
+                      onClick={() => {
+                        logout();
+                      }}
+                    >
+                      Logout
+                    </span>
+                  ),
+                  icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+                },
+              ]}
+            />
           </>
         ) : (
           <>
