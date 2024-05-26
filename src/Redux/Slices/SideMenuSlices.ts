@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+interface IInitialStage {
+    activeId: string,
+    subMenuActiveIds: string[],
+    collapse: boolean
+}
 
-
-const initialState: any = {
+const initialState: IInitialStage = {
     activeId: "1",
     subMenuActiveIds: [],
     collapse: false

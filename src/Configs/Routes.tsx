@@ -60,6 +60,8 @@ export const routes: Array<IRoutes> = [
   },
   {
     path: "/dashboard",
+    header: true,
+    sideMenu: true,
     element: <>Dashboard</>,
   },
   {

@@ -1,20 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { TLoginUserType } from '../../Interfaces/Apis/Auth.interface'
 
-
-const initialState: any = {
-    data: {}
+interface IInitialStage {
+    data: any,
+    type: TLoginUserType
+}
+const initialState: IInitialStage = {
+    data: {},
+    type: "user"
 }
 
 const UserSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        addData(state, action: PayloadAction<boolean>) {
+        setData(state, action: PayloadAction<any>) {
             state.data = action.payload
+        },
+        setType(state, action: PayloadAction<TLoginUserType>) {
+            state.type = action.payload
         },
     },
 })
 
-export const { addData } = UserSlice.actions
+export const { setData, setType } = UserSlice.actions
 export default UserSlice.reducer

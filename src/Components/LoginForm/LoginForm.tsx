@@ -22,12 +22,14 @@ export default function LoginForm() {
 
   async function handleFormSubmit(values: any) {
     const loginPersonId = await auth.login(values, loginUserType);
-    let loginPerson;
+    let loginPerson, home;
     if (loginPersonId) {
       if (loginUserType === "kitchen") {
         loginPerson = await kitchen.findOne(loginPersonId);
+        home = "/dashboard";
       } else {
         loginPerson = await user.findOne(loginPersonId);
+        home = "/";
       }
       sessionStorage.setItem("user", JSON.stringify(loginPerson));
       ReNotification({
@@ -37,7 +39,7 @@ export default function LoginForm() {
         placement: "topRight",
         type: "success",
       });
-      navigate("/dashboard");
+      window.location.href = home
     }
   }
   return (

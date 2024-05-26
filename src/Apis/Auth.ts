@@ -26,7 +26,7 @@ class Auth extends MakeRequest {
     isUserLoggedIn() {
         const user = sessionStorage.getItem("user")
         if (user) {
-            return user
+            return JSON.parse(user)
         } else return false
     }
 }
