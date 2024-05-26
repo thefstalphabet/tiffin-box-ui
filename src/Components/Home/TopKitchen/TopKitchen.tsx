@@ -13,7 +13,7 @@ export default function TopKitchen() {
         return (
           <Card
             hoverable
-            style={{ width: 280 }}
+            style={{ width: 290 }}
             cover={<img alt="example" src={img} />}
           >
             <Meta title={title} description={description} />
