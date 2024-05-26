@@ -1,10 +1,10 @@
 import React from "react";
 import * as Styles from "./UserSignupStyle";
-import { UserSignup } from "../../Components";
+import { UserSignupForm } from "../../Components";
 export default function Signup() {
   return (
     <Styles.Container>
-      <UserSignup />
+      <UserSignupForm />
     </Styles.Container>
   );
 }
