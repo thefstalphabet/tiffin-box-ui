@@ -15,6 +15,7 @@ import * as Styles from "./HeaderStyles";
 import { logo } from "../../Assets";
 import { auth } from "../../Apis/Auth";
 import ReDropdown from "../../reusable-antd-components/ReDropdown";
+import { generateRandomColor } from "../../Helper/Methods";
 
 export default function Header() {
   const { isUserLoggedIn, logout } = auth;
@@ -41,7 +42,9 @@ export default function Header() {
       <Styles.Actions>
         {isUserLoggedIn() ? (
           <>
-            <Avatar>{user?.data?.name?.slice(0, 2)}</Avatar>
+            <Avatar style={{ backgroundColor: generateRandomColor() }}>
+              {user?.data?.name?.slice(0, 2)}
+            </Avatar>
             <ReDropdown
               child={<FontAwesomeIcon icon={faAngleDown} />}
               items={[
