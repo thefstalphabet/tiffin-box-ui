@@ -1,4 +1,4 @@
-import * as Styles from "./KitchenSignupStyle";
+import * as Styles from "./KitchenSignupStyles";
 import { KitchenSignupForm } from "../../Components";
 
 export default function KitchenSignup() {
