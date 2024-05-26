@@ -1,4 +1,4 @@
-import * as Styles from "./UserSignupStyle";
+import * as Styles from "./UserSignupFormStyle";
 import ReInput from "../../reusable-antd-components/ReFormFields/ReInput";
 import ReForm from "../../reusable-antd-components/ReForm";
 import ReCheckBox from "../../reusable-antd-components/ReFormFields/ReCheckbox";

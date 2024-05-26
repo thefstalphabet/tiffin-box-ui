@@ -5,7 +5,7 @@ import ContactUs from "../Routes/contactUs/ContactUs";
 import Profile from "../Routes/Profile/Profile";
 import KitchenRegistration from "./KitchenRegistration/KitchenRegistration";
 import Login from "./Login/Login";
-import Signup from "./Signup/Signup";
+import UserSignup from "./UserSignup/UserSignup";
 import KitchenSignup from './KitchenSignup/KitchenSignup';
 export {
   Home,
@@ -15,6 +15,6 @@ export {
   Profile,
   KitchenRegistration,
   Login,
-  Signup,
+  UserSignup,
   KitchenSignup
 };
