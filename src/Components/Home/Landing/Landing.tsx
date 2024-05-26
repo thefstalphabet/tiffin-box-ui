@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styles from "./LandingStyle";
 import { appName } from "../../../Configs/GlobalText";
-import TopKitchen from "../TopKitchen/TopKitchen";
+import TopKitchens from "../TopKitchens/TopKitchens";
 export default function Landing() {
   return (
     <Styles.Container>
@@ -11,7 +11,7 @@ export default function Landing() {
           <p>Discover the the best food.</p>
         </div>
       </Styles.HeroSection>
-      <TopKitchen />
+      <TopKitchens />
     </Styles.Container>
   );
 }

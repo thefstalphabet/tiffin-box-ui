@@ -7,7 +7,7 @@ import Footer from "./Footer/Footer";
 import UserSignupForm from "./UserSignupForm/UserSignupForm";
 import KitchenSignupForm from "./KitchenSignupForm/KitchenSignupForm";
 import SearchKitchen from "./Home/Landing/Landing";
-import TopKitchen from "./Home/TopKitchen/TopKitchen";
+import TopKitchens from "./Home/TopKitchens/TopKitchens";
 export {
   Header,
   SideMenu,
@@ -18,5 +18,5 @@ export {
   UserSignupForm,
   KitchenSignupForm,
   SearchKitchen,
-  TopKitchen,
+  TopKitchens,
 };

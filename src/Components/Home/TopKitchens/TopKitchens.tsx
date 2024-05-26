@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styles from "./TopKitchenStyle";
+import * as Styles from "./TopKitchensStyle";
 import { HomeCardItem } from "../../../Configs/HomeCardItem/HomeCardItem";
 import { IHomeCardItem } from "../../../Interfaces/Configs/HomeInterface/HomeCardItem.interface";
 import { Card } from "antd";
