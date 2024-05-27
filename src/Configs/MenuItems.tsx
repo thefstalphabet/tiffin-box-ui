@@ -3,7 +3,7 @@ import {
   faUser,
   faPhone,
   faAddressCard,
-  faFireBurner
+  faFireBurner,
 } from "@fortawesome/free-solid-svg-icons";
 import { IMenuItems } from "../Interfaces/Configs/MenuItems.interface";
 export const menuItems: Array<IMenuItems> = [
@@ -36,5 +36,15 @@ export const menuItems: Array<IMenuItems> = [
     label: "Contact Us",
     icon: <FontAwesomeIcon icon={faPhone} />,
     path: "/contact-us",
+  },
+  {
+    key: "5",
+    label: "User Managements",
+    icon: <FontAwesomeIcon icon={faPhone} />,
+    path: "/user-managements",
+    children: [
+      { key: "6", label: "Users" },
+      { key: "7", label: "Kitchens" },
+    ],
   },
 ];

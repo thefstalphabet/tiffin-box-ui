@@ -18,7 +18,7 @@ export const Container = styled.div`
     }
   }
 `;
-export const SocailMedia = styled.div`
+export const SocialMedia = styled.div`
   display: flex;
   gap: 1.5rem;
   text-align: center;
@@ -38,10 +38,9 @@ export const MenuItems = styled.div`
   justify-content: center;
   text-align: center;
   @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1rem;
   }
 
   a {

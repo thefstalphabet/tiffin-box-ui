@@ -1,29 +1,45 @@
 import styled from "styled-components";
-import { homeImg } from "../../../Assets";
-export const Container = styled.div``;
-export const HeroSection = styled.div`
-  height: 100vh;
-  /* width: 100vw; */
-  background-image: url(${homeImg});
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
+import { homeImg, kitchen } from "../../../Assets";
+import { textGray } from "../../../Configs/GlobalColour";
+
+export const MainContainer = styled.div``;
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  .heading {
+  margin-top: 3rem;
+  justify-items: center;
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+`;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  @media (max-width: 1000px) {
+    align-items: center;
+    text-align: center;
+  }
+  .taglines {
+    max-width: 44rem;
     h1 {
-      align-self: center;
-      text-align: center;
-      font-size: 40px;
-      font-weight: bold;
+      font-size: 3rem;
     }
     p {
-      font-size: 25px;
-      font-weight: 700;
-      margin-top: 1rem;
+      color: ${textGray};
+      font-size: 1.5rem;
+      line-height: 1.5;
     }
   }
+`;
+export const Image = styled.div`
+  display: grid;
+  justify-content: center;
 `;
 export const cardSection = styled.div`
   display: flex;

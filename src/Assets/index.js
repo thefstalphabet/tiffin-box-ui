@@ -3,4 +3,5 @@ import chef from "../Assets/Images/chef.jpg";
 import logo from "./Logos/logo-no-background.png";
 import pageNotfoundImage from "../Assets/Images/pageNotfoundImage.jpg";
 import homeImg from "../Assets/Images/homeImg.jpg";
-export { kitchenImg, logo, chef, pageNotfoundImage, homeImg };
+import kitchen from "../Assets/Images/kitchen.jpg"
+export { kitchenImg, logo, chef, pageNotfoundImage, homeImg,kitchen };

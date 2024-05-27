@@ -8,12 +8,12 @@ export default function Footer() {
   return (
     <Styles.Container>
       <div className="sub_container">
-        <Styles.SocailMedia>
+        <Styles.SocialMedia>
           {socialMediaIcon.map((item: ISocialMedia) => {
             const { label, key, path, icon } = item;
             return <div key={key}>{icon}</div>;
           })}
-        </Styles.SocailMedia>{" "}
+        </Styles.SocialMedia>{" "}
         <Styles.MenuItems>
           {menuItems.map((item: IMenuItems) => {
             const { label, key, path } = item;

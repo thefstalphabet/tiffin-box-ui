@@ -1,5 +1,5 @@
-import { IHomeCardItem } from "../../Interfaces/Configs/HomeInterface/HomeCardItem.interface";
-import { homeImg } from "../../Assets";
+import { IHomeCardItem } from "../Interfaces/Configs/KitchensItems.interface";
+import { homeImg } from "../Assets";
 export const HomeCardItem: Array<IHomeCardItem> = [
   {
     key: "sub1",

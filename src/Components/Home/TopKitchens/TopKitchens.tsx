@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styles from "./TopKitchensStyle";
-import { HomeCardItem } from "../../../Configs/HomeCardItem/HomeCardItem";
-import { IHomeCardItem } from "../../../Interfaces/Configs/HomeInterface/HomeCardItem.interface";
+import { HomeCardItem } from "../../../Configs/KitchensItems";
+import { IHomeCardItem } from "../../../Interfaces/Configs/KitchensItems.interface";
 import { Card } from "antd";
 const { Meta } = Card;
 
@@ -11,9 +11,9 @@ export default function TopKitchen() {
       {HomeCardItem.map((item: IHomeCardItem) => {
         const { key, img, title, description } = item;
         return (
-          <Card
+          <Card key={key}
             hoverable
-            style={{ width: 290 }}
+            style={{ width: 300 }}
             cover={<img alt="example" src={img} />}
           >
             <Meta title={title} description={description} />

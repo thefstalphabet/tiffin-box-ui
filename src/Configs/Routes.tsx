@@ -8,7 +8,8 @@ import {
   KitchenRegistration,
   Login,
   UserSignup,
-  KitchenSignup
+  KitchenSignup,
+  UserManagements,
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
 export const routes: Array<IRoutes> = [
@@ -51,7 +52,7 @@ export const routes: Array<IRoutes> = [
     element: <Login />,
   },
   {
-    path: "/UserSignup",
+    path: "/user-signup",
     element: <UserSignup />,
   },
   {
@@ -65,7 +66,13 @@ export const routes: Array<IRoutes> = [
     element: <>Dashboard</>,
   },
   {
+    path: "/user-managements",
+    header: true,
+    sideMenu: true,
+    element: <UserManagements />,
+  },
+  {
     path: "/testing",
-    element: <Testing/>
+    element: <Testing />,
   },
 ];

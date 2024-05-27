@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div``;
 export const FormContainer = styled.div`
   padding: 2rem;
-  width: 32rem;
+  max-width: 32rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 5px;
   .heading {
