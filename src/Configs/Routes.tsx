@@ -51,7 +51,7 @@ export const routes: Array<IRoutes> = [
     element: <Login />,
   },
   {
-    path: "/UserSignup",
+    path: "/sign-up",
     element: <UserSignup />,
   },
   {

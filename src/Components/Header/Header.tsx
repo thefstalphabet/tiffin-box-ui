@@ -84,7 +84,7 @@ export default function Header() {
             <Button
               type="primary"
               onClick={() => {
-                navigate("/signup");
+                navigate("/sign-up");
               }}
             >
               Sign Up

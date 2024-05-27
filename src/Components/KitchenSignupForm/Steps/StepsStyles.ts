@@ -18,7 +18,8 @@ export const Container = styled.div`
 export const Fields = styled.div`
     padding: 1rem;
     display: grid;
-    gap: 1rem;
+    column-gap: 1rem;
+    align-items: center;
     grid-template-columns: 1fr 1fr;
     @media (max-width: 1110px) {
         grid-template-columns: 1fr;
