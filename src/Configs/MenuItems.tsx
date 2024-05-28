@@ -6,9 +6,9 @@ import {
   faFireBurner,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
-import { IMenuItems } from "../Interfaces/Configs/MenuItems.interface";
+import { IReMenuItems } from "../reusable-antd-components/Interfaces/ReComponents.interface";
 
-export const menuItems: Array<IMenuItems> = [
+export const menuItems: Array<IReMenuItems> = [
   {
     key: "1",
     label: "Home",

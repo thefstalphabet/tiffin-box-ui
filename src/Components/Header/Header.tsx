@@ -8,7 +8,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { menuItems } from "../../Configs/MenuItems";
 import { Link, useNavigate } from "react-router-dom";
-import { IMenuItems } from "../../Interfaces/Configs/MenuItems.interface";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
 import * as Styles from "./HeaderStyles";
@@ -16,6 +15,7 @@ import { logo } from "../../Assets";
 import { auth } from "../../Apis/Auth";
 import ReDropdown from "../../reusable-antd-components/ReDropdown";
 import { generateRandomColor } from "../../Helper/Methods";
+import ReMenu from "../../reusable-antd-components/ReMenu";
 
 export default function Header() {
   const { isUserLoggedIn, logout } = auth;
@@ -28,16 +28,23 @@ export default function Header() {
     <Styles.Container>
       <div className="content">
         <img style={{ width: "11rem" }} src={logo} alt="brand logo" />
-        <Styles.MenuItems>
-          {menuItems.map((item: IMenuItems) => {
-            const { label, key, path } = item;
-            return (
-              <Link key={key} to={path}>
-                {label}
-              </Link>
-            );
+        <ReMenu
+          className="re-menu"
+          mode="horizontal"
+          items={menuItems.map((item: any) => {
+            delete item.icon;
+            if (item?.children) {
+              item.children = item?.children?.map((child: any) => {
+                delete child.icon;
+                return child;
+              });
+            }
+            return item;
           })}
-        </Styles.MenuItems>
+          onClick={({ item }: any) => {
+            navigate(item?.props?.path);
+          }}
+        />
       </div>
       <Styles.Actions>
         {isUserLoggedIn() ? (
@@ -72,12 +79,10 @@ export default function Header() {
         ) : (
           <>
             <Button
-              className="login_btn"
+              type="default"
               onClick={() => {
                 navigate("/login");
               }}
-              type="default"
-              block
             >
               Log In
             </Button>
