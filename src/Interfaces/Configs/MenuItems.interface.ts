@@ -3,5 +3,5 @@ export interface IMenuItems {
     label: string,
     icon: JSX.Element,
     path: string,
-    children?: Array<{ key: string; label: string }>;
+    children?: IMenuItems[];
 }

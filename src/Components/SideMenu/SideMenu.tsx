@@ -29,6 +29,8 @@ export default function SideMenu() {
             items={menuItems}
             onClick={({ item }: any) => {
               navigate(item?.props?.path);
+              dispatch(setCollapse(!collapse));
+
             }}
           />
           <div className="login-btn">

@@ -8,6 +8,8 @@ import UserSignupForm from "./UserSignupForm/UserSignupForm";
 import KitchenSignupForm from "./KitchenSignupForm/KitchenSignupForm";
 import SearchKitchen from "./Home/Landing/Landing";
 import TopKitchens from "./Home/TopKitchens/TopKitchens";
+import UsersTableForm from "./UserManagements/UsersTableForm/UsersTableForm";
+import KitchensTableForm from "./UserManagements/KItchensTableForm/KItchensTableForm";
 export {
   Header,
   SideMenu,
@@ -19,4 +21,6 @@ export {
   KitchenSignupForm,
   SearchKitchen,
   TopKitchens,
+  KitchensTableForm,
+  UsersTableForm
 };

@@ -10,6 +10,8 @@ import {
   UserSignup,
   KitchenSignup,
   UserManagements,
+  Users,
+  Kitchens,
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
 export const routes: Array<IRoutes> = [
@@ -72,16 +74,16 @@ export const routes: Array<IRoutes> = [
     element: <UserManagements />,
   },
   {
-    path: "/user-managements",
+    path: "/user-managements/users",
     header: true,
     sideMenu: true,
-    element: <UserManagements />,
+    element: <Users />,
   },
   {
-    path: "/user-managements",
+    path: "/user-managements/kitchens",
     header: true,
     sideMenu: true,
-    element: <UserManagements />,
+    element: <Kitchens />,
   },
   {
     path: "/testing",

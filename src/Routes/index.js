@@ -8,6 +8,8 @@ import Login from "./Login/Login";
 import UserSignup from "./UserSignup/UserSignup";
 import KitchenSignup from "./KitchenSignup/KitchenSignup";
 import UserManagements from "./UserManagements/UserManagements";
+import Users from "./UserManagements/Users/Users";
+import Kitchens from "./UserManagements/Kitchens/Kitchens";
 export {
   Home,
   PageNotFound,
@@ -19,4 +21,6 @@ export {
   UserSignup,
   KitchenSignup,
   UserManagements,
+  Users,
+  Kitchens
 };
