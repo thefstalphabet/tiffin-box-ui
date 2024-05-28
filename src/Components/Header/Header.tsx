@@ -9,19 +9,23 @@ import {
 import { menuItems } from "../../Configs/MenuItems";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
-import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
+import {
+  setActiveItemKey,
+  setCollapse,
+} from "../../Redux/Slices/SideMenuSlices";
 import * as Styles from "./HeaderStyles";
 import { logo } from "../../Assets";
 import { auth } from "../../Apis/Auth";
 import ReDropdown from "../../reusable-antd-components/ReDropdown";
 import { generateRandomColor } from "../../Helper/Methods";
 import ReMenu from "../../reusable-antd-components/ReMenu";
+import { log } from "console";
 
 export default function Header() {
   const { isUserLoggedIn, logout } = auth;
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { collapse } = useAppSelector((store) => store.sideMenu);
+  const { collapse, activeItemKey } = useAppSelector((store) => store.sideMenu);
   const user = useAppSelector((store) => store.user);
 
   return (
@@ -29,6 +33,7 @@ export default function Header() {
       <div className="content">
         <img style={{ width: "11rem" }} src={logo} alt="brand logo" />
         <ReMenu
+          selectedKeys={[activeItemKey]}
           className="re-menu"
           mode="horizontal"
           items={menuItems.map((item: any) => {
@@ -43,6 +48,9 @@ export default function Header() {
           })}
           onClick={({ item }: any) => {
             navigate(item?.props?.path);
+          }}
+          onSelect={(e: any) => {
+            dispatch(setActiveItemKey(e.key));
           }}
         />
       </div>

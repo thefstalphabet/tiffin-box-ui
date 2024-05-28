@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 interface IInitialStage {
-    activeId: string,
+    activeItemKey: string,
     subMenuActiveIds: string[],
     collapse: boolean
 }
 
 const initialState: IInitialStage = {
-    activeId: "1",
+    activeItemKey: "1",
     subMenuActiveIds: [],
     collapse: false
 }
@@ -16,8 +16,8 @@ const SideMenuSlice = createSlice({
     name: 'sideMenu',
     initialState,
     reducers: {
-        updateActiveId(state, action: PayloadAction<string>) {
-            state.activeId = action.payload
+        setActiveItemKey(state, action: PayloadAction<string>) {
+            state.activeItemKey = action.payload
         },
         updateSubMenuActiveId(state, action: PayloadAction<any>) {
             state.subMenuActiveIds = action.payload
@@ -28,5 +28,5 @@ const SideMenuSlice = createSlice({
     },
 })
 
-export const { updateActiveId, updateSubMenuActiveId, setCollapse } = SideMenuSlice.actions
+export const { setActiveItemKey, updateSubMenuActiveId, setCollapse } = SideMenuSlice.actions
 export default SideMenuSlice.reducer

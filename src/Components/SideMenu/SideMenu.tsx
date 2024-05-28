@@ -4,13 +4,13 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
-import { setCollapse } from "../../Redux/Slices/SideMenuSlices";
+import { setActiveItemKey, setCollapse } from "../../Redux/Slices/SideMenuSlices";
 import * as Styles from "./SideMenuStyles";
 import ReMenu from "../../reusable-antd-components/ReMenu";
 export default function SideMenu() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { collapse } = useAppSelector((store) => store.sideMenu);
+  const { collapse, activeItemKey } = useAppSelector((store) => store.sideMenu);
   return collapse ? (
     <Styles.Container>
       <div className="header">
@@ -23,12 +23,16 @@ export default function SideMenu() {
         />
       </div>
       <ReMenu
+        selectedKeys={[activeItemKey]}
         className="re-menu"
         mode="inline"
         items={menuItems}
         onClick={({ item }: any) => {
           navigate(item?.props?.path);
           dispatch(setCollapse(!collapse));
+        }}
+        onSelect={(e: any) => {
+          dispatch(setActiveItemKey(e.key));
         }}
       />
       <div className="login-btn">
