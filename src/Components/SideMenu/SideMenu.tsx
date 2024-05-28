@@ -35,9 +35,6 @@ export default function SideMenu() {
           dispatch(setActiveItemKey(e.key));
         }}
       />
-      <div className="login-btn">
-        <Button type="primary">Log In</Button>
-      </div>
     </Styles.Container>
   ) : (
     <></>
