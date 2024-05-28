@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { homeImg, kitchen } from "../../../Assets";
 import { textGray } from "../../../Configs/GlobalColour";
 
 export const MainContainer = styled.div``;

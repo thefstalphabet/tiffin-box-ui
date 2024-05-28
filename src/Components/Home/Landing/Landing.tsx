@@ -1,10 +1,9 @@
-import React from "react";
 import * as Styles from "./LandingStyle";
 import { appName } from "../../../Configs/GlobalText";
 import TopKitchens from "../TopKitchens/TopKitchens";
 import Footer from "../../Footer/Footer";
 import { kitchen } from "../../../Assets";
-import { Input, Space } from "antd";
+import { Input } from "antd";
 import type { SearchProps } from "antd/es/input/Search";
 export default function Landing() {
   const { Search } = Input;
@@ -19,13 +18,15 @@ export default function Landing() {
             <p>{`Discover the best food & drinks in your city`}</p>
           </div>
           <Search
-          placeholder="Search for restaurants,cuisine or a dish."
-          onSearch={onSearch}
-          enterButton
-        />
+          className="search-bar"
+            size="large"
+            placeholder="Search nearest kitchen"
+            onSearch={onSearch}
+            enterButton
+          />
         </Styles.Content>
         <Styles.Image>
-          <img style={{ width: "25vw" }} src={kitchen} alt="Banner" />
+          <img style={{ width: "28vw" }} src={kitchen} alt="Banner" />
         </Styles.Image>
       </Styles.Container>
       <TopKitchens />
