@@ -4,6 +4,8 @@ import * as Styles from "./StepsStyles";
 import { IStepsProps } from "../../../Interfaces/Components/Steps.interface";
 import ReInput from "../../../reusable-antd-components/ReFormFields/ReInput";
 import ReCheckBox from "../../../reusable-antd-components/ReFormFields/ReCheckbox";
+import ReTimepicker from "../../../reusable-antd-components/ReFormFields/ReTimepicker";
+import ReRadioGroup from "../../../reusable-antd-components/ReFormFields/ReRadioGroup";
 
 export default function Steps(props: IStepsProps) {
   const { formInstance } = props;
@@ -15,17 +17,17 @@ export default function Steps(props: IStepsProps) {
       content: (
         <Styles.Fields>
           <ReInput
-            label="Name"
-            placeholder="Enter your name"
-            name="name"
-            type="simple"
-            required
-          />
-          <ReInput
             label="Email"
             placeholder="Enter your email"
             name="email"
             type="email"
+            required
+          />
+          <ReInput
+            label="Password"
+            placeholder="Enter your password"
+            name="password"
+            type="password"
             required
           />
         </Styles.Fields>
@@ -36,26 +38,13 @@ export default function Steps(props: IStepsProps) {
       content: (
         <Styles.Fields>
           <ReInput
-            label="Phone number"
-            placeholder="Enter your phone number"
-            name="phone number"
+            label="Phone Number"
+            name="phoneNumber"
             type="number"
             required
           />
-          <ReInput
-            label="City"
-            placeholder="Enter your city"
-            name="city"
-            type="simple"
-            required
-          />
-          <ReInput
-            label="Address"
-            placeholder="Enter your address"
-            name="address"
-            type="simple"
-            required
-          />
+          <ReInput label="City" name="city" type="simple" required />
+          <ReInput label="Address" name="address" type="simple" required />
         </Styles.Fields>
       ),
     },
@@ -63,21 +52,30 @@ export default function Steps(props: IStepsProps) {
       title: "Kitchen Info",
       content: (
         <Styles.Fields>
+          <ReInput label="Kitchen Name" name="name" type="simple" required />
           <ReInput
-            label="Kitchen name"
-            placeholder="Enter your Kitchen name"
-            name="Kitchen name"
-            type="simple"
-            required
-          />
-          <ReInput
-            label="Minium order price"
-            placeholder="Enter your price"
-            name="order price"
+            label="Minium Order Price"
+            name="minOrderPrice"
             type="number"
             required
           />
-          <ReCheckBox label="Vegan" name="agree" disable={false} />
+          <ReTimepicker
+            placeholder={["Opening Time", "Closing Time"]}
+            label="Availability"
+            name="availability"
+            format="HH:mm a"
+            required
+          />
+          <ReRadioGroup
+            label=""
+            name="vegan"
+            defaultValue={true}
+            items={[
+              { title: "Vegan", value: true },
+              { title: "Not Vegan", value: false },
+            ]}
+          />
+          {/* <ReCheckBox label="Vegan" name="vegan" /> */}
         </Styles.Fields>
       ),
     },
@@ -87,7 +85,7 @@ export default function Steps(props: IStepsProps) {
         <Styles.Fields>
           <ReInput
             disable
-            label="Account number"
+            label="Account Number"
             placeholder="Enter your account number"
             name="accountNumber"
             type="simple"

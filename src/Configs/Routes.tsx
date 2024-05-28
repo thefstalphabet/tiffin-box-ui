@@ -72,6 +72,18 @@ export const routes: Array<IRoutes> = [
     element: <UserManagements />,
   },
   {
+    path: "/user-managements",
+    header: true,
+    sideMenu: true,
+    element: <UserManagements />,
+  },
+  {
+    path: "/user-managements",
+    header: true,
+    sideMenu: true,
+    element: <UserManagements />,
+  },
+  {
     path: "/testing",
     element: <Testing />,
   },
