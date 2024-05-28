@@ -5,7 +5,7 @@ export const Container = styled.div`
   grid-auto-flow: column;
   align-items: center;
   padding: 3rem 8rem;
-  @media (max-width: 1072px) {
+  @media (max-width: 1097px) {
     padding: 3rem 1rem;
   }
   h1 {
@@ -13,15 +13,20 @@ export const Container = styled.div`
   }
   .content {
     display: flex;
-    gap: 4rem;
-    align-items: center;
+    gap: 1rem;
     .re-menu{
       border-bottom: none;
       flex: auto;
+      @media (max-width: 1097px) {
+        display: none;
+      }
+    }
+    .re-menu:where(.css-dev-only-do-not-override-65e62w).ant-menu-light.ant-menu-root.ant-menu-inline{
+      border: none;
     }
   }
-  @media (max-width: 1072px) {
-    padding: 3rem 2rem;
+  @media (max-width: 1097px) {
+    padding: 2rem 1rem;
   }
 `;
 export const Actions = styled.div`
@@ -32,7 +37,7 @@ export const Actions = styled.div`
   .toggle-icon {
     cursor: pointer;
     font-size: 1.75rem;
-    @media (min-width: 1072px) {
+    @media (min-width: 1097px) {
       display: none;
     }
   }
