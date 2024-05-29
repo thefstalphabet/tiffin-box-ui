@@ -26,7 +26,7 @@ export default function Footer() {
         </Styles.MenuItems>{" "}
       </div>
       <div className="footer_text">
-        <p>Copyright@2024 Designed by Deependra</p>
+        <p>Copyright@2024 all right reserved</p>
       </div>
     </Styles.Container>
   );

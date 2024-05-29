@@ -82,7 +82,7 @@ export default function UserSignup() {
               form.submit();
             }}
           >
-            SignUp
+            Sign Up
           </Button>
         </Styles.Action>
       </ReForm>

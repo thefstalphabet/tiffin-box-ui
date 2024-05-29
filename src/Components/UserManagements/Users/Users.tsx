@@ -65,7 +65,7 @@ export default function Users() {
     <div>
       <ReTable
         header={{
-          title: "Users Table",
+          title: "Users",
           headerButtons: [
             {
               title: "Create New",

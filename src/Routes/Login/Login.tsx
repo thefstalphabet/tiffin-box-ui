@@ -7,7 +7,7 @@ export default function Login() {
     <Styles.Container>
       <Space className="signup-text">
         <h3>Don't have an account?</h3>
-        <Link to="/signup">Signup</Link>
+        <Link to="/user-signup">Signup</Link>
       </Space>
       <div className="login-form">
         <LoginForm />

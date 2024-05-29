@@ -1,4 +1,4 @@
-import * as Styles from "./UserManagementsStyle";
+import * as Styles from "./UserManagementStyle";
 import { useParams } from "react-router-dom";
 import { Kitchens, Users } from "../../Components";
 import { ReactNode, useEffect, useState } from "react";

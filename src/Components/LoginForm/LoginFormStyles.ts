@@ -32,7 +32,8 @@ export const CardContainer = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
     text-align: end;
-    left: 10rem;
+    left: 9.5rem;
+    top: 6rem;
   }
   @media (max-width: 1000px) {
     width: 100%;
