@@ -35,16 +35,7 @@ export default function Header() {
           selectedKeys={[activeItemKey]}
           className="re-menu"
           mode="horizontal"
-          items={menuItems.map((item: any) => {
-            delete item.icon;
-            if (item?.children) {
-              item.children = item?.children?.map((child: any) => {
-                delete child.icon;
-                return child;
-              });
-            }
-            return item;
-          })}
+          items={menuItems}
           onClick={({ item }: any) => {
             navigate(item?.props?.path);
           }}
