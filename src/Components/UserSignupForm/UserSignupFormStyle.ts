@@ -1,5 +1,6 @@
 import styled from "styled-components";
 export const FormContainer = styled.div`
+  margin: 1rem;
   padding: 2rem;
   width: 35rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

@@ -21,9 +21,6 @@ export const Container = styled.div`
         display: none;
       }
     }
-    .re-menu:where(.css-dev-only-do-not-override-65e62w).ant-menu-light.ant-menu-root.ant-menu-inline{
-      border: none;
-    }
   }
   @media (max-width: 1097px) {
     padding: 2rem 1rem;
