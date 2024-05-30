@@ -1,9 +1,9 @@
 import React from "react";
-import * as Styles from "./UserDrawerStyle";
+import * as Styles from "./KitchenDrawerStyle";
 import ReForm from "../../../../reusable-antd-components/ReForm";
 import ReInput from "../../../../reusable-antd-components/ReFormFields/ReInput";
 import { Form, Button } from "antd";
-export default function USerDrawer() {
+export default function KitchenDrawer() {
   const [form] = Form.useForm();
 
   async function handleFormSubmit(values: any) {}

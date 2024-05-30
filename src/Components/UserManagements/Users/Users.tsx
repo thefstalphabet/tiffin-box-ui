@@ -96,8 +96,6 @@ export default function Users() {
         width={400}
         closable={true}
       >
-        {/* Add your form or content here */}
-        {/* <p>Form content goes here...</p> */}
         <USerDrawer/>
       </ReDrawer>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as Styles from "./KitchensStyle";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
 import ReDrawer from "../../../reusable-antd-components/ReDrawer";
+import KitchenDrawer from "./Drawer/KitchenDrawer";
 export default function Kitchens() {
   const [drawerVisible, setDrawerVisible] = useState(false);
 
@@ -93,8 +94,7 @@ export default function Kitchens() {
         width={400}
         closable={true}
       >
-        {/* Add your form or content here */}
-        <p>Form content goes here...</p>
+       <KitchenDrawer/>
       </ReDrawer>
     </div>
   );
