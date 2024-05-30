@@ -4,8 +4,8 @@ class Kitchen extends MakeRequest {
     async findOne(id: string) {
         return this.makeApiRequest("get", id)
     }
-    async findAll() {
-        return this.makeApiRequest("get")
+    async findAll(query?: any) {
+        return this.makeApiRequest("get", "", query)
     }
     async create(payload: any) {
         return this.makeApiRequest("post", "", payload)

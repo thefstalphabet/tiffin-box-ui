@@ -70,6 +70,7 @@ export class MakeRequest {
                 .join('&');
             apiUrl = `${apiUrl}?${query}`
         }
+        
         return await fetch(apiUrl, {
             method: "GET",
             headers: headers,

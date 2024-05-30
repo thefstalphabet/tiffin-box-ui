@@ -1,4 +1,3 @@
-import React from "react";
 import * as Styles from "./TopKitchensStyle";
 import { HomeCardItem } from "../../../Configs/KitchensItems";
 import { IHomeCardItem } from "../../../Interfaces/Configs/KitchensItems.interface";

@@ -3,10 +3,11 @@ import { user } from "../../Apis/User";
 import { auth } from "../../Apis/Auth";
 import { SearchKitchen } from "../../Components";
 import * as Styles from "./HomeStyle"
+import { kitchen } from "../../Apis/Kitchen";
 const Home = () => {
   const call = async () => {
     // await user.findOne("0f4dc1d4-f0e5-4b7d-b899-c2e273266e75");
-    await user.findAll();
+    await kitchen.findAll();
     // await user.create({
     //   email: "dev1@gamil.com",
     //   name: "Developer",
