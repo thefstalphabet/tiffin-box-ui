@@ -4,7 +4,7 @@ import * as Styles from "./ReasonToStartStyle";
 export default function ReasonToStart() {
   return (
     <Styles.Container className="container">
-      <h1>So Many reasons to start</h1>
+      <h1>So Many Reasons to Start</h1>
       <Styles.ItemCard className="reasons-grid">
         {ReasonToStartItems.map((item) => (
           <div className="item" key={item.key}>
