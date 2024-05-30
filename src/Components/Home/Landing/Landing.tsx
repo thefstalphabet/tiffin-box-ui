@@ -23,9 +23,9 @@ export default function Landing() {
         <Styles.Content>
           <div className="taglines">
             <h1>{appName}</h1>
-            <p>Discover the best food & drinks in your city</p>
+            <p>Discover the best tiffin food service in your city</p>
           </div>
-          <Space.Compact>
+          <Space.Compact className="search-bar">
             <Select
               onSelect={(value: string) => setSelectedCity(value)}
               suffixIcon={<FontAwesomeIcon icon={faAngleDown} />}
@@ -42,7 +42,6 @@ export default function Landing() {
             <ReSearchbar
               className="search-bar"
               size="large"
-              placeholder="Search Nearest Kitchen"
               onSubmit={handleSearchbarSubmit}
             />
           </Space.Compact>

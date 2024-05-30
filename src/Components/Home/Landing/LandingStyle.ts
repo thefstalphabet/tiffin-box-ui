@@ -35,6 +35,9 @@ export const Content = styled.div`
       line-height: 1.5;
     }
   }
+  .search-bar{
+    width: 100%;
+  }
 `;
 export const Image = styled.div`
   display: grid;
