@@ -1,7 +1,8 @@
 import styled from "styled-components";
-export const FormContainer = styled.div`
-  margin-top: 1rem;
-  .create-btn {
-    margin-top: 1rem;
+export const Container = styled.div`
+  .re-form{
+    .create-btn {
+      margin-top: 1rem;
+    }
   }
 `;

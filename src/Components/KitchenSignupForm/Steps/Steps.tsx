@@ -3,7 +3,6 @@ import { useState } from "react";
 import * as Styles from "./StepsStyles";
 import { IStepsProps } from "../../../Interfaces/Components/Steps.interface";
 import ReInput from "../../../reusable-antd-components/ReFormFields/ReInput";
-import ReCheckBox from "../../../reusable-antd-components/ReFormFields/ReCheckbox";
 import ReTimepicker from "../../../reusable-antd-components/ReFormFields/ReTimepicker";
 import ReRadioGroup from "../../../reusable-antd-components/ReFormFields/ReRadioGroup";
 
