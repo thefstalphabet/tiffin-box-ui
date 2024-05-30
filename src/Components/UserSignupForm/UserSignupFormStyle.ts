@@ -20,6 +20,7 @@ export const Action = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  margin-top: 10px;
 
   .signup_btn {
     justify-self: end;

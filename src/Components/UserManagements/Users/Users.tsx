@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as Styles from "./UsersStyle";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
 import ReDrawer from "../../../reusable-antd-components/ReDrawer";
-
+import USerDrawer from "./Drawer/UserDrawer";
 export default function Users() {
   const [drawerVisible, setDrawerVisible] = useState(false);
 
@@ -97,7 +97,8 @@ export default function Users() {
         closable={true}
       >
         {/* Add your form or content here */}
-        <p>Form content goes here...</p>
+        {/* <p>Form content goes here...</p> */}
+        <USerDrawer/>
       </ReDrawer>
     </div>
   );
