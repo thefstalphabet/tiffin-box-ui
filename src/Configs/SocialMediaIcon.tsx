@@ -3,8 +3,6 @@ import {
   faFacebook,
   faInstagram,
   faTwitter,
-  faGoogle,
-  faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 import { ISocialMedia } from "../Interfaces/Configs/SocialMediaIcon.interface";
 export const socialMediaIcon: Array<ISocialMedia> = [
@@ -25,17 +23,5 @@ export const socialMediaIcon: Array<ISocialMedia> = [
     label: "Twitter",
     icon: <FontAwesomeIcon icon={faTwitter} color="white" size="2x" />,
     path: "/twitter",
-  },
-  {
-    key: "4",
-    label: "Google",
-    icon: <FontAwesomeIcon icon={faGoogle} color="white"  size="2x"/>,
-    path: "/google",
-  },
-  {
-    key: "5",
-    label: "YouTube",
-    icon: <FontAwesomeIcon icon={faYoutube} color="white"  size="2x"/>,
-    path: "/youtube",
   },
 ];

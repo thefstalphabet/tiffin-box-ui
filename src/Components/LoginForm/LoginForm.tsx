@@ -71,7 +71,7 @@ export default function LoginForm() {
                   <p>{capitalizeFirstLetter(type)}</p>
                   {loginUserType === type && (
                     <div className="customContextMenu">
-                      <FontAwesomeIcon icon={faCircleCheck} color="green"/>
+                      <FontAwesomeIcon icon={faCircleCheck} color="green" size="2x"/>
                     </div>
                   )}
                 </Card>

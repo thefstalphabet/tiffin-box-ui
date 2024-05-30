@@ -7,7 +7,7 @@ import KitchenRegistration from "./KitchenRegistration/KitchenRegistration";
 import Login from "./Login/Login";
 import UserSignup from "./UserSignup/UserSignup";
 import KitchenSignup from "./KitchenSignup/KitchenSignup";
-import UserManagements from "./UserManagements/UserManagements";
+import UserManagement from "./UserManagement/UserManagement";
 export {
   Home,
   PageNotFound,
@@ -18,5 +18,5 @@ export {
   Login,
   UserSignup,
   KitchenSignup,
-  UserManagements,
+  UserManagement,
 };

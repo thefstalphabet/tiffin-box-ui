@@ -9,7 +9,7 @@ import {
   Login,
   UserSignup,
   KitchenSignup,
-  UserManagements,
+  UserManagement,
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
 export const routes: Array<IRoutes> = [
@@ -69,7 +69,7 @@ export const routes: Array<IRoutes> = [
     path: "/user-managements/:type",
     header: true,
     sideMenu: true,
-    element: <UserManagements />,
+    element: <UserManagement />,
   },
   {
     path: "/testing",

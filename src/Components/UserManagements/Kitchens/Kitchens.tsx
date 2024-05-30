@@ -62,7 +62,7 @@ export default function Kitchens() {
     <div>
       <ReTable
         header={{
-          title: "Kitchens table",
+          title: "Kitchens",
           headerButtons: [
             {
               title: "Create New",
