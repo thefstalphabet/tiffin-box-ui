@@ -5,6 +5,7 @@ import {
   faAddressCard,
   faFireBurner,
   faUsers,
+  faHouse
 } from "@fortawesome/free-solid-svg-icons";
 import { IReMenuItems } from "../reusable-antd-components/Interfaces/ReComponents.interface";
 
@@ -12,7 +13,7 @@ export const menuItems: Array<IReMenuItems> = [
   {
     key: "1",
     label: "Home",
-    icon: <FontAwesomeIcon icon={faAddressCard} />,
+    icon: <FontAwesomeIcon icon={faHouse} />,
     path: "/",
   },
   {
