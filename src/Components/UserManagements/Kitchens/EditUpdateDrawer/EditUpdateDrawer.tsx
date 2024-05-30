@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as Styles from "./KitchenDrawerStyle";
+import * as Styles from "./EditUpdateDrawerStyle";
 import ReForm from "../../../../reusable-antd-components/ReForm";
 import ReInput from "../../../../reusable-antd-components/ReFormFields/ReInput";
 import { Form, Button } from "antd";
@@ -11,7 +11,7 @@ import ReCheckBox from "../../../../reusable-antd-components/ReFormFields/ReChec
 import ReTimepicker from "../../../../reusable-antd-components/ReFormFields/ReTimepicker";
 import ReRadioGroup from "../../../../reusable-antd-components/ReFormFields/ReRadioGroup";
 
-export default function KitchenDrawer(props: IComponentProps) {
+export default function EditUpdateDrawer(props: IComponentProps) {
   const [form] = Form.useForm();
   const { visibility, setVisibility, type, selectedKitchenData } = props;
 

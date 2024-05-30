@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
-import KitchenDrawer from "./Drawer/KitchenDrawer";
+import KitchenDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -52,19 +52,45 @@ export default function Kitchens() {
       key: "email",
     },
     {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
+      title: "Password",
+      dataIndex: "password",
+      key: "password",
     },
+
     {
       title: "Address",
       dataIndex: "address",
       key: "address",
     },
     {
+      title: "Phone",
+      dataIndex: "phone",
+      key: "phone",
+    },
+    {
+      title: "Minium Order Price",
+      dataIndex: "Minium Order Price",
+      key: "Minium Order Price",
+    },
+    {
+      title: "Availability",
+      dataIndex: "Availability",
+      key: "Availability",
+    },
+    {
       title: "City",
       dataIndex: "city",
       key: "city",
+    },
+    {
+      title: "vegan",
+      dataIndex: "vegan",
+      key: "vegan",
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
+      key: "status",
     },
   ];
   return (
@@ -92,10 +118,10 @@ export default function Kitchens() {
         }}
         columnOptions={{
           sorting: {
-            columnsKeys: ["email", "name", "address", "status", "city"],
+            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Availability","vegan","City", "status", "city"],
           },
           filter: {
-            columnsKeys: ["email", "name", "address", "status", "city"],
+            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Availability","vegan","City", "status", "city"],
           },
         }}
       />
