@@ -20,7 +20,7 @@ export default function UserManagements() {
         setElement(<PageNotFound />);
         break;
     }
-  }, []);
+  }, [type]);
 
   return <Styles.Container className="container">{element}</Styles.Container>;
 }
