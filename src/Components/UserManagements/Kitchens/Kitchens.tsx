@@ -9,24 +9,32 @@ import { Popconfirm, Space, Tag } from "antd";
 import { formatTime } from "../../../Helper/Methods";
 import * as Styles from "./KitchensStyle";
 import { ReNotification } from "../../../reusable-antd-components/ReNotification";
+import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
+import {
+  deleteKitchen,
+  setKitchens,
+} from "../../../Redux/Slices/UserManagementSlices";
 
 export default function Kitchens() {
+  const { kitchens } = useAppSelector((store) => store.userManagement);
+  const dispatch = useAppDispatch();
+
   const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
   const [drawerType, setDrawerType] = useState<TDrawerType>("create");
-  const [kitchens, setKitchens] = useState<any>([]);
   const [selectedKitchen, setSelectedKitchen] = useState<any>({});
   const [tableLoading, setTableLoading] = useState<boolean>(false);
 
   async function fetchKitchenData() {
     setTableLoading(true);
     const kitchens = await kitchen.findAll();
-    setKitchens(kitchens);
+    dispatch(setKitchens(kitchens));
     setTableLoading(false);
   }
 
   async function handleKitchenDelete(id: string) {
     const res = await kitchen.delete(id);
     if (res) {
+      dispatch(deleteKitchen(id));
       return ReNotification({
         header: "User Management Say's",
         description: "Kitchen Deleted Sucessfully",

@@ -13,8 +13,15 @@ import ReRadioGroup from "../../../../reusable-antd-components/ReFormFields/ReRa
 import moment from "moment";
 import ReSelect from "../../../../reusable-antd-components/ReFormFields/ReSelect";
 import { mpCities } from "../../../../Configs/MadhyaPradeshCities";
+import { useAppDispatch } from "../../../../Redux/Hooks";
+import {
+  addKitchen,
+  updateKitchen,
+} from "../../../../Redux/Slices/UserManagementSlices";
+import { ReNotification } from "../../../../reusable-antd-components/ReNotification";
 
 export default function EditUpdateDrawer(props: IComponentProps) {
+  const dispatch = useAppDispatch();
   const [form] = Form.useForm();
   const { visibility, setVisibility, type, selectedKitchenData } = props;
 
@@ -22,12 +29,22 @@ export default function EditUpdateDrawer(props: IComponentProps) {
     values["openingTime"] = values?.availability[0].$d;
     values["closingTime"] = values?.availability[1].$d;
     delete values?.availability;
-    let res;
     if (type === "create") {
-      res = await kitchen.create(values);
+      const res = await kitchen.create(values);
+      dispatch(addKitchen(res));
     } else {
-      res = await kitchen.update(selectedKitchenData?._id, values);
+      await kitchen.update(selectedKitchenData?._id, values);
+      dispatch(
+        updateKitchen({ id: selectedKitchenData?._id, newKitchenData: values })
+      );
     }
+    ReNotification({
+      header: "User Management Say's",
+      description: `Kitchen ${capitalizeFirstLetter(type)} Sucessfully`,
+      duration: 2,
+      placement: "topRight",
+      type: "success",
+    });
     setVisibility(false);
   }
 
