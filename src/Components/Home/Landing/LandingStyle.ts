@@ -27,7 +27,7 @@ export const Content = styled.div`
   .taglines {
     max-width: 44rem;
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     p {
       color: ${textGray};
