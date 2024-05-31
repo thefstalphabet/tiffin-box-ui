@@ -5,4 +5,5 @@ import pageNotfoundImage from "../Assets/Images/pageNotfoundImage.jpg";
 import homeImg from "../Assets/Images/homeImg.jpg";
 import kitchen from "../Assets/Images/kitchen.png"
 import logo from './Logos/logo.png';
-export { kitchenImg, logo, chef, pageNotfoundImage, homeImg,kitchen, logoWithText };
+import reason from "../Assets/Images/reason.jpg"
+export { kitchenImg, logo, chef, pageNotfoundImage, homeImg,kitchen, logoWithText,reason };

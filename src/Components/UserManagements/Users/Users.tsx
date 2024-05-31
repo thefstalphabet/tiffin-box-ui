@@ -58,7 +58,6 @@ export default function Users() {
       dataIndex: "password",
       key: "password",
     },
-
     {
       title: "Address",
       dataIndex: "address",
