@@ -3,7 +3,7 @@ export const Conatainer = styled.div`
   h3 {
     align-self: center;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
   }
 `;
 export const CardSection = styled.div`
