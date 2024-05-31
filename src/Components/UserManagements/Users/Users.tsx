@@ -2,28 +2,27 @@ import React, { useState, useEffect } from "react";
 import * as Styles from "./UsersStyle";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
 import ReDrawer from "../../../reusable-antd-components/ReDrawer";
-import USerDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
+import EditUpdateDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { user } from "../../../Apis/User";
-import { kitchen } from "../../../Apis/Kitchen";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 export default function Users() {
   const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
   const [drawerType, setDrawerType] = useState<TDrawerType>("create");
-  const [kitchens, setKitchens] = useState<any>([]);
-  const [selectedKitchen, setSelectedKitchen] = useState<any>({});
+  const [users, setUsers] = useState<any>([]);
+  const [selectedUsers, setSelectedUsers] = useState<any>({});
   const [tableLoading, setTableLoading] = useState<boolean>(false);
 
-  async function fetchKitchenData() {
+  async function fetchUserData() {
     setTableLoading(true);
-    const kitchens = await kitchen.findAll();
-    setKitchens(kitchens);
+    const Users = await user.findAll();
+    setUsers(Users);
     setTableLoading(false);
   }
 
   useEffect(() => {
-    fetchKitchenData();
+    fetchUserData();
   }, []);
 
   const columns = [
@@ -38,7 +37,7 @@ export default function Users() {
             onClick={() => {
               setDrawerVisible(true);
               setDrawerType("update");
-              setSelectedKitchen(data);
+              setSelectedUsers(data);
             }}
           />
         );
@@ -76,9 +75,14 @@ export default function Users() {
       key: "Minium Order Price",
     },
     {
-      title: "Availability",
-      dataIndex: "Availability",
-      key: "Availability",
+      title: "Opening Time",
+      dataIndex: "Opening Time",
+      key: "Opening Time",
+    },
+    {
+      title: "Closing Time",
+      dataIndex: "Closing Time",
+      key: "Closing Time",
     },
     {
       title: "City",
@@ -112,7 +116,7 @@ export default function Users() {
             },
           ],
         }}
-        data={kitchens}
+        data={users}
         columns={columns}
         loading={tableLoading}
         scroll={{
@@ -121,18 +125,18 @@ export default function Users() {
         }}
         columnOptions={{
           sorting: {
-            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Availability","vegan","City", "status", "city"],
+            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Opening Time","Closing Time","vegan","City", "status", "city"],
           },
           filter: {
-            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Availability","vegan","City", "status", "city"],
+            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Opening Time","Closing Time","vegan","City", "status", "city"],
           },
         }}
       />
-      <USerDrawer
+      <EditUpdateDrawer
         visibility={drawerVisible}
         setVisibility={setDrawerVisible}
         type={drawerType}
-        selectedKitchenData={selectedKitchen}
+        selectedKitchenData={selectedUsers}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
-import KitchenDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
+import EditUpdateDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -73,9 +73,14 @@ export default function Kitchens() {
       key: "Minium Order Price",
     },
     {
-      title: "Availability",
-      dataIndex: "Availability",
-      key: "Availability",
+      title: "Opening Time",
+      dataIndex: "Opening Time",
+      key: "Opening Time",
+    },
+    {
+      title: "Closing Time",
+      dataIndex: "Closing Time",
+      key: "Closing Time",
     },
     {
       title: "City",
@@ -118,14 +123,14 @@ export default function Kitchens() {
         }}
         columnOptions={{
           sorting: {
-            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Availability","vegan","City", "status", "city"],
+            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Opening Time","Closing Time","vegan","City", "status", "city"],
           },
           filter: {
-            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Availability","vegan","City", "status", "city"],
+            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Opening Time","Closing Time","vegan","City", "status", "city"],
           },
         }}
       />
-      <KitchenDrawer
+      <EditUpdateDrawer
         visibility={drawerVisible}
         setVisibility={setDrawerVisible}
         type={drawerType}
