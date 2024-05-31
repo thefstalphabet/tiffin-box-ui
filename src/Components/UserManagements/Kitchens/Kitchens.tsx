@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
 import EditUpdateDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
@@ -51,7 +51,6 @@ export default function Kitchens() {
 
   const columns = [
     {
-      key: "",
       width: 60,
       render: (data: any) => {
         return (
@@ -106,7 +105,7 @@ export default function Kitchens() {
       key: "minOrderPrice",
     },
     {
-      title: "openingTime",
+      title: "Opening Time",
       dataIndex: "openingTime",
       key: "openingTime",
       render: (date: Date) => {
@@ -114,7 +113,7 @@ export default function Kitchens() {
       },
     },
     {
-      title: "closingTime",
+      title: "Closing Time",
       dataIndex: "closingTime",
       key: "closingTime",
       render: (date: Date) => {
@@ -188,14 +187,13 @@ export default function Kitchens() {
               "email",
               "name",
               "address",
-              "Phone",
-              "Minium Order Price",
+              "phoneNumber",
               "openingTime",
               "closingTime",
               "vegan",
-              "City",
-              "status",
+              "active",
               "city",
+              "minOrderPrice",
             ],
           },
           filter: {
@@ -203,13 +201,13 @@ export default function Kitchens() {
               "email",
               "name",
               "address",
-              "Phone",
-              "Minium Order Price",
-              "Opening Time",
-              "Closing Time",
+              "phoneNumber",
+              "minOrderPrice",
+              "openingTime",
+              "closingTime",
               "vegan",
-              "City",
-              "status",
+              "city",
+              "active",
               "city",
             ],
           },
