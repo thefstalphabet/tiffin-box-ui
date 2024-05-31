@@ -7,10 +7,8 @@ export const Container = styled.div`
   }
   .footer_text {
     display: flex;
-    background-color: red;
     justify-content: center;
     padding: 1rem;
-    background-color: black;
     p {
       font-size: 15px;
       font-weight: 500;

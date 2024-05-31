@@ -10,6 +10,9 @@ class User extends MakeRequest {
     async create(payload: any) {
         return this.makeApiRequest("post", "", payload)
     }
+    async delete(id: string) {
+        return this.makeApiRequest("delete", id)
+    }
 }
 
 export const user = new User("user")

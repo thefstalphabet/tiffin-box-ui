@@ -6,19 +6,23 @@ const { Meta } = Card;
 
 export default function TopKitchen() {
   return (
-    <Styles.CardSection>
-      {HomeCardItem.map((item: IHomeCardItem) => {
-        const { key, img, title, description } = item;
-        return (
-          <Card key={key}
-            hoverable
-            style={{ width: 300 }}
-            cover={<img alt="example" src={img} />}
-          >
-            <Meta title={title} description={description} />
-          </Card>
-        );
-      })}
-    </Styles.CardSection>
+    <Styles.Conatainer>
+      <h3>Top Kitchens</h3>
+      <Styles.CardSection>
+        {HomeCardItem.map((item: IHomeCardItem) => {
+          const { key, img, title, description } = item;
+          return (
+            <Card
+              key={key}
+              hoverable
+              style={{ width: 300 }}
+              cover={<img alt="example" src={img} />}
+            >
+              <Meta title={title} description={description} />
+            </Card>
+          );
+        })}
+      </Styles.CardSection>
+    </Styles.Conatainer>
   );
 }

@@ -1,4 +1,11 @@
 import styled from "styled-components";
+export const Conatainer = styled.div`
+  h3 {
+    align-self: center;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+`;
 export const CardSection = styled.div`
   display: flex;
   flex-wrap: wrap;

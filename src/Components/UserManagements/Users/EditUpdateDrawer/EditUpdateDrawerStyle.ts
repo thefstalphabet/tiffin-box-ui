@@ -1,7 +1,9 @@
 import styled from "styled-components";
-
 export const Container = styled.div`
-    .icon{
-        cursor: pointer;
+  .re-form{
+    .create-btn {
+      margin-top: 1rem;
     }
-`
+  }
+`;
+

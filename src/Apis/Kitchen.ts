@@ -10,6 +10,12 @@ class Kitchen extends MakeRequest {
     async create(payload: any) {
         return this.makeApiRequest("post", "", payload)
     }
+    async delete(id: string) {
+        return this.makeApiRequest("delete", id)
+    }
+    async update(id: string, paylaod: any) {
+        return this.makeApiRequest("patch", `${id}`, paylaod)
+    }
 }
 
 export const kitchen = new Kitchen("kitchen")
