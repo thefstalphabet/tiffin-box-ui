@@ -7,7 +7,7 @@ export const Container = styled.div`
   h1 {
     align-self: center;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 `;
 export const ItemCard = styled.div`

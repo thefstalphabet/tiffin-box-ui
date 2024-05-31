@@ -10,7 +10,7 @@ export default function Landing() {
     <Styles.Container className="container">
       <Styles.Content>
         <div className="taglines">
-          <h1>{`Get Stared with ${appName}`}</h1>
+          <h1>{`Get Started with ${appName}`}</h1>
           <p>
             Expand Your Reach and Boost Your Revenue with Our Kitchen
             Subscription Platform!
