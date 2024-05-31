@@ -16,21 +16,25 @@ export const ItemCard = styled.div`
   gap: 5rem;
   justify-content: center;
   text-align: center;
-  .item{
+  .item {
     display: grid;
     gap: 0.5rem;
     align-items: center;
     justify-items: center;
-    .content{
+    .content {
       display: grid;
       gap: 0.5rem;
-      p{
+      p {
         color: ${textGray};
       }
     }
+    .reason-img {
+      height: 20vh;
+      width: 10vw;
+    }
   }
   @media screen and (min-width: 100px) {
-    grid-template-columns: repeat(1, 1fr); 
+    grid-template-columns: repeat(1, 1fr);
     align-self: center;
     justify-content: center;
   }
