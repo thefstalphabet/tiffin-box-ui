@@ -106,7 +106,7 @@ export default function Kitchens() {
       key: "minOrderPrice",
     },
     {
-      title: "Opening Time",
+      title: "openingTime",
       dataIndex: "openingTime",
       key: "openingTime",
       render: (date: Date) => {
@@ -114,7 +114,7 @@ export default function Kitchens() {
       },
     },
     {
-      title: "Closing Time",
+      title: "closingTime",
       dataIndex: "closingTime",
       key: "closingTime",
       render: (date: Date) => {
@@ -190,8 +190,8 @@ export default function Kitchens() {
               "address",
               "Phone",
               "Minium Order Price",
-              "Opening Time",
-              "Closing Time",
+              "openingTime",
+              "closingTime",
               "vegan",
               "City",
               "status",
