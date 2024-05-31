@@ -3,8 +3,13 @@ import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
 import EditUpdateDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { kitchen } from "../../../Apis/Kitchen";
+import { Popconfirm, Space, Tag } from "antd";
+import { formatTime } from "../../../Helper/Methods";
+import * as Styles from "./KitchensStyle";
+import { ReNotification } from "../../../reusable-antd-components/ReNotification";
+
 export default function Kitchens() {
   const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
   const [drawerType, setDrawerType] = useState<TDrawerType>("create");
@@ -19,6 +24,19 @@ export default function Kitchens() {
     setTableLoading(false);
   }
 
+  async function handleKitchenDelete(id: string) {
+    const res = await kitchen.delete(id);
+    if (res) {
+      return ReNotification({
+        header: "User Management Say's",
+        description: "Kitchen Deleted Sucessfully",
+        duration: 2,
+        placement: "topRight",
+        type: "success",
+      });
+    }
+  }
+
   useEffect(() => {
     fetchKitchenData();
   }, []);
@@ -26,18 +44,31 @@ export default function Kitchens() {
   const columns = [
     {
       key: "",
-      width: 40,
+      width: 60,
       render: (data: any) => {
         return (
-          <FontAwesomeIcon
-            icon={faPenToSquare}
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              setDrawerVisible(true);
-              setDrawerType("update");
-              setSelectedKitchen(data);
-            }}
-          />
+          <Space>
+            <FontAwesomeIcon
+              icon={faPenToSquare}
+              className="icon"
+              onClick={() => {
+                setDrawerVisible(true);
+                setDrawerType("update");
+                setSelectedKitchen(data);
+              }}
+            />
+            <Popconfirm
+              title="Delete the Kitchen"
+              description="Are you sure to delete this Kitchen?"
+              onConfirm={() => {
+                handleKitchenDelete(data?._id);
+              }}
+              okText="Yes"
+              cancelText="No"
+            >
+              <FontAwesomeIcon icon={faTrashCan} className="icon" />
+            </Popconfirm>
+          </Space>
         );
       },
     },
@@ -52,35 +83,35 @@ export default function Kitchens() {
       key: "email",
     },
     {
-      title: "Password",
-      dataIndex: "password",
-      key: "password",
-    },
-
-    {
       title: "Address",
       dataIndex: "address",
       key: "address",
     },
     {
       title: "Phone",
-      dataIndex: "phone",
-      key: "phone",
+      dataIndex: "phoneNumber",
+      key: "phoneNumber",
     },
     {
       title: "Minium Order Price",
-      dataIndex: "Minium Order Price",
-      key: "Minium Order Price",
+      dataIndex: "minOrderPrice",
+      key: "minOrderPrice",
     },
     {
       title: "Opening Time",
-      dataIndex: "Opening Time",
-      key: "Opening Time",
+      dataIndex: "openingTime",
+      key: "openingTime",
+      render: (date: Date) => {
+        return formatTime(date);
+      },
     },
     {
       title: "Closing Time",
-      dataIndex: "Closing Time",
-      key: "Closing Time",
+      dataIndex: "closingTime",
+      key: "closingTime",
+      render: (date: Date) => {
+        return formatTime(date);
+      },
     },
     {
       title: "City",
@@ -91,15 +122,37 @@ export default function Kitchens() {
       title: "vegan",
       dataIndex: "vegan",
       key: "vegan",
+      render: (vegan: boolean) => {
+        let text, color;
+        if (vegan) {
+          text = "Yes";
+          color = "green";
+        } else {
+          text = "No";
+          color = "red";
+        }
+        return <Tag color={color}>{text}</Tag>;
+      },
     },
     {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
+      title: "Active",
+      dataIndex: "active",
+      key: "active",
+      render: (active: boolean) => {
+        let text, color;
+        if (active) {
+          text = "Active";
+          color = "green";
+        } else {
+          text = "Inactive";
+          color = "red";
+        }
+        return <Tag color={color}>{text}</Tag>;
+      },
     },
   ];
   return (
-    <div>
+    <Styles.Container>
       <ReTable
         header={{
           title: "Kitchens",
@@ -118,15 +171,39 @@ export default function Kitchens() {
         columns={columns}
         loading={tableLoading}
         scroll={{
-          x: 300,
+          x: 2200,
           y: 300,
         }}
         columnOptions={{
           sorting: {
-            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Opening Time","Closing Time","vegan","City", "status", "city"],
+            columnsKeys: [
+              "email",
+              "name",
+              "address",
+              "Phone",
+              "Minium Order Price",
+              "Opening Time",
+              "Closing Time",
+              "vegan",
+              "City",
+              "status",
+              "city",
+            ],
           },
           filter: {
-            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Opening Time","Closing Time","vegan","City", "status", "city"],
+            columnsKeys: [
+              "email",
+              "name",
+              "address",
+              "Phone",
+              "Minium Order Price",
+              "Opening Time",
+              "Closing Time",
+              "vegan",
+              "City",
+              "status",
+              "city",
+            ],
           },
         }}
       />
@@ -136,6 +213,6 @@ export default function Kitchens() {
         type={drawerType}
         selectedKitchenData={selectedKitchen}
       />
-    </div>
+    </Styles.Container>
   );
 }

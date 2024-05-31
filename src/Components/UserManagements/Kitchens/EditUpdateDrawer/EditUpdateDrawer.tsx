@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import * as Styles from "./EditUpdateDrawerStyle";
 import ReForm from "../../../../reusable-antd-components/ReForm";
 import ReInput from "../../../../reusable-antd-components/ReFormFields/ReInput";
@@ -10,6 +10,9 @@ import { kitchen } from "../../../../Apis/Kitchen";
 import ReCheckBox from "../../../../reusable-antd-components/ReFormFields/ReCheckbox";
 import ReTimepicker from "../../../../reusable-antd-components/ReFormFields/ReTimepicker";
 import ReRadioGroup from "../../../../reusable-antd-components/ReFormFields/ReRadioGroup";
+import moment from "moment";
+import ReSelect from "../../../../reusable-antd-components/ReFormFields/ReSelect";
+import { mpCities } from "../../../../Configs/MadhyaPradeshCities";
 
 export default function EditUpdateDrawer(props: IComponentProps) {
   const [form] = Form.useForm();
@@ -23,13 +26,21 @@ export default function EditUpdateDrawer(props: IComponentProps) {
     if (type === "create") {
       res = await kitchen.create(values);
     } else {
-      // update api is coming soon
+      res = await kitchen.update(selectedKitchenData?._id, values);
     }
+    setVisibility(false);
   }
 
   useEffect(() => {
     if (type === "update") {
-      form.setFieldsValue(selectedKitchenData);
+      const newData = {
+        ...selectedKitchenData,
+        availability: [
+          moment(selectedKitchenData?.openingTime),
+          moment(selectedKitchenData?.closingTime),
+        ],
+      };
+      form.setFieldsValue(newData);
     } else {
       form.resetFields();
     }
@@ -43,7 +54,7 @@ export default function EditUpdateDrawer(props: IComponentProps) {
         onCancel={() => {
           setVisibility(false);
         }}
-        width={400}
+        width={600}
         closable={true}
         extraContent={
           <Button
@@ -110,7 +121,18 @@ export default function EditUpdateDrawer(props: IComponentProps) {
             format="HH:mm a"
             required
           />
-          <ReInput label="City" name="city" type="simple" required />
+          <ReSelect
+            label="City"
+            name="city"
+            required
+            searchable
+            items={mpCities.map((city: string) => {
+              return {
+                title: city,
+                value: city,
+              };
+            })}
+          />
 
           <ReRadioGroup
             label=""
@@ -121,7 +143,7 @@ export default function EditUpdateDrawer(props: IComponentProps) {
               { title: "Not Vegan", value: false },
             ]}
           />
-          <ReCheckBox label="Status" name="status" />
+          <ReCheckBox label="Active" name="active" />
         </ReForm>
       </ReDrawer>
     </Styles.Container>

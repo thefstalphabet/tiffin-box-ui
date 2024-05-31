@@ -27,10 +27,10 @@ export class MakeRequest {
                     res = await this.makeGetRequest(apiUrl, payload)
                     break;
                 case "delete":
-                    res = await this.makeDeleteRequest(apiUrl)
+                    res = await this.makeDeleteRequest(apiUrl, payload)
                     break;
                 case "patch":
-                    res = await this.makePatchRequest(apiUrl)
+                    res = await this.makePatchRequest(apiUrl, payload)
                     break;
                 default:
                     break;
@@ -70,14 +70,30 @@ export class MakeRequest {
                 .join('&');
             apiUrl = `${apiUrl}?${query}`
         }
-        
+
         return await fetch(apiUrl, {
             method: "GET",
             headers: headers,
         })
     }
 
-    async makeDeleteRequest(apiUrl: string) { }
+    async makeDeleteRequest(apiUrl: string, payload: string) {
+        const headers = await this.getRequestHeader()
+        apiUrl = `${apiUrl}?${payload}`
+        return await fetch(apiUrl, {
+            method: "DELETE",
+            headers: headers,
+        })
+    }
 
-    async makePatchRequest(apiUrl: string) { }
+    async makePatchRequest(apiUrl: string, payload: any) {
+        const headers = await this.getRequestHeader()
+        return await fetch(apiUrl, {
+            method: "PATCH",
+            headers: headers,
+            body: JSON.stringify(payload)
+        })
+    }
+
+
 }
