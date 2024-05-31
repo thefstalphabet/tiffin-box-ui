@@ -2,7 +2,7 @@ import { jwtDecode } from "jwt-decode";
 import { MakeRequest } from "./MakeRequest";
 import { ReNotification } from "../reusable-antd-components/ReNotification";
 import { auth } from "./Auth";
-import { ApiUrl } from "../Configs/ApiConfig";
+import { getApiUrl } from "../Configs/ApiConfig";
 
 class Token extends MakeRequest {
 
@@ -41,7 +41,7 @@ class Token extends MakeRequest {
             if (isExpired) {
                 const refreshToken = sessionStorage.getItem("refreshToken")
                 if (refreshToken) {
-                    const apiUrl = `${ApiUrl}/auth/refresh-token`
+                    const apiUrl = `${getApiUrl()}/auth/refresh-token`
                     const res = await this.makePostRequest(apiUrl, { refreshToken: refreshToken })
                     const data = await res.json()
                     if (data?.accessToken) {

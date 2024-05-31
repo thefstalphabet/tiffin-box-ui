@@ -1,4 +1,4 @@
-import { ApiUrl } from "../Configs/ApiConfig";
+import { getApiUrl } from "../Configs/ApiConfig";
 import { ReNotification } from "../reusable-antd-components/ReNotification";
 
 export class MakeRequest {
@@ -16,7 +16,7 @@ export class MakeRequest {
     }
 
     async makeApiRequest(requestType: "post" | "get" | "patch" | "delete", endPoint?: string, payload?: any) {
-        const apiUrl = `${ApiUrl}/${this.path}/${endPoint ? endPoint : ""}`
+        const apiUrl = `${getApiUrl()}/${this.path}/${endPoint ? endPoint : ""}`
         let res;
         try {
             switch (requestType) {
