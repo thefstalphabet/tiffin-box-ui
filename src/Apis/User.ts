@@ -13,6 +13,9 @@ class User extends MakeRequest {
     async delete(id: string) {
         return this.makeApiRequest("delete", id)
     }
+    async update(id: string, payload: any) {
+        return this.makeApiRequest("patch", `${id}`, payload);
+    }
 }
 
 export const user = new User("user")

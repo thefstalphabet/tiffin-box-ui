@@ -1,26 +1,43 @@
 import React, { useState, useEffect } from "react";
 import * as Styles from "./UsersStyle";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
-import ReDrawer from "../../../reusable-antd-components/ReDrawer";
 import EditUpdateDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { user } from "../../../Apis/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { Popconfirm, Space, Tag } from "antd";
+import { deleteUser,setUsers} from "../../../Redux/Slices/UserManagementSlices";
+import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
+import { ReNotification } from "../../../reusable-antd-components/ReNotification";
 export default function Users() {
+  const dispatch = useAppDispatch();
+  const { users } = useAppSelector((store) => store.userManagement);
   const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
   const [drawerType, setDrawerType] = useState<TDrawerType>("create");
-  const [users, setUsers] = useState<any>([]);
   const [selectedUsers, setSelectedUsers] = useState<any>({});
   const [tableLoading, setTableLoading] = useState<boolean>(false);
 
   async function fetchUserData() {
     setTableLoading(true);
     const Users = await user.findAll();
-    setUsers(Users);
+    dispatch(setUsers(Users));
     setTableLoading(false);
   }
 
+  async function handleUsersDelete(id: string) {
+    const res = await user.delete(id);
+    if (res) {
+      dispatch(deleteUser(id));
+      return ReNotification({
+        header: "User Management Say's",
+        description: "User Deleted Sucessfully",
+        duration: 2,
+        placement: "topRight",
+        type: "success",
+      });
+    }
+  }
   useEffect(() => {
     fetchUserData();
   }, []);
@@ -28,18 +45,31 @@ export default function Users() {
   const columns = [
     {
       key: "",
-      width: 40,
+      width: 60,
       render: (data: any) => {
         return (
+          <Space>
           <FontAwesomeIcon
             icon={faPenToSquare}
-            style={{ cursor: "pointer" }}
+            className="icon"
             onClick={() => {
               setDrawerVisible(true);
               setDrawerType("update");
               setSelectedUsers(data);
             }}
           />
+           <Popconfirm
+              title="Delete the User"
+              description="Are you sure to delete this User?"
+              onConfirm={() => {
+                handleUsersDelete(data?._id);
+              }}
+              okText="Yes"
+              cancelText="No"
+            >
+              <FontAwesomeIcon icon={faTrashCan} className="icon" />
+            </Popconfirm>
+          </Space>
         );
       },
     },
@@ -54,34 +84,14 @@ export default function Users() {
       key: "email",
     },
     {
-      title: "Password",
-      dataIndex: "password",
-      key: "password",
-    },
-    {
       title: "Address",
       dataIndex: "address",
       key: "address",
     },
     {
       title: "Phone",
-      dataIndex: "phone",
-      key: "phone",
-    },
-    {
-      title: "Minium Order Price",
-      dataIndex: "Minium Order Price",
-      key: "Minium Order Price",
-    },
-    {
-      title: "Opening Time",
-      dataIndex: "Opening Time",
-      key: "Opening Time",
-    },
-    {
-      title: "Closing Time",
-      dataIndex: "Closing Time",
-      key: "Closing Time",
+      dataIndex: "phoneNumber",
+      key: "phoneNumber",
     },
     {
       title: "City",
@@ -89,18 +99,24 @@ export default function Users() {
       key: "city",
     },
     {
-      title: "vegan",
-      dataIndex: "vegan",
-      key: "vegan",
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
+      title: "Active",
+      dataIndex: "active",
+      key: "active",
+      render: (active: boolean) => {
+        let text, color;
+        if (active) {
+          text = "Active";
+          color = "green";
+        } else {
+          text = "Inactive";
+          color = "red";
+        }
+        return <Tag color={color}>{text}</Tag>;
+      },
     },
   ];
   return (
-    <div>
+    <Styles.Container>
       <ReTable
         header={{
           title: "Users",
@@ -119,15 +135,17 @@ export default function Users() {
         columns={columns}
         loading={tableLoading}
         scroll={{
-          x: 300,
+          x: 2200,
           y: 300,
         }}
         columnOptions={{
           sorting: {
-            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Opening Time","Closing Time","vegan","City", "status", "city"],
+            columnsKeys: ["email", "name", "address",
+            "phoneNumber","city","active"],
           },
           filter: {
-            columnsKeys: ["email", "name","Password", "address","Phone","Minium Order Price","Opening Time","Closing Time","vegan","City", "status", "city"],
+            columnsKeys: ["email", "name", "address",
+            "phoneNumber","city","active"],
           },
         }}
       />
@@ -137,6 +155,6 @@ export default function Users() {
         type={drawerType}
         selectedKitchenData={selectedUsers}
       />
-    </div>
+    </Styles.Container>
   );
 }

@@ -55,7 +55,7 @@ const UserManagementSlices = createSlice({
             const newUsersData = state.users.filter(
                 (user: any) => user._id !== action.payload
             );
-            state.kitchens = newUsersData
+            state.users = newUsersData
         },
     },
 })
