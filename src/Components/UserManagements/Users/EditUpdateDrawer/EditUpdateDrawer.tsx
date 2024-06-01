@@ -53,7 +53,7 @@ export default function EditUpdateDrawer(props: IComponentProps) {
         onCancel={() => {
           setVisibility(false);
         }}
-        width={400}
+        width={600}
         closable={true}
         extraContent={
           <Button
