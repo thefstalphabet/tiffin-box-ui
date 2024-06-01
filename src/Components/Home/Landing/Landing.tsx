@@ -1,7 +1,5 @@
 import * as Styles from "./LandingStyle";
 import { appName } from "../../../Configs/GlobalText";
-import TopKitchens from "../TopKitchens/TopKitchens";
-import Footer from "../../Footer/Footer";
 import { kitchen as kitchenImage } from "../../../Assets";
 import ReSearchbar from "../../../reusable-antd-components/ReSearchbar";
 import { kitchen } from "../../../Apis/Kitchen";
@@ -52,8 +50,6 @@ export default function Landing() {
           <img style={{ width: "28vw" }} src={kitchenImage} alt="Banner" />
         </Styles.Image>
       </Styles.Container>
-      <TopKitchens />
-      <Footer />
     </Styles.MainContainer>
   );
 }
