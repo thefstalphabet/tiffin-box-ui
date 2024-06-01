@@ -8,9 +8,14 @@ import { capitalizeFirstLetter } from "../../../../Helper/Methods";
 import { IComponentProps } from "../../../../Interfaces/Components/EditUpdateDrawer.interface";
 import ReCheckBox from "../../../../reusable-antd-components/ReFormFields/ReCheckbox";
 import { useAppDispatch } from "../../../../Redux/Hooks";
-import { addUser, updateUser } from "../../../../Redux/Slices/UserManagementSlices";
+import {
+  addUser,
+  updateUser,
+} from "../../../../Redux/Slices/UserManagementSlices";
 import { ReNotification } from "../../../../reusable-antd-components/ReNotification";
 import { user } from "../../../../Apis/User";
+import { mpCities } from "../../../../Configs/MadhyaPradeshCities";
+import ReSelect from "../../../../reusable-antd-components/ReFormFields/ReSelect";
 
 export default function EditUpdateDrawer(props: IComponentProps) {
   const dispatch = useAppDispatch();
@@ -106,11 +111,17 @@ export default function EditUpdateDrawer(props: IComponentProps) {
             type="number"
             required
           />
-          <ReInput
+          <ReSelect
             label="City"
             name="city"
-            type="simple"
             required
+            searchable
+            items={mpCities.map((city: string) => {
+              return {
+                title: city,
+                value: city,
+              };
+            })}
           />
           <ReCheckBox label="Active" name="active" />
         </ReForm>

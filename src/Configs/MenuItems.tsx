@@ -5,11 +5,13 @@ import {
   faAddressCard,
   faFireBurner,
   faUsers,
-  faHouse
+  faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import { IReMenuItems } from "../reusable-antd-components/Interfaces/ReComponents.interface";
+import { auth } from "../Apis/Auth";
+import { filterProtectedMenuItems } from "../Helper/Methods";
 
-export const menuItems: Array<IReMenuItems> = [
+const items: Array<IReMenuItems> = [
   {
     key: "1",
     label: "Home",
@@ -21,6 +23,7 @@ export const menuItems: Array<IReMenuItems> = [
     label: "Profile",
     icon: <FontAwesomeIcon icon={faUser} />,
     path: "/profile",
+    protected: true,
   },
   {
     key: "3",
@@ -51,13 +54,17 @@ export const menuItems: Array<IReMenuItems> = [
         label: "Users",
         icon: <FontAwesomeIcon icon={faUser} />,
         path: "/user-managements/users",
+        protected: true,
       },
       {
         key: "8",
         label: "Kitchens",
         icon: <FontAwesomeIcon icon={faFireBurner} />,
         path: "/user-managements/kitchens",
+        protected: true,
       },
     ],
   },
 ];
+
+export const menuItems = filterProtectedMenuItems(items, auth.isUserLoggedIn())

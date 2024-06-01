@@ -10,8 +10,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { mpCities } from "../../../Configs/MadhyaPradeshCities";
 import { useState } from "react";
+import { auth } from "../../../Apis/Auth";
+import { useAppSelector } from "../../../Redux/Hooks";
 export default function Landing() {
-  const [selectedCity, setSelectedCity] = useState<string>("jabalpur");
+  const { data } = useAppSelector((store) => store.user);
+  const [selectedCity, setSelectedCity] = useState<string>();
+
   async function handleSearchbarSubmit(searchTerm: string) {
     const res = await kitchen.findAll({ name: searchTerm, city: selectedCity });
     console.log(res);
@@ -23,13 +27,17 @@ export default function Landing() {
         <Styles.Content>
           <div className="taglines">
             <h1>{appName}</h1>
-            <p>Discover the best tiffin food service in your city</p>
+            <p>
+              Discover the Best Tiffin Food Service in
+              {auth.isUserLoggedIn() ? ` ${data?.city}` : " your city"}
+            </p>
           </div>
           <Space.Compact className="search-bar">
             <Select
               onSelect={(value: string) => setSelectedCity(value)}
               suffixIcon={<FontAwesomeIcon icon={faAngleDown} />}
               defaultValue={selectedCity}
+              placeholder="Select City"
               size="large"
               showSearch
               options={mpCities.map((city: string) => {

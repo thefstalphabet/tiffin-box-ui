@@ -135,7 +135,7 @@ export default function Users() {
         columns={columns}
         loading={tableLoading}
         scroll={{
-          x: 2200,
+          x: 1500,
           y: 300,
         }}
         columnOptions={{

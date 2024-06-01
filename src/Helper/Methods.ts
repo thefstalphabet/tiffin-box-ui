@@ -1,3 +1,5 @@
+import { IReMenuItems } from "../reusable-antd-components/Interfaces/ReComponents.interface";
+
 export function capitalizeFirstLetter(word: string) {
     if (!word) return '';
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -14,13 +16,28 @@ export function generateRandomColor() {
 
 export function formatTime(date: Date): string {
     date = new Date(date)
-
     let hours: number = date.getHours();
     let minutes: number = date.getMinutes();
     let seconds: number = date.getSeconds();
-
     let minutesStr: string = minutes < 10 ? '0' + minutes : minutes.toString();
     let secondsStr: string = seconds < 10 ? '0' + seconds : seconds.toString();
-
     return `${hours}:${minutesStr}:${secondsStr}`;
 }
+
+export const filterProtectedMenuItems = (items: Array<IReMenuItems>, auth: any): Array<IReMenuItems> => {
+    if (auth) {
+        return items
+    }
+    return items.filter(item => {
+        if (item.protected) {
+            return false;
+        }
+        if (item.children) {
+            item.children = filterProtectedMenuItems(item.children, auth);
+            if (item.children.length === 0) {
+                return false;
+            }
+        }
+        return true;
+    });
+};
