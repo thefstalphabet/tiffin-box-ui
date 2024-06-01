@@ -10,10 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { mpCities } from "../../../Configs/MadhyaPradeshCities";
 import { useState } from "react";
-import { auth } from "../../../Apis/Auth";
-import { useAppSelector } from "../../../Redux/Hooks";
 export default function Landing() {
-  const { data } = useAppSelector((store) => store.user);
   const [selectedCity, setSelectedCity] = useState<string>();
 
   async function handleSearchbarSubmit(searchTerm: string) {
@@ -27,10 +24,7 @@ export default function Landing() {
         <Styles.Content>
           <div className="taglines">
             <h1>{appName}</h1>
-            <p>
-              Discover the Best Tiffin Food Service in
-              {auth.isUserLoggedIn() ? ` ${data?.city}` : " your city"}
-            </p>
+            <p>Discover the Best Tiffin Food Service in your City</p>
           </div>
           <Space.Compact className="search-bar">
             <Select
