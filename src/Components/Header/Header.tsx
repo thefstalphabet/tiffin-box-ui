@@ -7,7 +7,7 @@ import {
   faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { menuItems } from "../../Configs/MenuItems";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import {
   setActiveItemKey,

@@ -1,3 +1,4 @@
+import { auth } from "../Apis/Auth";
 import { IRoutes } from "../Interfaces/Configs/Routes.interface";
 import {
   Home,
@@ -12,7 +13,8 @@ import {
   UserManagement,
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
-export const routes: Array<IRoutes> = [
+
+const items: Array<IRoutes> = [
   {
     path: "/",
     element: <Home />,
@@ -36,6 +38,7 @@ export const routes: Array<IRoutes> = [
     element: <Profile />,
     header: true,
     sideMenu: true,
+    protected: true,
   },
   {
     path: "/be-a-kitchen",
@@ -64,15 +67,27 @@ export const routes: Array<IRoutes> = [
     header: true,
     sideMenu: true,
     element: <>Dashboard</>,
+    protected: true,
   },
   {
     path: "/user-managements/:type",
     header: true,
     sideMenu: true,
     element: <UserManagement />,
+    protected: true,
   },
   {
     path: "/testing",
     element: <Testing />,
   },
 ];
+
+function filterRoutes(routes: IRoutes[]) {
+  if (!auth.isUserLoggedIn()) {
+    return routes.filter((route: IRoutes) => !route?.protected);
+  } else {
+    return routes;
+  }
+}
+
+export const routes = filterRoutes(items);
