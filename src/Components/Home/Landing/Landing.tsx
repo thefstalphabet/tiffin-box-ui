@@ -1,7 +1,5 @@
 import * as Styles from "./LandingStyle";
 import { appName } from "../../../Configs/GlobalText";
-import TopKitchens from "../TopKitchens/TopKitchens";
-import Footer from "../../Footer/Footer";
 import { kitchen as kitchenImage } from "../../../Assets";
 import ReSearchbar from "../../../reusable-antd-components/ReSearchbar";
 import { kitchen } from "../../../Apis/Kitchen";
@@ -10,10 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { mpCities } from "../../../Configs/MadhyaPradeshCities";
 import { useState } from "react";
-import { auth } from "../../../Apis/Auth";
-import { useAppSelector } from "../../../Redux/Hooks";
 export default function Landing() {
-  const { data } = useAppSelector((store) => store.user);
   const [selectedCity, setSelectedCity] = useState<string>();
 
   async function handleSearchbarSubmit(searchTerm: string) {
@@ -27,10 +22,7 @@ export default function Landing() {
         <Styles.Content>
           <div className="taglines">
             <h1>{appName}</h1>
-            <p>
-              Discover the Best Tiffin Food Service in
-              {auth.isUserLoggedIn() ? ` ${data?.city}` : " your city"}
-            </p>
+            <p>Discover the Best Tiffin Food Service in your City</p>
           </div>
           <Space.Compact className="search-bar">
             <Select
@@ -58,8 +50,6 @@ export default function Landing() {
           <img style={{ width: "28vw" }} src={kitchenImage} alt="Banner" />
         </Styles.Image>
       </Styles.Container>
-      <TopKitchens />
-      <Footer />
     </Styles.MainContainer>
   );
 }

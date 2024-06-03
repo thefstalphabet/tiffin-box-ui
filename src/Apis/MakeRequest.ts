@@ -8,11 +8,15 @@ export class MakeRequest {
     }
 
     async getRequestHeader() {
-        return {
+        const accessToken = sessionStorage.getItem("accessToken")
+        let headers: any = {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer token`
         }
+        if (accessToken) {
+            headers["Authorization"] = `Bearer ${accessToken}`
+        }
+        return headers
     }
 
     async makeApiRequest(requestType: "post" | "get" | "patch" | "delete", endPoint?: string, payload?: any) {
@@ -53,7 +57,7 @@ export class MakeRequest {
     }
 
     async makePostRequest(apiUrl: string, payload: any) {
-        const headers = await this.getRequestHeader()
+        const headers = await this.getRequestHeader();
         return await fetch(apiUrl, {
             method: "POST",
             headers: headers,

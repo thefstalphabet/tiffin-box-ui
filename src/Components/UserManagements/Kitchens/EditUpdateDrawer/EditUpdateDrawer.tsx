@@ -10,7 +10,6 @@ import { kitchen } from "../../../../Apis/Kitchen";
 import ReCheckBox from "../../../../reusable-antd-components/ReFormFields/ReCheckbox";
 import ReTimepicker from "../../../../reusable-antd-components/ReFormFields/ReTimepicker";
 import ReRadioGroup from "../../../../reusable-antd-components/ReFormFields/ReRadioGroup";
-import moment from "moment";
 import ReSelect from "../../../../reusable-antd-components/ReFormFields/ReSelect";
 import { mpCities } from "../../../../Configs/MadhyaPradeshCities";
 import { useAppDispatch } from "../../../../Redux/Hooks";
@@ -19,23 +18,24 @@ import {
   updateKitchen,
 } from "../../../../Redux/Slices/UserManagementSlices";
 import { ReNotification } from "../../../../reusable-antd-components/ReNotification";
+import dayjs from "dayjs";
 
 export default function EditUpdateDrawer(props: IComponentProps) {
   const dispatch = useAppDispatch();
   const [form] = Form.useForm();
-  const { visibility, setVisibility, type, selectedKitchenData } = props;
+  const { visibility, setVisibility, type, selectedRecordData } = props;
 
   async function handleFormSubmit(values: any) {
-    values["openingTime"] = values?.availability[0].$d;
-    values["closingTime"] = values?.availability[1].$d;
+    values["openingTime"] = values?.availability[0];
+    values["closingTime"] = values?.availability[1];
     delete values?.availability;
     if (type === "create") {
       const res = await kitchen.create(values);
       dispatch(addKitchen(res));
     } else {
-      await kitchen.update(selectedKitchenData?._id, values);
+      await kitchen.update(selectedRecordData?._id, values);
       dispatch(
-        updateKitchen({ id: selectedKitchenData?._id, newKitchenData: values })
+        updateKitchen({ id: selectedRecordData?._id, newKitchenData: values })
       );
     }
     ReNotification({
@@ -51,10 +51,10 @@ export default function EditUpdateDrawer(props: IComponentProps) {
   useEffect(() => {
     if (type === "update") {
       const newData = {
-        ...selectedKitchenData,
+        ...selectedRecordData,
         availability: [
-          moment(selectedKitchenData?.openingTime),
-          moment(selectedKitchenData?.closingTime),
+          dayjs(selectedRecordData?.openingTime),
+          dayjs(selectedRecordData?.closingTime),
         ],
       };
       form.setFieldsValue(newData);
