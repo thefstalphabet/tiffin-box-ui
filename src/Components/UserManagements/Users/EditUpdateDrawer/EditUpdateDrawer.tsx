@@ -16,20 +16,22 @@ import { ReNotification } from "../../../../reusable-antd-components/ReNotificat
 import { user } from "../../../../Apis/User";
 import { mpCities } from "../../../../Configs/MadhyaPradeshCities";
 import ReSelect from "../../../../reusable-antd-components/ReFormFields/ReSelect";
+import ReDatePicker from "../../../../reusable-antd-components/ReFormFields/ReDatePicker";
+import dayjs from "dayjs";
 
 export default function EditUpdateDrawer(props: IComponentProps) {
   const dispatch = useAppDispatch();
   const [form] = Form.useForm();
-  const { visibility, setVisibility, type, selectedKitchenData } = props;
+  const { visibility, setVisibility, type, selectedRecordData } = props;
 
   async function handleFormSubmit(values: any) {
     if (type === "create") {
       const res = await user.create(values);
       dispatch(addUser(res));
     } else {
-      await user.update(selectedKitchenData?._id, values);
+      await user.update(selectedRecordData?._id, values);
       dispatch(
-        updateUser({ id: selectedKitchenData?._id, newUserData: values })
+        updateUser({ id: selectedRecordData?._id, newUserData: values })
       );
     }
     ReNotification({
@@ -42,9 +44,16 @@ export default function EditUpdateDrawer(props: IComponentProps) {
     setVisibility(false);
   }
 
+  
+  console.log(form.getFieldsValue());
+  
   useEffect(() => {
     if (type === "update") {
-      form.setFieldsValue(selectedKitchenData);
+      const newData = {
+        ...selectedRecordData,
+        dateOfBirth: dayjs(selectedRecordData?.dateOfBirth),
+      };
+      form.setFieldsValue(newData);
     } else {
       form.resetFields();
     }
@@ -104,6 +113,12 @@ export default function EditUpdateDrawer(props: IComponentProps) {
             name="address"
             type="simple"
             required
+          />
+          <ReDatePicker
+            label="Date of Birth"
+            name="dateOfBirth"
+            required
+            disableUpcomingDates
           />
           <ReInput
             label="Phone Number"

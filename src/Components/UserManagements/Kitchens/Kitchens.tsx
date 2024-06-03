@@ -217,7 +217,7 @@ export default function Kitchens() {
         visibility={drawerVisible}
         setVisibility={setDrawerVisible}
         type={drawerType}
-        selectedKitchenData={selectedKitchen}
+        selectedRecordData={selectedKitchen}
       />
     </Styles.Container>
   );

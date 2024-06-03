@@ -2,7 +2,7 @@ export interface IComponentProps {
     visibility: boolean;
     setVisibility: Function;
     type: TDrawerType;
-    selectedKitchenData: any
+    selectedRecordData: any
 }
 
 export type TDrawerType = "create" | "update"

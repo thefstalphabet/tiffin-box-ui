@@ -153,7 +153,7 @@ export default function Users() {
         visibility={drawerVisible}
         setVisibility={setDrawerVisible}
         type={drawerType}
-        selectedKitchenData={selectedUsers}
+        selectedRecordData={selectedUsers}
       />
     </Styles.Container>
   );

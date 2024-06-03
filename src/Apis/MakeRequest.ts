@@ -58,8 +58,6 @@ export class MakeRequest {
 
     async makePostRequest(apiUrl: string, payload: any) {
         const headers = await this.getRequestHeader();
-        console.log(headers);
-
         return await fetch(apiUrl, {
             method: "POST",
             headers: headers,
