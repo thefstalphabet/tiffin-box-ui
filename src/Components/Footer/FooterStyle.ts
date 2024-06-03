@@ -4,15 +4,12 @@ export const Container = styled.div`
   gap: 1rem;
   .sub_container {
     padding: 2rem;
-  }
-  .footer_text {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
     p {
       font-size: 15px;
       font-weight: 500;
       color: white;
+      text-align: center;
+      margin-top: 1rem;
     }
   }
 `;

@@ -4,19 +4,19 @@ export const HomeCardItem: Array<IHomeCardItem> = [
   {
     key: "sub1",
     img: homeImg,
-    title: "Order online",
+    title: "Order Online",
     description: "Stay home and order to your doostep",
   },
   {
     key: "sub2",
     img: homeImg,
     title: "Dinning",
-    description: "view the city favourite venue",
+    description: "View the city favourite venue",
   },
   {
     key: "sub3",
     img: homeImg,
-    title: "night life and clubs",
+    title: "Night Life and Clubs",
     description: "Explore the city night life outlet",
   },
 ];

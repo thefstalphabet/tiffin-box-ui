@@ -11,7 +11,6 @@ export default function ReasonToStart() {
           const {icon,desc,heading,key} = item
           return (
             <div className="item" key={key}>
-              {/* <FontAwesomeIcon icon={item.icon} size="3x" /> */}
               <img src={icon} alt="reason image" className="reason-img" />
               <div className="content">
                 <h2>{heading}</h2>

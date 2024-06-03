@@ -31,6 +31,9 @@ export const ItemCard = styled.div`
     .reason-img {
       height: 20vh;
       width: 10vw;
+      @media screen and (max-width: 720px) {
+        width: 30vw;
+      }
     }
   }
   @media screen and (min-width: 100px) {

@@ -13,7 +13,7 @@ export default function Footer() {
             const { key, icon } = item;
             return <div key={key}>{icon}</div>;
           })}
-        </Styles.SocialMedia>{" "}
+        </Styles.SocialMedia>
         <Styles.MenuItems>
           {menuItems.map((item: IReMenuItems) => {
             const { label, key, path } = item;
@@ -23,9 +23,7 @@ export default function Footer() {
               </Link>
             );
           })}
-        </Styles.MenuItems>{" "}
-      </div>
-      <div className="footer_text">
+        </Styles.MenuItems>
         <p>Copyright@2024 all right reserved</p>
       </div>
     </Styles.Container>
