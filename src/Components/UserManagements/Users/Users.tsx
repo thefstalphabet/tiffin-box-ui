@@ -5,7 +5,11 @@ import EditUpdateDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { user } from "../../../Apis/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMinus,
+  faPenToSquare,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import { Popconfirm, Space, Tag } from "antd";
 import {
   deleteUser,
@@ -90,21 +94,29 @@ export default function Users() {
       title: "Address",
       dataIndex: "address",
       key: "address",
+      render: (name: string) =>
+        name ? name : <FontAwesomeIcon icon={faMinus} />,
     },
     {
       title: "Phone",
       dataIndex: "phoneNumber",
       key: "phoneNumber",
+      render: (name: string) =>
+        name ? name : <FontAwesomeIcon icon={faMinus} />,
     },
     {
       title: "City",
       dataIndex: "city",
       key: "city",
+      render: (name: string) =>
+        name ? name : <FontAwesomeIcon icon={faMinus} />,
     },
     {
       title: "Date of Birth",
       dataIndex: "dateOfBirth",
       key: "dateOfBirth",
+      render: (name: string) =>
+        name ? name : <FontAwesomeIcon icon={faMinus} />,
     },
     {
       title: "Active",

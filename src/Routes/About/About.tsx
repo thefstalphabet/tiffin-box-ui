@@ -1,10 +1,8 @@
 import React from 'react'
 import * as Styles from "./AboutStyle";
-import { UnderConstraction } from '../../Assets';
+import { UnderConstraction } from '../../Components';
 export default function About() {
   return (
-    <Styles.Container>
-    <img src={UnderConstraction} alt="Under Constraction"/>
-  </Styles.Container>
+    <UnderConstraction/>
   )
 }

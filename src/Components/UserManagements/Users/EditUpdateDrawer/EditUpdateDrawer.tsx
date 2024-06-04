@@ -44,9 +44,8 @@ export default function EditUpdateDrawer(props: IComponentProps) {
     setVisibility(false);
   }
 
-  
   console.log(form.getFieldsValue());
-  
+
   useEffect(() => {
     if (type === "update") {
       const newData = {
@@ -58,6 +57,7 @@ export default function EditUpdateDrawer(props: IComponentProps) {
       form.resetFields();
     }
   }, [type]);
+
 
   return (
     <Styles.Container>
@@ -112,24 +112,16 @@ export default function EditUpdateDrawer(props: IComponentProps) {
             placeholder="Enter your address"
             name="address"
             type="simple"
-            required
           />
           <ReDatePicker
             label="Date of Birth"
             name="dateOfBirth"
-            required
             disableUpcomingDates
           />
-          <ReInput
-            label="Phone Number"
-            name="phoneNumber"
-            type="number"
-            required
-          />
+          <ReInput label="Phone Number" name="phoneNumber" type="number" />
           <ReSelect
             label="City"
             name="city"
-            required
             searchable
             items={mpCities.map((city: string) => {
               return {
