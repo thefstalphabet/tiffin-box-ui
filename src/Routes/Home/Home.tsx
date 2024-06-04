@@ -1,9 +1,9 @@
-import { Footer, SearchKitchen, TopKitchens } from "../../Components";
+import { Footer,SearchKitchens, TopKitchens } from "../../Components";
 import * as Styles from "./HomeStyle";
 export default function Home() {
   return (
     <Styles.Container>
-      <SearchKitchen />
+      <SearchKitchens />
       <TopKitchens />
       <Footer />
     </Styles.Container>

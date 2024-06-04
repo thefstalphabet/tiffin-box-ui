@@ -9,6 +9,7 @@ import reason from "../Assets/Images/reason.jpg";
 import Increased from "../Assets/Images/Increased.jpg";
 import AdditionalRevenue from "../Assets/Images/AdditionalRevenue.jpg";
 import Custumer from "../Assets/Images/Custumer.jpg";
+import UnderConstraction from "../Assets/Images/UnderConstraction.jpg";
 export {
   kitchenImg,
   logo,
@@ -20,5 +21,6 @@ export {
   reason,
   Increased,
   AdditionalRevenue,
-  Custumer
+  Custumer,
+  UnderConstraction
 };

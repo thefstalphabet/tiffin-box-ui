@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   align-self: center;
   width: 100vw;
-  height: 90vh;
+  height: 88vh;
   box-sizing: border-box;
   img {
     max-width: 36%;

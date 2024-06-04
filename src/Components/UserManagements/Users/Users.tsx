@@ -7,7 +7,10 @@ import { user } from "../../../Apis/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { Popconfirm, Space, Tag } from "antd";
-import { deleteUser,setUsers} from "../../../Redux/Slices/UserManagementSlices";
+import {
+  deleteUser,
+  setUsers,
+} from "../../../Redux/Slices/UserManagementSlices";
 import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
 import { ReNotification } from "../../../reusable-antd-components/ReNotification";
 export default function Users() {
@@ -49,16 +52,16 @@ export default function Users() {
       render: (data: any) => {
         return (
           <Space>
-          <FontAwesomeIcon
-            icon={faPenToSquare}
-            className="icon"
-            onClick={() => {
-              setDrawerVisible(true);
-              setDrawerType("update");
-              setSelectedUsers(data);
-            }}
-          />
-           <Popconfirm
+            <FontAwesomeIcon
+              icon={faPenToSquare}
+              className="icon"
+              onClick={() => {
+                setDrawerVisible(true);
+                setDrawerType("update");
+                setSelectedUsers(data);
+              }}
+            />
+            <Popconfirm
               title="Delete the User"
               description="Are you sure to delete this User?"
               onConfirm={() => {
@@ -97,6 +100,11 @@ export default function Users() {
       title: "City",
       dataIndex: "city",
       key: "city",
+    },
+    {
+      title: "Date of Birth",
+      dataIndex: "dateOfBirth",
+      key: "dateOfBirth",
     },
     {
       title: "Active",
@@ -140,12 +148,26 @@ export default function Users() {
         }}
         columnOptions={{
           sorting: {
-            columnsKeys: ["email", "name", "address",
-            "phoneNumber","city","active"],
+            columnsKeys: [
+              "email",
+              "name",
+              "address",
+              "phoneNumber",
+              "city",
+              "dateOfBirth",
+              "active",
+            ],
           },
           filter: {
-            columnsKeys: ["email", "name", "address",
-            "phoneNumber","city","active"],
+            columnsKeys: [
+              "email",
+              "name",
+              "address",
+              "phoneNumber",
+              "city",
+              "dateOfBirth",
+              "active",
+            ],
           },
         }}
       />

@@ -1,7 +1,10 @@
 import React from 'react'
-
+import * as Styles from "./ProfileStyle";
+import { UnderConstraction } from '../../Assets';
 export default function Profile() {
   return (
-    <div>Profile</div>
+    <Styles.Container>
+    <img src={UnderConstraction} alt="Under Constraction"/>
+  </Styles.Container>
   )
 }

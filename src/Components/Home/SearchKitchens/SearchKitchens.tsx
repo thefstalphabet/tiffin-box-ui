@@ -1,4 +1,4 @@
-import * as Styles from "./LandingStyle";
+import * as Styles from "./SearchKitchensStyle";
 import { appName } from "../../../Configs/GlobalText";
 import { kitchen as kitchenImage } from "../../../Assets";
 import ReSearchbar from "../../../reusable-antd-components/ReSearchbar";
@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { mpCities } from "../../../Configs/MadhyaPradeshCities";
 import { useState } from "react";
-export default function Landing() {
+export default function SearchKitchens() {
   const [selectedCity, setSelectedCity] = useState<string>();
 
   async function handleSearchbarSubmit(searchTerm: string) {
