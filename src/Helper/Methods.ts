@@ -24,6 +24,18 @@ export function formatTime(date: Date): string {
     return `${hours}:${minutesStr}:${secondsStr}`;
 }
 
+export function formatDate(date: Date) {
+    date = new Date(date)
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    const formattedDay = day < 10 ? `0${day}` : day;
+    const formattedMonth = month < 10 ? `0${month}` : month;
+
+    return `${formattedDay}-${formattedMonth}-${year}`;
+}
+
 export const filterProtectedMenuItems = (items: Array<IReMenuItems>, auth: any): Array<IReMenuItems> => {
     if (auth) {
         return items

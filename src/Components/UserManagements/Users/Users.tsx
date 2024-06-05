@@ -5,7 +5,10 @@ import EditUpdateDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { user } from "../../../Apis/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPenToSquare,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import { Popconfirm, Space, Tag } from "antd";
 import {
   deleteUser,
@@ -13,6 +16,7 @@ import {
 } from "../../../Redux/Slices/UserManagementSlices";
 import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
 import { ReNotification } from "../../../reusable-antd-components/ReNotification";
+import { formatDate } from "../../../Helper/Methods";
 export default function Users() {
   const dispatch = useAppDispatch();
   const { users } = useAppSelector((store) => store.userManagement);
@@ -90,21 +94,29 @@ export default function Users() {
       title: "Address",
       dataIndex: "address",
       key: "address",
+      render: (address: string) =>
+        address ? address : "-",
     },
     {
       title: "Phone",
       dataIndex: "phoneNumber",
       key: "phoneNumber",
+      render: (phoneNumber: string) =>
+        phoneNumber ? phoneNumber : "-",
     },
     {
       title: "City",
       dataIndex: "city",
       key: "city",
+      render: (city: string) =>
+        city ? city : "-",
     },
     {
       title: "Date of Birth",
       dataIndex: "dateOfBirth",
       key: "dateOfBirth",
+      render: (dob: Date) =>
+        dob ? formatDate(dob) : "-",
     },
     {
       title: "Active",

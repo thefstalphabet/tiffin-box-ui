@@ -10,6 +10,7 @@ import SearchKitchens from "./Home/SearchKitchens/SearchKitchens";
 import TopKitchens from "./Home/TopKitchens/TopKitchens";
 import Users from "./UserManagements/Users/Users";
 import Kitchens from "./UserManagements/Kitchens/Kitchens";
+import UnderConstraction from "./UnderConstraction/UnderConstraction";
 export {
   Header,
   SideMenu,
@@ -23,4 +24,5 @@ export {
   TopKitchens,
   Kitchens,
   Users,
+  UnderConstraction
 };
