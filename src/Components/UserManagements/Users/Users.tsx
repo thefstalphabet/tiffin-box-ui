@@ -17,6 +17,8 @@ import {
 } from "../../../Redux/Slices/UserManagementSlices";
 import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
 import { ReNotification } from "../../../reusable-antd-components/ReNotification";
+import dayjs from "dayjs";
+
 export default function Users() {
   const dispatch = useAppDispatch();
   const { users } = useAppSelector((store) => store.userManagement);
@@ -94,29 +96,33 @@ export default function Users() {
       title: "Address",
       dataIndex: "address",
       key: "address",
-      render: (name: string) =>
-        name ? name : <FontAwesomeIcon icon={faMinus} />,
+      render: (address: string) =>
+        address ? address : <FontAwesomeIcon icon={faMinus} />,
     },
     {
       title: "Phone",
       dataIndex: "phoneNumber",
       key: "phoneNumber",
-      render: (name: string) =>
-        name ? name : <FontAwesomeIcon icon={faMinus} />,
+      render: (phoneNumber: string) =>
+        phoneNumber ? phoneNumber : <FontAwesomeIcon icon={faMinus} />,
     },
     {
       title: "City",
       dataIndex: "city",
       key: "city",
-      render: (name: string) =>
-        name ? name : <FontAwesomeIcon icon={faMinus} />,
+      render: (city: string) =>
+        city ? city : <FontAwesomeIcon icon={faMinus} />,
     },
     {
       title: "Date of Birth",
       dataIndex: "dateOfBirth",
       key: "dateOfBirth",
-      render: (name: string) =>
-        name ? name : <FontAwesomeIcon icon={faMinus} />,
+      render: (dateOfBirth: string) =>
+        dateOfBirth ? (
+          dayjs(dateOfBirth).format("YYYY-MM-DD")
+        ) : (
+          <FontAwesomeIcon icon={faMinus} />
+        ),
     },
     {
       title: "Active",

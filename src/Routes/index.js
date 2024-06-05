@@ -8,6 +8,8 @@ import Login from "./Login/Login";
 import UserSignup from "./UserSignup/UserSignup";
 import KitchenSignup from "./KitchenSignup/KitchenSignup";
 import UserManagement from "./UserManagement/UserManagement";
+import TermsAndCondition from "./TermsAndCondition/TermsAndCondition";
+import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 export {
   Home,
   PageNotFound,
@@ -19,4 +21,6 @@ export {
   UserSignup,
   KitchenSignup,
   UserManagement,
+  TermsAndCondition,
+  PrivacyPolicy
 };

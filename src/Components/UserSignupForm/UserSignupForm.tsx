@@ -6,9 +6,8 @@ import { Button, Form } from "antd";
 import { appName } from "../../Configs/GlobalText";
 import { primaryColor } from "../../Configs/GlobalColour";
 import { user } from "../../Apis/User";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ReNotification } from "../../reusable-antd-components/ReNotification";
-
 export default function UserSignup() {
   const [form] = Form.useForm();
   const navigate = useNavigate();
@@ -56,23 +55,13 @@ export default function UserSignup() {
         <p>
           By continuing the "Sign up" button, you are creating a {appName}
           account, and you agree to {appName}'s
-          <a
-            href="/terms"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: primaryColor }}
-          >
+          <Link to="/terms-and-condition" style={{ color: primaryColor }}>
             Terms and Conditions
-          </a>
+          </Link>
           and
-          <a
-            href="/privacy"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: primaryColor }}
-          >
+          <Link to="/privacy-policy" style={{ color: primaryColor }}>
             Privacy Policy
-          </a>
+          </Link>
         </p>
         <Styles.Action>
           <Button

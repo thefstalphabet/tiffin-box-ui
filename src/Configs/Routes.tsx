@@ -11,6 +11,8 @@ import {
   UserSignup,
   KitchenSignup,
   UserManagement,
+  TermsAndCondition,
+  PrivacyPolicy,
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
 
@@ -79,6 +81,18 @@ const items: Array<IRoutes> = [
   {
     path: "/testing",
     element: <Testing />,
+  },
+  {
+    path: "/terms-and-condition",
+    header: true,
+    sideMenu: true,
+    element: <TermsAndCondition />,
+  },
+  {
+    path: "/privacy-policy",
+    header: true,
+    sideMenu: true,
+    element: <PrivacyPolicy />,
   },
 ];
 
