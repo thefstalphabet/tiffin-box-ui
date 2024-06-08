@@ -11,6 +11,11 @@ import TopKitchens from "./Home/TopKitchens/TopKitchens";
 import Users from "./UserManagements/Users/Users";
 import Kitchens from "./UserManagements/Kitchens/Kitchens";
 import UnderConstraction from "./UnderConstraction/UnderConstraction";
+import ProfileLanding from "./Profile/ProfileLanding";
+import Orders from "./Profile/Orders/Orders";
+import Favourites from "./Profile/Favourites/Favourites";
+import Payments from "./Profile/Payments/Payments";
+import Settings from "./Profile/Settings/Settings";
 export {
   Header,
   SideMenu,
@@ -24,5 +29,10 @@ export {
   TopKitchens,
   Kitchens,
   Users,
-  UnderConstraction
+  UnderConstraction,
+  ProfileLanding,
+  Orders,
+  Favourites,
+  Payments,
+  Settings
 };
