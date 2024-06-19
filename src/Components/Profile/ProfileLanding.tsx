@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faCreditCard, faHeart, faCog } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "antd";
 
-const componentMap: { [key: string]: React.ReactNode } = {
-  orders: <Orders />,
-  payments: <Payments />,
-  favourites: <Favourites />,
-  settings: <Settings />,
-};
+// const componentMap: { [key: string]: React.ReactNode } = {
+//   orders: <Orders />,
+//   payments: <Payments />,
+//   favourites: <Favourites />,
+//   settings: <Settings />,
+// };
 
 const menuItems = [
   {
@@ -76,7 +76,7 @@ export default function ProfileLanding() {
           />
         </div>
         <div className="component-container">
-          {componentMap[selectedComponent]}
+          {/* {componentMap[selectedComponent]} */}
         </div>
       </Styles.MenuContainer>
     </Styles.Container>

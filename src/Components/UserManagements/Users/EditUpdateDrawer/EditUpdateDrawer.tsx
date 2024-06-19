@@ -18,6 +18,7 @@ import { mpCities } from "../../../../Configs/MadhyaPradeshCities";
 import ReSelect from "../../../../reusable-antd-components/ReFormFields/ReSelect";
 import ReDatePicker from "../../../../reusable-antd-components/ReFormFields/ReDatePicker";
 import dayjs from "dayjs";
+import UsersForm from "../UserForm/UsersForm";
 
 export default function EditUpdateDrawer(props: IComponentProps) {
   const dispatch = useAppDispatch();
@@ -44,8 +45,6 @@ export default function EditUpdateDrawer(props: IComponentProps) {
     setVisibility(false);
   }
 
-  console.log(form.getFieldsValue());
-
   useEffect(() => {
     if (type === "update") {
       const newData = {
@@ -57,7 +56,6 @@ export default function EditUpdateDrawer(props: IComponentProps) {
       form.resetFields();
     }
   }, [type]);
-
 
   return (
     <Styles.Container>
@@ -81,57 +79,7 @@ export default function EditUpdateDrawer(props: IComponentProps) {
           </Button>
         }
       >
-        <ReForm
-          formClassName="re-form"
-          formInstance={form}
-          onSubmit={handleFormSubmit}
-        >
-          <ReInput
-            label="Name"
-            placeholder="Enter your name"
-            name="name"
-            type="simple"
-            required
-          />
-          <ReInput
-            label="Email"
-            placeholder="Enter your email"
-            name="email"
-            type="email"
-            required
-          />
-          <ReInput
-            label="Password"
-            placeholder="Enter your password"
-            name="password"
-            type="password"
-            required
-          />
-          <ReInput
-            label="Address"
-            placeholder="Enter your address"
-            name="address"
-            type="simple"
-          />
-          <ReDatePicker
-            label="Date of Birth"
-            name="dateOfBirth"
-            disableUpcomingDates
-          />
-          <ReInput label="Phone Number" name="phoneNumber" type="number" />
-          <ReSelect
-            label="City"
-            name="city"
-            searchable
-            items={mpCities.map((city: string) => {
-              return {
-                title: city,
-                value: city,
-              };
-            })}
-          />
-          <ReCheckBox label="Active" name="active" />
-        </ReForm>
+        <UsersForm formInstance={form} handleFormSubmit={handleFormSubmit} />
       </ReDrawer>
     </Styles.Container>
   );
