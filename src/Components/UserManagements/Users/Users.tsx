@@ -6,7 +6,6 @@ import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.int
 import { user } from "../../../Apis/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faMinus,
   faPenToSquare,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
@@ -17,8 +16,7 @@ import {
 } from "../../../Redux/Slices/UserManagementSlices";
 import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
 import { ReNotification } from "../../../reusable-antd-components/ReNotification";
-import dayjs from "dayjs";
-
+import { formatDate } from "../../../Helper/Methods";
 export default function Users() {
   const dispatch = useAppDispatch();
   const { users } = useAppSelector((store) => store.userManagement);
@@ -97,32 +95,28 @@ export default function Users() {
       dataIndex: "address",
       key: "address",
       render: (address: string) =>
-        address ? address : <FontAwesomeIcon icon={faMinus} />,
+        address ? address : "-",
     },
     {
       title: "Phone",
       dataIndex: "phoneNumber",
       key: "phoneNumber",
       render: (phoneNumber: string) =>
-        phoneNumber ? phoneNumber : <FontAwesomeIcon icon={faMinus} />,
+        phoneNumber ? phoneNumber : "-",
     },
     {
       title: "City",
       dataIndex: "city",
       key: "city",
       render: (city: string) =>
-        city ? city : <FontAwesomeIcon icon={faMinus} />,
+        city ? city : "-",
     },
     {
       title: "Date of Birth",
       dataIndex: "dateOfBirth",
       key: "dateOfBirth",
-      render: (dateOfBirth: string) =>
-        dateOfBirth ? (
-          dayjs(dateOfBirth).format("YYYY-MM-DD")
-        ) : (
-          <FontAwesomeIcon icon={faMinus} />
-        ),
+      render: (dob: Date) =>
+        dob ? formatDate(dob) : "-",
     },
     {
       title: "Active",

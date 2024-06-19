@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { textGray } from "../../../Configs/GlobalColour";
+import { bgColour, textGray } from "../../../Configs/GlobalColour";
 
 export const MainContainer = styled.div``;
 export const Container = styled.div`
@@ -35,8 +35,20 @@ export const Content = styled.div`
       line-height: 1.5;
     }
   }
-  .search-bar{
+  .search-bar-and-list{
+    position: relative;
+    background-color: ${bgColour};
     width: 100%;
+    .search-bar{
+      height: 40px;
+    }
+    .list {
+      position: absolute;
+      width: 100%;
+      margin-top: 0.5rem;
+      overflow-y: scroll;
+      max-height: 20rem;
+    }
   }
 `;
 export const Image = styled.div`
