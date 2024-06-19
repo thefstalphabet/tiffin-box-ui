@@ -23,9 +23,11 @@ export const Container = styled.div`
   }
 
   .email_container {
+    display: flex;
     margin-top: 1rem;
     p {
       color: white;
+      margin-left: 1rem;
     }
   }
 
@@ -50,8 +52,16 @@ export const Container = styled.div`
       h3 {
         text-align: center;
       }
-      p{
+      p {
         margin-top: 1rem;
+      }
+      .email_container {
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        p {
+          color: white;
+        }
       }
     }
     .primary-button-container {

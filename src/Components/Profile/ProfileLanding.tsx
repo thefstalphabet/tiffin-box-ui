@@ -57,7 +57,7 @@ export default function ProfileLanding() {
         </div>
         <div className="primary-button-container">
           <Button type="primary" className="primary-button">
-            Primary Button
+            Edit profile
           </Button>
         </div>
       </div>
