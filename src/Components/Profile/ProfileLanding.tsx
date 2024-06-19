@@ -1,14 +1,50 @@
 import React, { useState } from "react";
 import * as Styles from "./ProfileLandingStyle";
-import { Button } from "antd";
-import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../Redux/Hooks";
+import { Orders, Payments, Favourites, Settings } from "../index";
 import ReMenu from "../../reusable-antd-components/ReMenu";
-import { menuItems } from "../../Configs/MenuItems";
-import ProfileMenu from "../../Configs/ProfileItems";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart, faCreditCard, faHeart, faCog } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "antd";
+
+const componentMap: { [key: string]: React.ReactNode } = {
+  orders: <Orders />,
+  payments: <Payments />,
+  favourites: <Favourites />,
+  settings: <Settings />,
+};
+
+const menuItems = [
+  {
+    key: "orders",
+    label: "Orders",
+    icon: <FontAwesomeIcon icon={faShoppingCart} />,
+  },
+  {
+    key: "payments",
+    label: "Payments",
+    icon: <FontAwesomeIcon icon={faCreditCard} />,
+  },
+  {
+    key: "favourites",
+    label: "Favourites",
+    icon: <FontAwesomeIcon icon={faHeart} />,
+  },
+  {
+    key: "settings",
+    label: "Settings",
+    icon: <FontAwesomeIcon icon={faCog} />,
+  },
+];
+
 export default function ProfileLanding() {
-  const navigate = useNavigate();
-  const { collapse, activeItemKey } = useAppSelector((store) => store.sideMenu);
+  const { collapse } = useAppSelector((store) => store.sideMenu);
+  const [selectedComponent, setSelectedComponent] = useState<string>("orders");
+
+  const handleMenuClick = (key: string) => {
+    setSelectedComponent(key);
+  };
+
   return (
     <Styles.Container>
       <div className="header">
@@ -25,23 +61,24 @@ export default function ProfileLanding() {
           </Button>
         </div>
       </div>
-      <Styles.MenuConatiner>
-        <div>
+      <Styles.MenuContainer>
+        <div className="menu-buttons">
           <ReMenu
-            selectedKeys={[activeItemKey]}
+            selectedKeys={[selectedComponent]}
             className="re-menu"
             mode="inline"
-            items={menuItems}
-            onClick={({ item }: any) => {
-              navigate(item?.props?.path);
-            }}
+            items={menuItems.map(item => ({
+              ...item,
+              path: item.key, 
+            }))}
+            onClick={({ key }: any) => handleMenuClick(key)}
             onSelect={(e: any) => {}}
           />
         </div>
-        <div>
-          dhjjfk
+        <div className="component-container">
+          {componentMap[selectedComponent]}
         </div>
-      </Styles.MenuConatiner>
+      </Styles.MenuContainer>
     </Styles.Container>
   );
 }
