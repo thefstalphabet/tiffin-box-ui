@@ -74,7 +74,6 @@ export default function Steps(props: IStepsProps) {
               { title: "Not Vegan", value: false },
             ]}
           />
-          {/* <ReCheckBox label="Vegan" name="vegan" /> */}
         </Styles.Fields>
       ),
     },
