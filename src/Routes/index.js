@@ -10,6 +10,10 @@ import KitchenSignup from "./KitchenSignup/KitchenSignup";
 import UserManagement from "./UserManagement/UserManagement";
 import TermsAndCondition from "./TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
+import Orders from "./Orders/Orders";
+import Favourites from "./Favourites/Favourites";
+import Payments from "./Payments/Payments";
+import Settings from "./Settings/Settings"
 export {
   Home,
   PageNotFound,
@@ -22,5 +26,9 @@ export {
   KitchenSignup,
   UserManagement,
   TermsAndCondition,
-  PrivacyPolicy
+  PrivacyPolicy,
+  Orders,
+  Payments,
+  Favourites,
+  Settings
 };

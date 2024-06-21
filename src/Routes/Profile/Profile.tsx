@@ -1,8 +1,6 @@
-import React from 'react'
+import React from "react";
 import * as Styles from "./ProfileStyle";
-import { ProfileLanding } from '../../Components';
+import { EditProfile } from "../../Components";
 export default function Profile() {
-  return (
-  <ProfileLanding/>
-  )
+  return <EditProfile />;
 }

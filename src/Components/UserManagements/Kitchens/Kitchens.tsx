@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
-import EditUpdateDrawer from "./EditUpdateDrawer/EditUpdateDrawer";
+import EditUpdateKichensDrawer from "./EditUpdateKitchensDrawer/EditUpdateKitchensDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -213,7 +213,7 @@ export default function Kitchens() {
           },
         }}
       />
-      <EditUpdateDrawer
+      <EditUpdateKichensDrawer
         visibility={drawerVisible}
         setVisibility={setDrawerVisible}
         type={drawerType}
