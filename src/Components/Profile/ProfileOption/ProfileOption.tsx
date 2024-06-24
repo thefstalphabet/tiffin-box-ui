@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Styles from "./ProfileOptionStyle";
 import ReMenu from "../../../reusable-antd-components/ReMenu";
-import { Orders,Payments,Favourites,Settings } from "../../../Routes";
+import { Orders, Payments, Favourites, Settings } from "../../../Routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -9,7 +9,9 @@ import {
   faHeart,
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 export default function ProfileOption() {
+  const navigate = useNavigate();
   const componentMap: { [key: string]: React.ReactNode } = {
     orders: <Orders />,
     payments: <Payments />,
@@ -18,9 +20,14 @@ export default function ProfileOption() {
   };
 
   const [selectedComponent, setSelectedComponent] = useState<string>("orders");
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const handleMenuClick = (key: string) => {
-    setSelectedComponent(key);
+    if (screenWidth <= 768) {
+      navigate(`/${key}`);
+    } else {
+      setSelectedComponent(key);
+    }
   };
   const menuItems = [
     {
@@ -44,6 +51,16 @@ export default function ProfileOption() {
       icon: <FontAwesomeIcon icon={faCog} />,
     },
   ];
+
+  const updateScreenSize = () => {
+    setScreenWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
+
   return (
     <Styles.MenuContainer>
       <div className="menu-buttons">

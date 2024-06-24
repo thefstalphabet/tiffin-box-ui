@@ -1,10 +1,10 @@
-import {primaryColor, textWhite } from "../../Configs/GlobalColour";
+import { primaryColor, textWhite } from "../../Configs/GlobalColour";
 import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 81vh;
+  height: 90vh;
   background-color: ${primaryColor};
   padding: 20px;
   padding-left: 40px;
@@ -13,10 +13,10 @@ export const Container = styled.div`
   .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
     div {
+      line-height: 1.5;
       h3, p {
         color: ${textWhite};
       }
@@ -35,7 +35,7 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     padding-left: 20px;
     padding-right: 20px;
-
+    gap: 1rem;
     .header {
       flex-direction: column;
       align-items: center;

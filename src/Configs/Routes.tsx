@@ -13,6 +13,10 @@ import {
   UserManagement,
   TermsAndCondition,
   PrivacyPolicy,
+  Orders,
+  Payments,
+  Favourites,
+  Settings,
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
 
@@ -93,6 +97,34 @@ const items: Array<IRoutes> = [
     header: true,
     sideMenu: true,
     element: <PrivacyPolicy />,
+  },
+  {
+    path: "/orders",
+    header: true,
+    sideMenu: true,
+    element: <Orders />,
+    protected: true,
+  },
+  {
+    path: "/payments",
+    header: true,
+    sideMenu: true,
+    element: <Payments />,
+    protected: true,
+  },
+  {
+    path: "/favourites",
+    header: true,
+    sideMenu: true,
+    element: <Favourites />,
+    protected: true,
+  },
+  {
+    path: "/settings",
+    header: true,
+    sideMenu: true,
+    element: <Settings />,
+    protected: true,
   },
 ];
 

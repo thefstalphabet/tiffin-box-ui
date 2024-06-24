@@ -2,7 +2,6 @@ import * as Styles from "./EditProfileStyle";
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "antd";
 import ProfileOption from "./ProfileOption/ProfileOption";
-import ReModal from "../../reusable-antd-components/ReModal";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import UsersForm from "../UserManagements/Users/UserForm/UsersForm";
 import dayjs from "dayjs";
@@ -10,6 +9,7 @@ import { user } from "../../Apis/User";
 import { ReNotification } from "../../reusable-antd-components/ReNotification";
 import { updateData } from "../../Redux/Slices/UserSlices";
 import { auth } from "../../Apis/Auth";
+import ReDrawer from "../../reusable-antd-components/ReDrawer";
 export default function EditProfile() {
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -58,23 +58,29 @@ export default function EditProfile() {
         </Button>
       </div>
       <ProfileOption />
-      <ReModal
+      <ReDrawer
         title={<h3>Edit Profile</h3>}
-        onOkayBtnTitle="Update"
         visibility={isModalVisible}
-        width="800px"
-        onOkay={() => {
-          form.submit();
-        }}
         onCancel={() => {
           setIsModalVisible(false);
         }}
+        placement="right"
+        closable
+        width={600}
+        extraContent={
+          <Button
+            className="create-btn"
+            type="primary"
+            onClick={() => {
+              form.submit();
+            }}
+          >
+            Update
+          </Button>
+        }
       >
-        <UsersForm
-          formInstance={form}
-          handleFormSubmit={handleFormSubmit}
-        />
-      </ReModal>
+        <UsersForm formInstance={form} handleFormSubmit={handleFormSubmit} />
+      </ReDrawer>
     </Styles.Container>
   );
 }
