@@ -9,7 +9,6 @@ import {
   faHeart,
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
-import { useAppSelector } from "../../../Redux/Hooks";
 export default function ProfileOption() {
   const componentMap: { [key: string]: React.ReactNode } = {
     orders: <Orders />,
@@ -18,7 +17,6 @@ export default function ProfileOption() {
     settings: <Settings />,
   };
 
-  const { collapse } = useAppSelector((store) => store.sideMenu);
   const [selectedComponent, setSelectedComponent] = useState<string>("orders");
 
   const handleMenuClick = (key: string) => {

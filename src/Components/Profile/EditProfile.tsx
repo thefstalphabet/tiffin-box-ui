@@ -1,71 +1,79 @@
 import * as Styles from "./EditProfileStyle";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "antd";
 import ProfileOption from "./ProfileOption/ProfileOption";
 import ReModal from "../../reusable-antd-components/ReModal";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import UsersForm from "../UserManagements/Users/UserForm/UsersForm";
-import { IComponentProps } from "../../Interfaces/Components/EditUpdateDrawer.interface";
+import dayjs from "dayjs";
 import { user } from "../../Apis/User";
 import { ReNotification } from "../../reusable-antd-components/ReNotification";
-import { capitalizeFirstLetter } from "../../Helper/Methods";
-import { addUser, updateUser } from "../../Redux/Slices/UserManagementSlices";
-export default function EditProfile(props: IComponentProps) {
-  const dispatch = useAppDispatch();
+import { updateData } from "../../Redux/Slices/UserSlices";
+import { auth } from "../../Apis/Auth";
+export default function EditProfile() {
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const userData = useAppSelector((store) => store.user);
-  const handleEditProfileClick = () => {
-    setIsModalVisible(true);
-  };
+  const { data } = useAppSelector((store) => store.user);
+  const dispatch = useAppDispatch();
 
-  const handleModalOk = () => {
+  async function handleFormSubmit(values: any) {
+    await user.update(data?._id, values);
+    dispatch(updateData(values));
+    auth.updateSessionStorage({ _id: data?._id, ...values });
+    ReNotification({
+      header: "Profile Say's",
+      description: `User Updated Successfully`,
+      duration: 2,
+      placement: "topRight",
+      type: "success",
+    });
     setIsModalVisible(false);
-  };
+  }
 
-  const handleModalCancel = () => {
-    setIsModalVisible(false);
-  };
-  async function handleFormSubmit(values: any) {}
+  useEffect(() => {
+    if (Object.keys(data).length && isModalVisible) {
+      const newData = {
+        ...data,
+        dateOfBirth: dayjs(data?.dateOfBirth),
+      };
+      form.setFieldsValue(newData);
+    }
+  }, [isModalVisible]);
 
   return (
     <Styles.Container>
       <div className="header">
         <div>
-          <h3>{userData?.data?.name}</h3>
-          <div className="email_container">
-            <p>{userData?.data?.email}</p>
-          </div>
+          <h3>{data?.name}</h3>
+          <p>{data?.email}</p>
         </div>
-        <div className="primary-button-container">
-          <Button
-            type="primary"
-            className="primary-button"
-            onClick={handleEditProfileClick}
-          >
-            Edit profile
-          </Button>
-        </div>
+        <Button
+          type="primary"
+          className="primary-button"
+          onClick={() => {
+            setIsModalVisible(true);
+          }}
+        >
+          Edit profile
+        </Button>
       </div>
       <ProfileOption />
       <ReModal
-        title="Edit Profile"
+        title={<h3>Edit Profile</h3>}
+        onOkayBtnTitle="Update"
         visibility={isModalVisible}
-        onOkay={handleModalOk}
-        onCancel={handleModalCancel}
-        onOkayBtnTitle="Save"
-        footer={null}
+        width="800px"
+        onOkay={() => {
+          form.submit();
+        }}
+        onCancel={() => {
+          setIsModalVisible(false);
+        }}
       >
-        <div className="update-btn"></div>
-        <UsersForm formInstance={form} handleFormSubmit={handleFormSubmit} />
-        <Button
-          type="primary"
-          onClick={() => {
-            form.submit();
-          }}
-        >
-          Update
-        </Button>
+        <UsersForm
+          formInstance={form}
+          handleFormSubmit={handleFormSubmit}
+        />
       </ReModal>
     </Styles.Container>
   );

@@ -29,6 +29,10 @@ class Auth extends MakeRequest {
             return JSON.parse(user)
         } else return false
     }
+
+    updateSessionStorage(user: any) {
+        sessionStorage.setItem("user", JSON.stringify(user))
+    }
 }
 
 export const auth = new Auth("auth")

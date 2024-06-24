@@ -1,4 +1,4 @@
-import {primaryColor } from "../../Configs/GlobalColour";
+import {primaryColor, textWhite } from "../../Configs/GlobalColour";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -16,34 +16,20 @@ export const Container = styled.div`
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 2rem;
-
-    h3 {
-      color: white;
+    div {
+      h3, p {
+        color: ${textWhite};
+      }
     }
   }
-
-  .email_container {
-    p {
-      color: white;
-      margin-left: 1rem;
-      margin-top: 1rem;
-    }
-  }
-
-  .update-btn{
-    display: flex;
-    align-items: flex-end;
-    text-align: end;
-  }
-  .primary-button-container {
-    align-self: flex-end;
-    margin-top: auto;
-  }
-
   .primary-button {
     background-color: transparent;
     border-color: white;
     color: white;
+  }
+  .form-fields{
+    display: grid;
+    grid-auto-columns: 1fr 1fr;
   }
 
   @media (max-width: 768px) {
@@ -59,17 +45,6 @@ export const Container = styled.div`
       p {
         margin-top: 1rem;
       }
-      .email_container {
-        margin-top: 1rem;
-        flex-direction: column;
-        align-items: center;
-        p {
-          color: white;
-        }
-      }
-    }
-    .primary-button-container {
-      align-self: center;
     }
   }
 `;

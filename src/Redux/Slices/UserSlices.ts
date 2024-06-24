@@ -18,11 +18,14 @@ const UserSlice = createSlice({
         setData(state, action: PayloadAction<any>) {
             state.data = action.payload
         },
+        updateData(state, action: PayloadAction<any>) {
+            state.data = action.payload
+        },
         setType(state, action: PayloadAction<TLoginUserType>) {
             state.type = action.payload
         },
     },
 })
 
-export const { setData, setType } = UserSlice.actions
+export const { setData, setType, updateData } = UserSlice.actions
 export default UserSlice.reducer
