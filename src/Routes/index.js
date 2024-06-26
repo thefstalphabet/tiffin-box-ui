@@ -14,6 +14,8 @@ import Orders from "./Orders/Orders";
 import Favourites from "./Favourites/Favourites";
 import Payments from "./Payments/Payments";
 import Settings from "./Settings/Settings"
+import ViewKitchen from './ViewKitchen/ViewKitchen';
+
 export {
   Home,
   PageNotFound,
@@ -30,5 +32,6 @@ export {
   Orders,
   Payments,
   Favourites,
-  Settings
+  Settings,
+  ViewKitchen
 };

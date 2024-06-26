@@ -61,7 +61,7 @@ export default function UsersForm(props: {
           };
         })}
       />
-      <ReCheckBox label="Active" name="active" />
+      <ReCheckBox label="Status" name="status" />
     </ReForm>
   );
 }

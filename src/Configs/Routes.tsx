@@ -17,6 +17,7 @@ import {
   Payments,
   Favourites,
   Settings,
+  ViewKitchen,
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
 
@@ -124,6 +125,13 @@ const items: Array<IRoutes> = [
     header: true,
     sideMenu: true,
     element: <Settings />,
+    protected: true,
+  },
+  {
+    path: "/kitchen/:id",
+    header: true,
+    sideMenu: true,
+    element: <ViewKitchen />,
     protected: true,
   },
 ];

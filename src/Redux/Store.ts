@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import sideMenuReducer from "./Slices/SideMenuSlices";
 import userReducer from './Slices/UserSlices';
 import userManagementReducer from './Slices/UserManagementSlices';
+import viewKitchenReducer from './Slices/Kitchen/ViewKitchenSlices';
 
 export const store = configureStore({
     reducer: {
         sideMenu: sideMenuReducer,
         user: userReducer,
-        userManagement: userManagementReducer
+        userManagement: userManagementReducer,
+        viewKitchen: viewKitchenReducer
     },
 });
 

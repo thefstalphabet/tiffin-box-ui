@@ -83,7 +83,7 @@ export default function KitchenForm(props: {
           { title: "Not Vegan", value: false },
         ]}
       />
-      <ReCheckBox label="Active" name="active" />
+      <ReCheckBox label="Status" name="status" />
     </ReForm>
   );
 }
