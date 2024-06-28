@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import * as Styles from "./ProfileOptionStyle";
 import ReMenu from "../../../reusable-antd-components/ReMenu";
-import { Orders, Payments, Favourites, Settings } from "../../../Routes";
+import {
+  Orders,
+  Payments,
+  Bookmarks,
+  Settings,
+  Address,
+} from "../../../Routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -15,8 +21,9 @@ export default function ProfileOption() {
   const componentMap: { [key: string]: React.ReactNode } = {
     orders: <Orders />,
     payments: <Payments />,
-    favourites: <Favourites />,
+    Bookmarks: <Bookmarks />,
     settings: <Settings />,
+    address: <Address />,
   };
 
   const [selectedComponent, setSelectedComponent] = useState<string>("orders");
@@ -41,13 +48,18 @@ export default function ProfileOption() {
       icon: <FontAwesomeIcon icon={faCreditCard} />,
     },
     {
-      key: "favourites",
-      label: "Favourites",
+      key: "Bookmarks",
+      label: "Bookmarks",
       icon: <FontAwesomeIcon icon={faHeart} />,
     },
     {
       key: "settings",
       label: "Settings",
+      icon: <FontAwesomeIcon icon={faCog} />,
+    },
+    {
+      key: "address",
+      label: "Address",
       icon: <FontAwesomeIcon icon={faCog} />,
     },
   ];
@@ -77,7 +89,9 @@ export default function ProfileOption() {
         />
       </div>
       <div className="component-container">
-        {componentMap[selectedComponent]}
+        <div className="scrollable-container">
+          {componentMap[selectedComponent]}
+        </div>
       </div>
     </Styles.MenuContainer>
   );

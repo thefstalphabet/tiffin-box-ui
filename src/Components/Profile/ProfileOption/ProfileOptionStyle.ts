@@ -52,9 +52,16 @@ export const MenuContainer = styled.div`
     }
 
     .component-container {
-      flex-grow: 1;
-      display: none;
-    }
+    flex: 4;
+    padding: 20px;
+    overflow-y: auto; 
+    height: 70vh;
+
+  }
+
+  .scrollable-container {
+    max-height: 500px; 
+  }
 
     .remenu_item {
       width: 100%;

@@ -11,11 +11,11 @@ import UserManagement from "./UserManagement/UserManagement";
 import TermsAndCondition from "./TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 import Orders from "./Orders/Orders";
-import Favourites from "./Favourites/Favourites";
+import Bookmarks from "./Bookmarks/Bookmarks";
 import Payments from "./Payments/Payments";
 import Settings from "./Settings/Settings"
 import ViewKitchen from './ViewKitchen/ViewKitchen';
-
+import Address from "./Address/Address";
 export {
   Home,
   PageNotFound,
@@ -31,7 +31,8 @@ export {
   PrivacyPolicy,
   Orders,
   Payments,
-  Favourites,
+  Bookmarks,
   Settings,
-  ViewKitchen
+  ViewKitchen,
+  Address
 };
