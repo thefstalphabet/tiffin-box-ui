@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import * as Styles from "./ProfileOptionStyle";
 import ReMenu from "../../../reusable-antd-components/ReMenu";
 import {
@@ -16,8 +16,10 @@ import {
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../../Redux/Hooks";
 export default function ProfileOption() {
   const navigate = useNavigate();
+  const { screenWidth } = useAppSelector((store) => store.screenResolution);
   const componentMap: { [key: string]: React.ReactNode } = {
     orders: <Orders />,
     payments: <Payments />,
@@ -27,7 +29,6 @@ export default function ProfileOption() {
   };
 
   const [selectedComponent, setSelectedComponent] = useState<string>("orders");
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const handleMenuClick = (key: string) => {
     if (screenWidth <= 768) {
@@ -36,6 +37,7 @@ export default function ProfileOption() {
       setSelectedComponent(key);
     }
   };
+
   const menuItems = [
     {
       key: "orders",
@@ -63,15 +65,6 @@ export default function ProfileOption() {
       icon: <FontAwesomeIcon icon={faCog} />,
     },
   ];
-
-  const updateScreenSize = () => {
-    setScreenWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", updateScreenSize);
-    return () => window.removeEventListener("resize", updateScreenSize);
-  }, []);
 
   return (
     <Styles.Container>

@@ -7,6 +7,7 @@ import { token } from "./Apis/Token";
 import { useAppDispatch } from "./Redux/Hooks";
 import { setData, setType } from "./Redux/Slices/UserSlices";
 import { auth } from "./Apis/Auth";
+import { setScreenHeight, setScreenWidth } from "./Redux/Slices/ScreenResolution.slices";
 export default function App() {
   const dispatch = useAppDispatch();
 
@@ -23,10 +24,21 @@ export default function App() {
     }
   }
 
+  const updateScreenSize = () => {
+    dispatch(setScreenWidth(window.innerWidth));
+    dispatch(setScreenHeight(window.innerHeight));
+  };
+
+  function setScreenResolution() {
+    window.addEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }
+
   useEffect(() => {
     token.validateRefreshToken();
     token.validateAccessToken();
     setUser();
+    setScreenResolution();
   }, []);
 
   return (

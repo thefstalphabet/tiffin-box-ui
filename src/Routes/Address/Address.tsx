@@ -24,7 +24,7 @@ import {
 export default function Address() {
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
-  const { address } = useAppSelector((store) => store.addressResponse);
+  const { address } = useAppSelector((store) => store.address);
   const { data } = useAppSelector((store) => store.user);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
