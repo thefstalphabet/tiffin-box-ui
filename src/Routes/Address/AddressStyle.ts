@@ -10,16 +10,15 @@ export const Container = styled.div`
     .card{
       width: 15rem;
     }
-  }
-  .plus-card {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
-    cursor: pointer;
-    .plus-icon{
-      font-size: 3rem;
-      color: ${bgDarkGray};
+    .plus-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      .plus-icon{
+        font-size: 3rem;
+        color: ${bgDarkGray};
+      }
     }
   }
 `;

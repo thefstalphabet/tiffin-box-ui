@@ -22,6 +22,7 @@ import {
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 import ReEmpty from "../../reusable-antd-components/ReEmpty";
+
 export default function Address() {
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
@@ -30,17 +31,25 @@ export default function Address() {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [drawerType, setDrawerType] = useState<TDrawerType>("create");
-  const [addressLoading, setAddressLoading] = useState<boolean>(false);
-  const [editingId, setEditingId] = useState<string | null>(null);
+  const [currentlyEditingAddress, setCurrentlyEditingAddress] = useState<any>(
+    {}
+  );
+  const [createUpdateFormSubmitLoading, setCreateUpdateFormSubmitLoading] =
+    useState<boolean>(false);
 
   async function handleFormSubmit(values: any) {
+    setCreateUpdateFormSubmitLoading(true);
+
     if (drawerType === "create") {
       const res = await addres.create({ ...values, user: data?._id });
       dispatch(addaddress(res));
-    } else if (editingId) {
-      await addres.update(editingId, values);
-      dispatch(updateaddress({ id: editingId, addressData: values }));
+    } else {
+      await addres.update(currentlyEditingAddress?._id, values);
+      dispatch(
+        updateaddress({ id: currentlyEditingAddress?._id, addressData: values })
+      );
     }
+
     ReNotification({
       header: "Address Say's",
       description: `Address ${capitalizeFirstLetter(drawerType)} Successfully`,
@@ -48,9 +57,10 @@ export default function Address() {
       placement: "topRight",
       type: "success",
     });
+
     setIsModalVisible(false);
-    setEditingId(null);
     form.resetFields();
+    setCreateUpdateFormSubmitLoading(false);
   }
   async function deleteAddress(id: string) {
     const res = await addres.delete(id);
@@ -65,11 +75,10 @@ export default function Address() {
       });
     }
   }
+
   async function fetchAddressData() {
-    setAddressLoading(true);
     const Address = await addres.findAll({ user: data?._id });
     dispatch(setaddress(Address));
-    setAddressLoading(false);
   }
 
   const handleCardClicks = (
@@ -82,11 +91,10 @@ export default function Address() {
     }
     switch (type) {
       case "create":
-        setEditingId(null);
         form.resetFields();
         break;
       case "update":
-        setEditingId(extra?._id || null);
+        setCurrentlyEditingAddress(extra);
         form.setFieldsValue(extra);
         break;
       case "delete":
@@ -138,16 +146,14 @@ export default function Address() {
               </ReCard>
             );
           })}
-          <div className="plus-icon">
-            <ReCard
-              className="plus-card card"
-              onClick={() => {
-                handleCardClicks("create");
-              }}
-            >
-              <FontAwesomeIcon className="plus-icon" icon={faPlus} />
-            </ReCard>
-          </div>
+          <ReCard
+            className="plus-card card"
+            onClick={() => {
+              handleCardClicks("create");
+            }}
+          >
+            <FontAwesomeIcon className="plus-icon" icon={faPlus} />
+          </ReCard>
         </div>
       ) : (
         <ReEmpty
@@ -173,8 +179,9 @@ export default function Address() {
             onClick={() => {
               form.submit();
             }}
+            loading={createUpdateFormSubmitLoading}
           >
-            {drawerType}
+            {capitalizeFirstLetter(drawerType)}
           </Button>
         }
       >
