@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as Styles from "./AddressStyle";
 import ReDrawer from "../../reusable-antd-components/ReDrawer";
-import { Button, Form } from "antd";
+import { Button, Form, Popconfirm } from "antd";
 import { AddressForm } from "../../Components";
 import { ReNotification } from "../../reusable-antd-components/ReNotification";
 import { TDrawerType } from "../../Interfaces/Components/EditUpdateDrawer.interface";
@@ -109,13 +109,17 @@ export default function Address() {
             <ReCard
               className="card"
               actions={[
-                <FontAwesomeIcon
-                  key="delete"
-                  onClick={() => {
+                <Popconfirm
+                  title="Delete the Address"
+                  description="Are you sure to delete this Address?"
+                  onConfirm={() => {
                     handleCardClicks("delete", item);
                   }}
-                  icon={faTrashCan}
-                />,
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <FontAwesomeIcon key="delete" icon={faTrashCan} />
+                </Popconfirm>,
                 <FontAwesomeIcon
                   key="edit"
                   onClick={() => {
