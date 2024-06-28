@@ -132,7 +132,6 @@ const items: Array<IRoutes> = [
     header: true,
     sideMenu: true,
     element: <ViewKitchen />,
-    protected: true,
   },
 ];
 

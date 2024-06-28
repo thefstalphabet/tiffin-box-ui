@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {textGray} from "../../Configs/GlobalColour";
 
 export const Container = styled.div`
   display: flex;
@@ -16,4 +17,21 @@ export const Banner = styled.div`
 export const Header = styled.div`
   display: grid;
   gap: 1rem;
+  .stats {
+    display: flex;
+    gap: 1rem;
+    .stat {
+      display: flex;
+      align-items: center;
+      span{
+        font-size: 13px;
+        font-weight: 500;
+      }
+      p {
+        font-size: 12px;
+        color: ${textGray};
+        text-decoration: underline;
+      }
+    }
+  }
 `;

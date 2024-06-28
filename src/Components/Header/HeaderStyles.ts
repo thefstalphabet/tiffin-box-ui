@@ -4,10 +4,7 @@ export const Container = styled.div`
   display: grid;
   grid-auto-flow: column;
   align-items: center;
-  padding: 3rem 8rem;
-  @media (max-width: 1097px) {
-    padding: 3rem 1rem;
-  }
+  padding: 2rem 8rem;
   h1 {
     white-space: nowrap;
   }

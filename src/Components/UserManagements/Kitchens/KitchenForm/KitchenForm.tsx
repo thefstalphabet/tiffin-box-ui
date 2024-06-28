@@ -79,8 +79,8 @@ export default function KitchenForm(props: {
         name="vegan"
         defaultValue={true}
         items={[
-          { title: "Vegan", value: true },
-          { title: "Not Vegan", value: false },
+          { title: "Vegan", value: 1 },
+          { title: "Not Vegan", value: 0 },
         ]}
       />
       <ReCheckBox label="Status" name="status" />
