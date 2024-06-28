@@ -38,7 +38,6 @@ export const Container = styled.div`
   .menu-item-container {
     flex-grow: 2;
     background-color: ${bgGray};
-    padding: 0.5rem;
   }
 
   @media (max-width: 768px) {

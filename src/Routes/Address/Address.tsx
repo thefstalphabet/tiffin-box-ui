@@ -21,6 +21,7 @@ import {
   faPlus,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
+import ReEmpty from "../../reusable-antd-components/ReEmpty";
 export default function Address() {
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
@@ -101,52 +102,61 @@ export default function Address() {
   }, []);
 
   return (
-    <Styles.Container>
-      <div className="cards">
-        {address?.map((item: any) => {
-          const { address, state, pinCode, city } = item;
-          return (
+    <Styles.Container className={`${!address?.length && "make-it-center"}`}>
+      {address.length ? (
+        <div className="cards">
+          {address?.map((item: any) => {
+            const { address, state, pinCode, city } = item;
+            return (
+              <ReCard
+                className="card"
+                actions={[
+                  <Popconfirm
+                    title="Delete the Address"
+                    description="Are you sure to delete this Address?"
+                    onConfirm={() => {
+                      handleCardClicks("delete", item);
+                    }}
+                    okText="Yes"
+                    cancelText="No"
+                  >
+                    <FontAwesomeIcon key="delete" icon={faTrashCan} />
+                  </Popconfirm>,
+                  <FontAwesomeIcon
+                    key="edit"
+                    onClick={() => {
+                      handleCardClicks("update", item);
+                    }}
+                    icon={faPenToSquare}
+                  />,
+                ]}
+              >
+                <h4>{city}</h4>
+                <p>{state}</p>
+                <p>{address}</p>
+                <p>{pinCode}</p>
+              </ReCard>
+            );
+          })}
+          <div className="plus-icon">
             <ReCard
-              className="card"
-              actions={[
-                <Popconfirm
-                  title="Delete the Address"
-                  description="Are you sure to delete this Address?"
-                  onConfirm={() => {
-                    handleCardClicks("delete", item);
-                  }}
-                  okText="Yes"
-                  cancelText="No"
-                >
-                  <FontAwesomeIcon key="delete" icon={faTrashCan} />
-                </Popconfirm>,
-                <FontAwesomeIcon
-                  key="edit"
-                  onClick={() => {
-                    handleCardClicks("update", item);
-                  }}
-                  icon={faPenToSquare}
-                />,
-              ]}
+              className="plus-card card"
+              onClick={() => {
+                handleCardClicks("create");
+              }}
             >
-              <h4>{city}</h4>
-              <p>{state}</p>
-              <p>{address}</p>
-              <p>{pinCode}</p>
+              <FontAwesomeIcon className="plus-icon" icon={faPlus} />
             </ReCard>
-          );
-        })}
-        <div className="plus-icon">
-          <ReCard
-            className="plus-card card"
-            onClick={() => {
-              handleCardClicks("create");
-            }}
-          >
-            <FontAwesomeIcon className="plus-icon" icon={faPlus} />
-          </ReCard>
+          </div>
         </div>
-      </div>
+      ) : (
+        <ReEmpty
+          description="You don't have address."
+          onClick={() => {
+            handleCardClicks("create");
+          }}
+        />
+      )}
       <ReDrawer
         title={<h3>Edit Address</h3>}
         visibility={isModalVisible}

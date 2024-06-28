@@ -27,3 +27,9 @@
     padding: 0.5rem 1rem;
   }
 }
+.make-it-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

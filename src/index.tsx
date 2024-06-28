@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ConfigProvider} from "antd";
 import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
+import { primaryColor } from "./Configs/GlobalColour";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -17,7 +18,7 @@ root.render(
         theme={{
           token: {
             // Seed Token
-            colorPrimary: "#00b96b",
+            colorPrimary: primaryColor,
             borderRadius: 5,
             fontFamily:"Segoe UI Symbol",
             fontSize: 14,

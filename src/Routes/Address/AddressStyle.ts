@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { bgDarkGray } from "../../Configs/GlobalColour";
 export const Container = styled.div`
   height: 100%;
+  padding: 0.5rem;
   .cards {
     display: flex;
     flex-wrap: wrap;
