@@ -15,9 +15,10 @@ import {
   PrivacyPolicy,
   Orders,
   Payments,
-  Favourites,
+  Bookmarks,
   Settings,
   ViewKitchen,
+  Address
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
 
@@ -114,10 +115,10 @@ const items: Array<IRoutes> = [
     protected: true,
   },
   {
-    path: "/favourites",
+    path: "/bookmarks",
     header: true,
     sideMenu: true,
-    element: <Favourites />,
+    element: <Bookmarks />,
     protected: true,
   },
   {
@@ -125,6 +126,13 @@ const items: Array<IRoutes> = [
     header: true,
     sideMenu: true,
     element: <Settings />,
+    protected: true,
+  },
+  {
+    path: "/address",
+    header: true,
+    sideMenu: true,
+    element: <Address />,
     protected: true,
   },
   {

@@ -12,6 +12,7 @@ import Users from "./UserManagements/Users/Users";
 import Kitchens from "./UserManagements/Kitchens/Kitchens";
 import UnderConstraction from "./UnderConstraction/UnderConstraction";
 import EditProfile from "./Profile/EditProfile";
+import AddressForm from "./Profile/AddressForm/AddressForm";
 export {
   Header,
   SideMenu,
@@ -27,4 +28,5 @@ export {
   Users,
   UnderConstraction,
   EditProfile,
+  AddressForm,
 };
