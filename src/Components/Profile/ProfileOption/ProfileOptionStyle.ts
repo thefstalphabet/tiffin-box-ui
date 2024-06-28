@@ -1,19 +1,21 @@
 import styled from "styled-components";
-export const MenuContainer = styled.div`
+import { bgGray } from "../../../Configs/GlobalColour";
+export const Container = styled.div`
   display: flex;
-  height: 70vh;
-  width: 90vw;
-  gap: 1rem;
-  margin-top: 3rem;
+  height: 80vh;
+  /* width: 90vw; */
+  /* gap: 1rem; */
+  margin-top: 1.5rem;
   background-color: white;
-  margin: auto;
+  /* margin: auto; */
 
   .re-menu{
     width: 12rem;
+    min-width: 12rem;
     height: 100%;
   }
 
-  .remenu_item {
+  /* .remenu_item {
     display: flex;
     width: 30vw;
     background-color: red;
@@ -22,20 +24,21 @@ export const MenuContainer = styled.div`
       text-decoration: none;
       cursor: pointer;
     }
-  }
+  } */
 
-  .active-data {
+  /* .active-data {
     display: flex;
-  }
+  } */
 
-  .menu-buttons {
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-  }
+  /* .menu-buttons { */
+    /* display: flex; */
+    /* flex-direction: column; */
+  /* } */
 
-  .component-container {
-    flex-grow: 1;
+  .menu-item-container {
+    flex-grow: 2;
+    background-color: ${bgGray};
+    padding: 0.5rem;
   }
 
   @media (max-width: 768px) {
@@ -51,27 +54,31 @@ export const MenuContainer = styled.div`
       height: 100%;
     }
 
-    .component-container {
+    .menu-item-container{
+      display: none;
+    }
+
+    /* .component-container {
     flex: 4;
     padding: 20px;
     overflow-y: auto; 
     height: 70vh;
 
-  }
+  } */
 
-  .scrollable-container {
+  /* .scrollable-container {
     max-height: 500px; 
-  }
+  } */
 
-    .remenu_item {
+    /* .remenu_item {
       width: 100%;
-    }
+    } */
 
-    .menu-buttons {
+    /* .menu-buttons {
       flex-direction: row;
       flex-wrap: wrap;
       margin-right: 0;
       justify-content: center;
-    }
+    } */
   }
 `;

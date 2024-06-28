@@ -74,25 +74,21 @@ export default function ProfileOption() {
   }, []);
 
   return (
-    <Styles.MenuContainer>
-      <div className="menu-buttons">
-        <ReMenu
-          selectedKeys={[selectedComponent]}
-          className="re-menu"
-          mode="inline"
-          items={menuItems.map((item) => ({
-            ...item,
-            path: item.key,
-          }))}
-          onClick={({ key }: any) => handleMenuClick(key)}
-          onSelect={(e: any) => {}}
-        />
+    <Styles.Container>
+      <ReMenu
+        selectedKeys={[selectedComponent]}
+        className="re-menu"
+        mode="inline"
+        items={menuItems.map((item) => ({
+          ...item,
+          path: item.key,
+        }))}
+        onClick={({ key }: any) => handleMenuClick(key)}
+        onSelect={(e: any) => {}}
+      />
+      <div className="menu-item-container">
+        {componentMap[selectedComponent]}
       </div>
-      <div className="component-container">
-        <div className="scrollable-container">
-          {componentMap[selectedComponent]}
-        </div>
-      </div>
-    </Styles.MenuContainer>
+    </Styles.Container>
   );
 }

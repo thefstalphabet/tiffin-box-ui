@@ -12,13 +12,6 @@ export default function AddressForm(props: {
       formInstance={formInstance}
       onSubmit={handleFormSubmit}
     >
-       <ReInput
-        label="User"
-        placeholder="Enter your user"
-        name="user"
-        type="simple"
-        required
-      />
       <ReInput
         label="City"
         placeholder="Enter your city"

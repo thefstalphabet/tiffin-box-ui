@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ReCard from "../../reusable-antd-components/ReCard/ReCard";
 import * as Styles from "./AddressStyle";
-import {
-  PlusOutlined,
-  EditOutlined,
-  DeleteOutlined,
-} from "@ant-design/icons";
 import ReDrawer from "../../reusable-antd-components/ReDrawer";
 import { Button, Form } from "antd";
 import { AddressForm } from "../../Components";
@@ -20,19 +14,27 @@ import {
   setaddress,
   updateaddress,
 } from "../../Redux/Slices/AddressSlices";
-import { IReCardProps } from "../../reusable-antd-components/Interfaces/ReComponents.interface";
-import { IaddressProps } from "../../Interfaces/Components/Address.interface";
+import ReCard from "../../reusable-antd-components/ReCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPenToSquare,
+  faPlus,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 export default function Address() {
+  const [form] = Form.useForm();
+  const dispatch = useAppDispatch();
+  const { address } = useAppSelector((store) => store.addressResponse);
+  const { data } = useAppSelector((store) => store.user);
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [drawerType, setDrawerType] = useState<TDrawerType>("create");
   const [addressLoading, setAddressLoading] = useState<boolean>(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [form] = Form.useForm();
-  const dispatch = useAppDispatch();
-  const { address } = useAppSelector((store) => store.addressResponse);
+
   async function handleFormSubmit(values: any) {
     if (drawerType === "create") {
-      const res = await addres.create(values);
+      const res = await addres.create({ ...values, user: data?._id });
       dispatch(addaddress(res));
     } else if (editingId) {
       await addres.update(editingId, values);
@@ -49,7 +51,7 @@ export default function Address() {
     setEditingId(null);
     form.resetFields();
   }
-  async function handleAddressDelete(id: string) {
+  async function deleteAddress(id: string) {
     const res = await addres.delete(id);
     if (res) {
       dispatch(deleteaddress(id));
@@ -64,55 +66,81 @@ export default function Address() {
   }
   async function fetchAddressData() {
     setAddressLoading(true);
-    const Address = await addres.findAll();
+    const Address = await addres.findAll({ user: data?._id });
     dispatch(setaddress(Address));
     setAddressLoading(false);
   }
+
+  const handleCardClicks = (
+    type: "update" | "create" | "delete",
+    extra?: any
+  ) => {
+    if (type !== "delete") {
+      setIsModalVisible(true);
+      setDrawerType(type);
+    }
+    switch (type) {
+      case "create":
+        setEditingId(null);
+        form.resetFields();
+        break;
+      case "update":
+        setEditingId(extra?._id || null);
+        form.setFieldsValue(extra);
+        break;
+      case "delete":
+        deleteAddress(extra?._id);
+        break;
+      default:
+        break;
+    }
+  };
+
   useEffect(() => {
     fetchAddressData();
   }, []);
+
   return (
     <Styles.Container>
-      <div className="card-grid">
-        {address.map((item: IReCardProps) => {
-          const { address, state, pinCode, city, _id } = item;
+      <div className="cards">
+        {address?.map((item: any) => {
+          const { address, state, pinCode, city } = item;
           return (
             <ReCard
-              key={_id}
-              city={city}
-              address={address}
-              pinCode={pinCode}
-              state={state}
+              className="card"
               actions={[
-                <DeleteOutlined
+                <FontAwesomeIcon
                   key="delete"
                   onClick={() => {
-                    if (_id) {
-                      handleAddressDelete(_id);
-                    }
+                    handleCardClicks("delete", item);
                   }}
+                  icon={faTrashCan}
                 />,
-                <EditOutlined
+                <FontAwesomeIcon
                   key="edit"
                   onClick={() => {
-                    setIsModalVisible(true);
-                    setDrawerType("update");
-                    setEditingId(_id || null);
-                    form.setFieldsValue(item);
+                    handleCardClicks("update", item);
                   }}
+                  icon={faPenToSquare}
                 />,
               ]}
-            />
+            >
+              <h4>{city}</h4>
+              <p>{state}</p>
+              <p>{address}</p>
+              <p>{pinCode}</p>
+            </ReCard>
           );
         })}
         <div className="plus-icon">
           <ReCard
-            actions={[<PlusOutlined key="plus" />]}
+            className="plus-card card"
             onClick={() => {
-              setIsModalVisible(true);
-              setDrawerType("create");
+              handleCardClicks("create");
             }}
-          />
+          >
+            <FontAwesomeIcon className="plus-icon" icon={faPlus} />
+          </ReCard>
         </div>
       </div>
       <ReDrawer
