@@ -4,12 +4,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 90vh;
   background-color: ${primaryColor};
   padding: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
-
   .header {
     display: flex;
     justify-content: space-between;
@@ -21,20 +17,12 @@ export const Container = styled.div`
         color: ${textWhite};
       }
     }
+    .edit-button:hover {
+      border-color: white;
+      color: white;
+    }
   }
-  .primary-button {
-    background-color: transparent;
-    border-color: white;
-    color: white;
-  }
-  .form-fields{
-    display: grid;
-    grid-auto-columns: 1fr 1fr;
-  }
-
   @media (max-width: 768px) {
-    padding-left: 20px;
-    padding-right: 20px;
     gap: 1rem;
     .header {
       flex-direction: column;

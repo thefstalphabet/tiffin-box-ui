@@ -1,5 +1,5 @@
 import * as Styles from "./EditProfileStyle";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form } from "antd";
 import ProfileOption from "./ProfileOption/ProfileOption";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
@@ -48,8 +48,8 @@ export default function EditProfile() {
           <p>{data?.email}</p>
         </div>
         <Button
-          type="primary"
-          className="primary-button"
+          className="edit-button"
+          ghost
           onClick={() => {
             setIsModalVisible(true);
           }}
