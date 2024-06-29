@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as Styles from "./UsersStyle";
 import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
-import EditUpdateUsersDrawer from "./EditUpdateUsersDrawer/EditUpdateUsersDrawer";
+import CreateUpdateUsersDrawer from "./CreateUpdateUsersDrawer/CreateUpdateUsersDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { user } from "../../../Apis/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -183,7 +183,7 @@ export default function Users() {
           },
         }}
       />
-      <EditUpdateUsersDrawer
+      <CreateUpdateUsersDrawer
         visibility={drawerVisible}
         setVisibility={setDrawerVisible}
         type={drawerType}

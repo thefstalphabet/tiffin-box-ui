@@ -1,39 +1,37 @@
 import React, { useEffect } from "react";
-import * as Styles from "./EditUpdateKitchensDrawerStyle";
+import * as Styles from "./CreateUpdateUsersDrawerStyle";
 import { Form, Button } from "antd";
 import ReDrawer from "../../../../reusable-antd-components/ReDrawer";
 import { capitalizeFirstLetter } from "../../../../Helper/Methods";
 import { IComponentProps } from "../../../../Interfaces/Components/EditUpdateDrawer.interface";
-import { kitchen } from "../../../../Apis/Kitchen";
 import { useAppDispatch } from "../../../../Redux/Hooks";
 import {
-  addKitchen,
-  updateKitchen,
+  addUser,
+  updateUser,
 } from "../../../../Redux/Slices/UserManagementSlices";
 import { ReNotification } from "../../../../reusable-antd-components/ReNotification";
+import { user } from "../../../../Apis/User";
 import dayjs from "dayjs";
-import KitchenForm from "../KitchenForm/KitchenForm";
-export default function EditUpdateKichensDrawer(props: IComponentProps) {
+import UsersForm from "../UserForm/UsersForm";
+
+export default function CreateUpdateUsersDrawer(props: IComponentProps) {
   const dispatch = useAppDispatch();
   const [form] = Form.useForm();
   const { visibility, setVisibility, type, selectedRecordData } = props;
 
   async function handleFormSubmit(values: any) {
-    values["openingTime"] = values?.availability[0];
-    values["closingTime"] = values?.availability[1];
-    delete values?.availability;
     if (type === "create") {
-      const res = await kitchen.create(values);
-      dispatch(addKitchen(res));
+      const res = await user.create(values);
+      dispatch(addUser(res));
     } else {
-      await kitchen.update(selectedRecordData?._id, values);
+      await user.update(selectedRecordData?._id, values);
       dispatch(
-        updateKitchen({ id: selectedRecordData?._id, newKitchenData: values })
+        updateUser({ id: selectedRecordData?._id, newUserData: values })
       );
     }
     ReNotification({
       header: "User Management Say's",
-      description: `Kitchen ${capitalizeFirstLetter(type)} Sucessfully`,
+      description: `User ${capitalizeFirstLetter(type)} Successfully`,
       duration: 2,
       placement: "topRight",
       type: "success",
@@ -45,10 +43,7 @@ export default function EditUpdateKichensDrawer(props: IComponentProps) {
     if (type === "update") {
       const newData = {
         ...selectedRecordData,
-        availability: [
-          dayjs(selectedRecordData?.openingTime),
-          dayjs(selectedRecordData?.closingTime),
-        ],
+        dateOfBirth: dayjs(selectedRecordData?.dateOfBirth),
       };
       form.setFieldsValue(newData);
     } else {
@@ -78,7 +73,7 @@ export default function EditUpdateKichensDrawer(props: IComponentProps) {
           </Button>
         }
       >
-        <KitchenForm formInstance={form} handleFormSubmit={handleFormSubmit} />
+        <UsersForm formInstance={form} handleFormSubmit={handleFormSubmit} />
       </ReDrawer>
     </Styles.Container>
   );
