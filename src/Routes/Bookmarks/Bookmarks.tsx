@@ -1,5 +1,19 @@
-import React from "react";
-import { UnderConstraction } from "../../Components";
+import React, { useState } from "react";
+import * as Styles from "./BookMarksStyle";
+import ReTab from "../../reusable-antd-components/ReTab";
+import { BookmarkstabItems } from "../../Configs/BookMarksItem";
 export default function Bookmarks() {
-  return <UnderConstraction />;
+  const [activeTab, setActiveTab] = useState<string>("1");
+
+  const handleTabChange = (key: string) => {
+    setActiveTab(key);
+  };
+  return (
+    <ReTab
+      items={BookmarkstabItems}
+      onChange={handleTabChange}
+      activeKey={activeTab}
+      defaultOpenTab="1"
+    />
+  );
 }
