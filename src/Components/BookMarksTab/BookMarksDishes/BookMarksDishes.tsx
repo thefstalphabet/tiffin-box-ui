@@ -5,31 +5,32 @@ import { kitchenImg } from "../../../Assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { BookmarksDishesItem } from "../../../Configs/BookmarksDishesItems";
+import { Tag } from "antd";
+import { primaryColor } from "../../../Configs/GlobalColour";
 export default function BookMarksDishes() {
   return (
     <Styles.Container>
-      <div className="cards">
-        {BookmarksDishesItem?.map((item: any) => {
-          const { key, img, rating, tittle, address } = item;
-          return (
-            <ReCard className="card" key={key}>
-              <img
-                src={img}
-                alt="Kichens Image"
-                style={{ width: "100%", height: "auto" }}
-              />
-              <div className="tittle-style">
-                <h4>{tittle}</h4>
-                <div className="rating">
-                  <h3>{rating}</h3>
-                  <FontAwesomeIcon icon={faStar} color="white" />
-                </div>
-              </div>
-              <p>{address}</p>
-            </ReCard>
-          );
-        })}
-      </div>
+      {/* <div className="cards"> */}
+      {BookmarksDishesItem?.map((item: any) => {
+        const { key, img, rating, tittle, address } = item;
+        return (
+          <ReCard className="card" key={key}>
+            <img
+              src={img}
+              alt="Kichens Image"
+              style={{ width: "100%", height: "auto" }}
+            />
+            <div className="header">
+              <h4>{tittle}</h4>
+              <Tag color={primaryColor} style={{ padding: "2px 3px" }}>
+                {rating} <FontAwesomeIcon icon={faStar} />
+              </Tag>
+            </div>
+            <p>{address}</p>
+          </ReCard>
+        );
+      })}
+      {/* </div> */}
     </Styles.Container>
   );
 }

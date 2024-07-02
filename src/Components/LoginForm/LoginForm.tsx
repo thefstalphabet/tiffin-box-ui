@@ -10,8 +10,6 @@ import { CardItem } from "../../Configs/CardItem";
 import { ICardItem } from "../../Interfaces/Configs/CardItem.interface";
 import { auth } from "../../Apis/Auth";
 import { TLoginUserType } from "../../Interfaces/Apis/Auth.interface";
-import { user } from "../../Apis/User";
-import { kitchen } from "../../Apis/Kitchen";
 import { ReNotification } from "../../reusable-antd-components/ReNotification";
 export default function LoginForm() {
   const [loginUserType, setLoginloginUserType] =
@@ -20,16 +18,13 @@ export default function LoginForm() {
 
   async function handleFormSubmit(values: any) {
     const loginPersonId = await auth.login(values, loginUserType);
-    let loginPerson, home;
+    let home;
     if (loginPersonId) {
       if (loginUserType === "kitchen") {
-        loginPerson = await kitchen.findOne(loginPersonId);
         home = "/dashboard";
       } else {
-        loginPerson = await user.findOne(loginPersonId);
         home = "/";
       }
-      sessionStorage.setItem("user", JSON.stringify(loginPerson));
       ReNotification({
         header: "Login",
         description: "User Login Succesfully",
@@ -37,7 +32,7 @@ export default function LoginForm() {
         placement: "topRight",
         type: "success",
       });
-      window.location.href = home
+      window.location.href = home;
     }
   }
   return (
@@ -69,7 +64,11 @@ export default function LoginForm() {
                   <p>{capitalizeFirstLetter(type)}</p>
                   {loginUserType === type && (
                     <div className="customContextMenu">
-                      <FontAwesomeIcon icon={faCircleCheck} color="green" size="2x"/>
+                      <FontAwesomeIcon
+                        icon={faCircleCheck}
+                        color="green"
+                        size="2x"
+                      />
                     </div>
                   )}
                 </Card>

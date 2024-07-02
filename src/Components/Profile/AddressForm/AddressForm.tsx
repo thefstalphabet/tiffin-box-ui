@@ -1,5 +1,7 @@
+import { mpCities } from "../../../Configs/MadhyaPradeshCities";
 import ReForm from "../../../reusable-antd-components/ReForm";
 import ReInput from "../../../reusable-antd-components/ReFormFields/ReInput";
+import ReSelect from "../../../reusable-antd-components/ReFormFields/ReSelect";
 export default function AddressForm(props: {
   handleFormSubmit: Function;
   formInstance: any;
@@ -12,12 +14,17 @@ export default function AddressForm(props: {
       formInstance={formInstance}
       onSubmit={handleFormSubmit}
     >
-      <ReInput
+      <ReSelect
         label="City"
-        placeholder="Enter your city"
         name="city"
-        type="simple"
         required
+        searchable
+        items={mpCities.map((city: string) => {
+          return {
+            title: city,
+            value: city,
+          };
+        })}
       />
       <ReInput
         label="Address"

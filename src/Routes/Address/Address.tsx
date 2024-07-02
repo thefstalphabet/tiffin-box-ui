@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as Styles from "./AddressStyle";
 import { Form, Popconfirm } from "antd";
 import { ReNotification } from "../../reusable-antd-components/ReNotification";
 import { TDrawerType } from "../../Interfaces/Components/EditUpdateDrawer.interface";
-import { addres } from "../../Apis/Address";
-import { capitalizeFirstLetter } from "../../Helper/Methods";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
-import {
-  addaddress,
-  deleteaddress,
-  setaddress,
-  updateaddress,
-} from "../../Redux/Slices/AddressSlices";
+import { deleteaddress, setaddress } from "../../Redux/Slices/AddressSlices";
 import ReCard from "../../reusable-antd-components/ReCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,47 +14,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ReEmpty from "../../reusable-antd-components/ReEmpty";
 import CreateUpdateAddressDrawer from "../../Components/Profile/AddressForm/CreateUpdateAddressDrawer/CreateUpdateAddressDrawer";
+import { user } from "../../Apis/User";
+
 export default function Address() {
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
   const { address } = useAppSelector((store) => store.address);
-  const { data } = useAppSelector((store) => store.user);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [drawerType, setDrawerType] = useState<TDrawerType>("create");
   const [currentlyEditingAddress, setCurrentlyEditingAddress] = useState<any>(
     {}
   );
-  const [createUpdateFormSubmitLoading, setCreateUpdateFormSubmitLoading] =
-    useState<boolean>(false);
 
-  async function handleFormSubmit(values: any) {
-    setCreateUpdateFormSubmitLoading(true);
-
-    if (drawerType === "create") {
-      const res = await addres.create({ ...values, user: data?._id });
-      dispatch(addaddress(res));
-    } else {
-      await addres.update(currentlyEditingAddress?._id, values);
-      dispatch(
-        updateaddress({ id: currentlyEditingAddress?._id, addressData: values })
-      );
-    }
-
-    ReNotification({
-      header: "Address Say's",
-      description: `Address ${capitalizeFirstLetter(drawerType)} Successfully`,
-      duration: 2,
-      placement: "topRight",
-      type: "success",
-    });
-
-    setIsModalVisible(false);
-    form.resetFields();
-    setCreateUpdateFormSubmitLoading(false);
-  }
   async function deleteAddress(id: string) {
-    const res = await addres.delete(id);
+    const res = await user.deleteAddress(id);
     if (res) {
       dispatch(deleteaddress(id));
       return ReNotification({
@@ -75,31 +42,15 @@ export default function Address() {
   }
 
   async function fetchAddressData() {
-    const Address = await addres.findAll({ user: data?._id });
+    const Address = await user.findAllAddress();
     dispatch(setaddress(Address));
   }
 
-  const handleCardClicks = (
-    type: "update" | "create" | "delete",
-    extra?: any
-  ) => {
-    if (type !== "delete") {
-      setIsModalVisible(true);
-      setDrawerType(type);
-    }
-    switch (type) {
-      case "create":
-        form.resetFields();
-        break;
-      case "update":
-        setCurrentlyEditingAddress(extra);
-        form.setFieldsValue(extra);
-        break;
-      case "delete":
-        deleteAddress(extra?._id);
-        break;
-      default:
-        break;
+  const handleCardClicks = (type: "update" | "create", item?: any) => {
+    setIsModalVisible(true);
+    setDrawerType(type);
+    if (type === "update") {
+      setCurrentlyEditingAddress(item);
     }
   };
 
@@ -109,7 +60,7 @@ export default function Address() {
 
   return (
     <Styles.Container className={`${!address?.length && "make-it-center"}`}>
-      {address.length ? (
+      {address?.length ? (
         <div className="cards">
           {address?.map((item: any) => {
             const { address, state, pinCode, city } = item;
@@ -121,7 +72,7 @@ export default function Address() {
                     title="Delete the Address"
                     description="Are you sure to delete this Address?"
                     onConfirm={() => {
-                      handleCardClicks("delete", item);
+                      deleteAddress(item?._id);
                     }}
                     okText="Yes"
                     cancelText="No"
@@ -162,12 +113,11 @@ export default function Address() {
         />
       )}
       <CreateUpdateAddressDrawer
-        isModalVisible={isModalVisible}
-        setIsModalVisible={setIsModalVisible}
+        formInstance={form}
+        visibility={isModalVisible}
+        setVisibility={setIsModalVisible}
         type={drawerType}
         currentlyEditingAddress={currentlyEditingAddress}
-        createUpdateFormSubmitLoading={createUpdateFormSubmitLoading}
-        setCreateUpdateFormSubmitLoading={setCreateUpdateFormSubmitLoading}
       />
     </Styles.Container>
   );

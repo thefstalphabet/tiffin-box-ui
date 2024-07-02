@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { primaryColor } from "../../../Configs/GlobalColour";
 export const Container = styled.div`
-  .cards {
+  /* .cards { */
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     .card {
       width: 18rem;
     }
-    .tittle-style{
+    .header{
       display: flex;
       justify-content: space-between;
     }
-    .rating {
+    /* .rating {
       display: flex;
       background-color: ${primaryColor};
       border: 2px solid white;
@@ -27,6 +27,6 @@ export const Container = styled.div`
       h3 {
         color: white;
       }
-    }
-  }
+    } */
+  /* } */
 `;

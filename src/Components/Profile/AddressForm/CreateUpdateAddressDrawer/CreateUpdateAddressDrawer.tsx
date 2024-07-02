@@ -1,44 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as Styles from "./CreateUpdateAddressStyle";
 import ReDrawer from "../../../../reusable-antd-components/ReDrawer";
-import { Button, Form } from "antd";
+import { Button } from "antd";
 import AddressForm from "../AddressForm";
 import { IaddressProps } from "../../../../Interfaces/Components/CreateUpdateAddressDrawer";
-import { addres } from "../../../../Apis/Address";
 import {
   addaddress,
   updateaddress,
 } from "../../../../Redux/Slices/AddressSlices";
-import { useAppDispatch, useAppSelector } from "../../../../Redux/Hooks";
+import { useAppDispatch } from "../../../../Redux/Hooks";
 import { ReNotification } from "../../../../reusable-antd-components/ReNotification";
 import { capitalizeFirstLetter } from "../../../../Helper/Methods";
+import { user } from "../../../../Apis/User";
 
 export default function CreateUpdateAddressDrawer(props: IaddressProps) {
-  const {
-    type,
-    isModalVisible,
-    setIsModalVisible,
-    currentlyEditingAddress,
-    createUpdateFormSubmitLoading,
-    setCreateUpdateFormSubmitLoading,
-  } = props;
-  const { data } = useAppSelector((store) => store.user);
+  const { type, visibility, setVisibility, currentlyEditingAddress, formInstance } = props;
   const dispatch = useAppDispatch();
-  const [form] = Form.useForm();
+
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function handleFormSubmit(values: any) {
-    setCreateUpdateFormSubmitLoading(true);
-
+    setLoading(true);
     if (type === "create") {
-      const res = await addres.create({ ...values, user: data?._id });
+      const res = await user.createAddress(values);
       dispatch(addaddress(res));
     } else {
-      await addres.update(currentlyEditingAddress?._id, values);
+      await user.updateAddress(currentlyEditingAddress?._id, values);
       dispatch(
         updateaddress({ id: currentlyEditingAddress?._id, addressData: values })
       );
     }
-
     ReNotification({
       header: "Address Say's",
       description: `Address ${capitalizeFirstLetter(type)} Successfully`,
@@ -46,24 +37,26 @@ export default function CreateUpdateAddressDrawer(props: IaddressProps) {
       placement: "topRight",
       type: "success",
     });
-
-    setIsModalVisible(false);
-    form.resetFields();
-    setCreateUpdateFormSubmitLoading(false);
+    setVisibility(false);
+    formInstance.resetFields();
+    setLoading(false);
   }
+
   useEffect(() => {
     if (currentlyEditingAddress && type === "update") {
-      form.setFieldsValue(currentlyEditingAddress);
+      formInstance.setFieldsValue(currentlyEditingAddress);
+    } else {
+      formInstance.resetFields()
     }
-  }, [currentlyEditingAddress, form, type]);
+  }, [currentlyEditingAddress, formInstance, type]);
 
   return (
     <Styles.Container>
       <ReDrawer
         title={<h3>Edit Address</h3>}
-        visibility={isModalVisible}
+        visibility={visibility}
         onCancel={() => {
-          setIsModalVisible(false);
+          setVisibility(false);
         }}
         placement="right"
         closable
@@ -73,15 +66,15 @@ export default function CreateUpdateAddressDrawer(props: IaddressProps) {
             className="create-btn"
             type="primary"
             onClick={() => {
-              form.submit();
+              formInstance.submit();
             }}
-            loading={createUpdateFormSubmitLoading}
+            loading={loading}
           >
             {capitalizeFirstLetter(type)}
           </Button>
         }
       >
-        <AddressForm formInstance={form} handleFormSubmit={handleFormSubmit} />
+        <AddressForm formInstance={formInstance} handleFormSubmit={handleFormSubmit} />
       </ReDrawer>
     </Styles.Container>
   );

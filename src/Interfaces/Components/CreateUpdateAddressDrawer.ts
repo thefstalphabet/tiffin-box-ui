@@ -1,9 +1,10 @@
+import { FormInstance } from "antd";
+
 export interface IaddressProps {
-  isModalVisible: boolean;
-  setIsModalVisible: Function;
+  formInstance: FormInstance
+  visibility: boolean;
+  setVisibility: Function;
   currentlyEditingAddress: any;
   type: TDrawerType;
-  createUpdateFormSubmitLoading: boolean;
-  setCreateUpdateFormSubmitLoading: Function;
 }
 export type TDrawerType = "create" | "update";
