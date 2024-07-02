@@ -13,6 +13,8 @@ import Kitchens from "./UserManagements/Kitchens/Kitchens";
 import UnderConstraction from "./UnderConstraction/UnderConstraction";
 import EditProfile from "./Profile/EditProfile";
 import AddressForm from "./Profile/AddressForm/AddressForm";
+import BookMarksDishes from "./BookMarksTab/BookMarksDishes/BookMarksDishes";
+import BookMarksKitchen from "./BookMarksTab/BookMarksKitchens/BookMarksKitchen";
 export {
   Header,
   SideMenu,
@@ -29,4 +31,6 @@ export {
   UnderConstraction,
   EditProfile,
   AddressForm,
+  BookMarksDishes,
+  BookMarksKitchen
 };

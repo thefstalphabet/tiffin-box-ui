@@ -10,6 +10,7 @@ import Increased from "../Assets/Images/Increased.jpg";
 import AdditionalRevenue from "../Assets/Images/AdditionalRevenue.jpg";
 import Custumer from "../Assets/Images/Custumer.jpg";
 import UnderConstractionImg from "../Assets/Images/UnderConstraction.png";
+import KichensImg from "../Assets/Images/KichensImg.jpg";
 export {
   kitchenImg,
   logo,
@@ -22,5 +23,7 @@ export {
   Increased,
   AdditionalRevenue,
   Custumer,
-  UnderConstractionImg
+  UnderConstractionImg,
+  KichensImg
 };
+

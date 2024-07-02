@@ -12,8 +12,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
   faCreditCard,
-  faHeart,
+  faBookmark,
   faCog,
+  faLocationDot
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../../Redux/Hooks";
@@ -52,7 +53,7 @@ export default function ProfileOption() {
     {
       key: "Bookmarks",
       label: "Bookmarks",
-      icon: <FontAwesomeIcon icon={faHeart} />,
+      icon: <FontAwesomeIcon icon={faBookmark} />,
     },
     {
       key: "settings",
@@ -62,7 +63,7 @@ export default function ProfileOption() {
     {
       key: "address",
       label: "Address",
-      icon: <FontAwesomeIcon icon={faCog} />,
+      icon: <FontAwesomeIcon icon={faLocationDot} />,
     },
   ];
 

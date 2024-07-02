@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as Styles from "./AddressStyle";
-import ReDrawer from "../../reusable-antd-components/ReDrawer";
-import { Button, Form, Popconfirm } from "antd";
-import { AddressForm } from "../../Components";
+import { Form, Popconfirm } from "antd";
 import { ReNotification } from "../../reusable-antd-components/ReNotification";
 import { TDrawerType } from "../../Interfaces/Components/EditUpdateDrawer.interface";
 import { addres } from "../../Apis/Address";
@@ -22,7 +20,7 @@ import {
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 import ReEmpty from "../../reusable-antd-components/ReEmpty";
-
+import CreateUpdateAddressDrawer from "../../Components/Profile/AddressForm/CreateUpdateAddressDrawer/CreateUpdateAddressDrawer";
 export default function Address() {
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
@@ -163,30 +161,14 @@ export default function Address() {
           }}
         />
       )}
-      <ReDrawer
-        title={<h3>Edit Address</h3>}
-        visibility={isModalVisible}
-        onCancel={() => {
-          setIsModalVisible(false);
-        }}
-        placement="right"
-        closable
-        width={600}
-        extraContent={
-          <Button
-            className="create-btn"
-            type="primary"
-            onClick={() => {
-              form.submit();
-            }}
-            loading={createUpdateFormSubmitLoading}
-          >
-            {capitalizeFirstLetter(drawerType)}
-          </Button>
-        }
-      >
-        <AddressForm formInstance={form} handleFormSubmit={handleFormSubmit} />
-      </ReDrawer>
+      <CreateUpdateAddressDrawer
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        type={drawerType}
+        currentlyEditingAddress={currentlyEditingAddress}
+        createUpdateFormSubmitLoading={createUpdateFormSubmitLoading}
+        setCreateUpdateFormSubmitLoading={setCreateUpdateFormSubmitLoading}
+      />
     </Styles.Container>
   );
 }
