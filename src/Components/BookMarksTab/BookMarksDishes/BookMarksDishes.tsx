@@ -10,7 +10,6 @@ import { primaryColor } from "../../../Configs/GlobalColour";
 export default function BookMarksDishes() {
   return (
     <Styles.Container>
-      {/* <div className="cards"> */}
       {BookmarksDishesItem?.map((item: any) => {
         const { key, img, rating, tittle, address } = item;
         return (
@@ -30,7 +29,6 @@ export default function BookMarksDishes() {
           </ReCard>
         );
       })}
-      {/* </div> */}
     </Styles.Container>
   );
 }

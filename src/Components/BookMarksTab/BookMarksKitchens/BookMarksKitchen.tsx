@@ -9,7 +9,6 @@ import { primaryColor } from "../../../Configs/GlobalColour";
 export default function BookMarksKitchen() {
   return (
     <Styles.Container>
-      {/* <div className="cards"> */}
       {BookmarksKitchensItem?.map((item: any) => {
         const { key, img, rating, tittle, address } = item;
         return (
@@ -29,7 +28,6 @@ export default function BookMarksKitchen() {
           </ReCard>
         );
       })}
-      {/* </div> */}
     </Styles.Container>
   );
 }
