@@ -4,7 +4,8 @@ import userReducer from "./Slices/UserSlices";
 import userManagementReducer from "./Slices/UserManagementSlices";
 import viewKitchenReducer from "./Slices/Kitchen/ViewKitchenSlices";
 import addressReducer from "./Slices/AddressSlices";
-import screenResolutionReducer from './Slices/ScreenResolution.slices';
+import screenResolutionReducer from "./Slices/ScreenResolution.slices";
+import KichensBookmarkSlice from "./Slices/Bookmarks/KichensBookmarksSlices"
 export const store = configureStore({
   reducer: {
     sideMenu: sideMenuReducer,
@@ -12,7 +13,8 @@ export const store = configureStore({
     userManagement: userManagementReducer,
     viewKitchen: viewKitchenReducer,
     address: addressReducer,
-    screenResolution: screenResolutionReducer
+    screenResolution: screenResolutionReducer,
+    KichensBookmarks: KichensBookmarkSlice,
   },
 });
 
