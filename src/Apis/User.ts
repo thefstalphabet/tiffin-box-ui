@@ -31,11 +31,11 @@ class User extends MakeRequest {
   async findAllBookmarks() {
     return this.makeApiRequest("get", "bookmark");
   }
-  async bookmark(payload: any) {
+  async bookMark(payload: any) {
     return this.makeApiRequest("post", "bookmark", payload);
   }
 
-  async unbookmark(id: string) {
+  async unBookMark(id: string) {
     return this.makeApiRequest("delete", `bookmark/${id}`);
   }
 }

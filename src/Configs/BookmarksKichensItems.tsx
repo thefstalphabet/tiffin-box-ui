@@ -13,6 +13,6 @@ export const BookmarksKitchensItem: Array<IBookmarkichens> = [
     img: KichensImg,
     tittle: "surbhi Restaurant",
     rating: 5.5,
-    address: "Gadarwara",
+    address: "Bhopal",
   },
 ];

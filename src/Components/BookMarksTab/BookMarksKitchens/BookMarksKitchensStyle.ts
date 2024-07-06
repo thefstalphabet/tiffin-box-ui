@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { primaryColor } from "../../../Configs/GlobalColour";
 export const Container = styled.div`
+  .cards {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-  /* .cards { */
     .card {
       width: 18rem;
     }
-    .header{
+    .header {
       display: flex;
       justify-content: space-between;
     }
+  }
 `;

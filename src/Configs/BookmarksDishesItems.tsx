@@ -4,15 +4,15 @@ export const BookmarksDishesItem: Array<IBookmarkDishes> = [
   {
     key: "1",
     img: KichensImg,
-    tittle: "Paneer masala",
+    tittle: "Paneer Butter Masala",
     rating: 2.5,
     address: "jabalpur",
   },
   {
     key: "2",
     img: KichensImg,
-    tittle: "Paneer Tikka",
+    tittle: "Palak Paneer",
     rating: 5.5,
-    address: "Gadarwara",
+    address: "Bhopal",
   },
 ];
