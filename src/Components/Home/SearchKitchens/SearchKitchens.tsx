@@ -9,6 +9,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { mpCities } from "../../../Configs/MadhyaPradeshCities";
 import { useState } from "react";
 import ReList from "../../../reusable-antd-components/ReList";
+import NewHomeBg from '../../../Assets/Images/NewHomeBg.svg';
 
 export default function SearchKitchens() {
   const [selectedCity, setSelectedCity] = useState<string>();
@@ -29,12 +30,11 @@ export default function SearchKitchens() {
   }
 
   return (
-    <Styles.MainContainer>
       <Styles.Container className="container">
         <Styles.Content>
           <div className="taglines">
             <h1>{appName}</h1>
-            <p>Discover the Best Tiffin Food Service in your City</p>
+            <p>Discover the Best Daily Food Service in your City with Tiffin Box</p>
           </div>
           <Space.Compact className="search-bar">
             <Select
@@ -77,9 +77,8 @@ export default function SearchKitchens() {
           </Space.Compact>
         </Styles.Content>
         <Styles.Image>
-          <img style={{ width: "28vw" }} src={kitchenImage} alt="Banner" />
+          <img style={{ width: "27vw", }} src={NewHomeBg} alt="Banner" />
         </Styles.Image>
       </Styles.Container>
-    </Styles.MainContainer>
   );
 }

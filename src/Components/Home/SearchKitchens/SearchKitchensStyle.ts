@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import { bgColour, textGray } from "../../../Configs/GlobalColour";
+import { bgColour, primaryColor } from "../../../Configs/GlobalColour";
 
-export const MainContainer = styled.div``;
 export const Container = styled.div`
+  background-color: ${primaryColor};
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  margin-top: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   justify-items: center;
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
@@ -20,6 +21,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  color: #ffffff;
+  width: 30rem;
   @media (max-width: 1000px) {
     align-items: center;
     text-align: center;
@@ -30,7 +33,6 @@ export const Content = styled.div`
       font-size: 2.5rem;
     }
     p {
-      color: ${textGray};
       font-size: 1.5rem;
       line-height: 1.5;
     }
@@ -39,6 +41,8 @@ export const Content = styled.div`
     position: relative;
     background-color: ${bgColour};
     width: 100%;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
     .search-bar{
       height: 40px;
     }
@@ -54,6 +58,9 @@ export const Content = styled.div`
 export const Image = styled.div`
   display: grid;
   justify-content: center;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 export const cardSection = styled.div`
   display: flex;

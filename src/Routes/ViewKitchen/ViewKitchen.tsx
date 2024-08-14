@@ -10,6 +10,7 @@ import { setData } from "../../Redux/Slices/Kitchen/ViewKitchenSlices";
 import { formatTime, isCurrentTimeInRange } from "../../Helper/Methods";
 import { veganMapping } from "../../Helper/Mappings";
 import { primaryColor } from "../../Configs/GlobalColour";
+import { user } from "../../Apis/User";
 
 export default function ViewKitchen() {
   const { id } = useParams();
@@ -19,6 +20,13 @@ export default function ViewKitchen() {
   async function getKitchenData(id: string) {
     const data = await kitchen.findOne(id);
     dispatch(setData(data));
+  }
+
+  async function bookmarkKitchen(id: string, type: "bookmark" | "unBookmark") {
+    const bookmark = await user.bookmark(id, "kitchen");
+    if (bookmark) {
+      // do something
+    }
   }
 
   const statsData = [
@@ -48,7 +56,7 @@ export default function ViewKitchen() {
     }
   }, [id]);
 
-  return (
+  return id ? (
     <Styles.Container className="container">
       <Styles.Banner>
         <Image
@@ -101,12 +109,21 @@ export default function ViewKitchen() {
           </p>
         </Space>
         <Space>
-          <Button icon={<FontAwesomeIcon icon={faBookmark} />}>Bookmark</Button>
-          <Button icon={<FontAwesomeIcon icon={faShare} />}>Share</Button>
+          <Button
+            icon={<FontAwesomeIcon icon={faBookmark} />}
+            onClick={() => {
+              bookmarkKitchen(id, "bookmark");
+            }}
+          >
+            Bookmark
+          </Button>
+          <Button icon={<FontAwesomeIcon inverse icon={faShare} />}>Share</Button>
         </Space>
       </Styles.Header>
       {/* menu */}
       {/* menu item data (container) */}
     </Styles.Container>
+  ) : (
+    <>Kitchen id not found!</>
   );
 }

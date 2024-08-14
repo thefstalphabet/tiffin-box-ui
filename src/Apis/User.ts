@@ -1,3 +1,4 @@
+import { TBookmarkType } from "../Interfaces/Apis/Auth.interface";
 import { MakeRequest } from "./MakeRequest";
 
 class User extends MakeRequest {
@@ -31,12 +32,11 @@ class User extends MakeRequest {
   async findAllBookmarks() {
     return this.makeApiRequest("get", "bookmark");
   }
-  async bookMark(payload: any) {
-    return this.makeApiRequest("post", "bookmark", payload);
+  async bookmark(id: string, type: TBookmarkType) {
+    return this.makeApiRequest("post", `bookmark/${type}/${id}`);
   }
-
-  async unBookMark(id: string) {
-    return this.makeApiRequest("delete", `bookmark/${id}`);
+  async unBookmark(id: string, type: TBookmarkType) {
+    return this.makeApiRequest("post", `unbookmark/${type}/${id}`);
   }
 }
 
