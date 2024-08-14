@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import * as Styles from "./BookMarksStyle";
 import ReTab from "../../reusable-antd-components/ReTab";
 import { BookmarkstabItems } from "../../Configs/BookMarksItem";
 export default function Bookmarks() {

@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface IInitialState {
-  kichensBookmarks: any[];
+  bookmarks: any[];
 }
 
 const initialState: IInitialState = {
-  kichensBookmarks: [],
+  bookmarks: [],
 };
 
 const KichensBookmarkSlice = createSlice({
@@ -14,19 +14,19 @@ const KichensBookmarkSlice = createSlice({
   initialState,
   reducers: {
     setBookmarks(state, action: PayloadAction<any[]>) {
-      state.kichensBookmarks = action.payload;
+      state.bookmarks = action.payload;
     },
-    addBookmark(state, action: PayloadAction<any[]>) {
-      state.kichensBookmarks = [...state.kichensBookmarks, action.payload];
+    addBookmark(state, action: PayloadAction<string>) {
+      state.bookmarks = [...state.bookmarks, action.payload];
     },
     unbookmark(state, action: PayloadAction<string>) {
-      state.kichensBookmarks = state.kichensBookmarks.filter(
-        (kichensBookmarks) => kichensBookmarks.id !== action.payload
+      state.bookmarks = state.bookmarks.filter(
+        (bookmark) => bookmark !== action.payload
       );
     },
   },
 });
 
 export const { setBookmarks, addBookmark, unbookmark } =
-KichensBookmarkSlice.actions;
+  KichensBookmarkSlice.actions;
 export default KichensBookmarkSlice.reducer;

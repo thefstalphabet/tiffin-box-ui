@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { bgColour, primaryColor } from "../../../Configs/GlobalColour";
+import { bgColour, bgGray, primaryColor } from "../../../Configs/GlobalColour";
 
 export const Container = styled.div`
   background-color: ${primaryColor};
@@ -47,6 +47,7 @@ export const Content = styled.div`
       height: 40px;
     }
     .list {
+      background-color: ${bgColour};
       position: absolute;
       width: 100%;
       margin-top: 0.5rem;

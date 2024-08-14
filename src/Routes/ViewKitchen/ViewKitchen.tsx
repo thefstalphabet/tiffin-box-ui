@@ -2,20 +2,27 @@ import React, { useEffect } from "react";
 import * as Styles from "./ViewKitchenStyles";
 import { Button, Image, Space, Tag } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark, faShare, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import { kitchen } from "../../Apis/Kitchen";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { setData } from "../../Redux/Slices/Kitchen/ViewKitchenSlices";
-import { formatTime, isCurrentTimeInRange } from "../../Helper/Methods";
+import {
+  capitalizeFirstLetter,
+  formatTime,
+  isCurrentTimeInRange,
+} from "../../Helper/Methods";
 import { veganMapping } from "../../Helper/Mappings";
 import { primaryColor } from "../../Configs/GlobalColour";
-import { user } from "../../Apis/User";
+import { user as userApi } from "../../Apis/User";
+import { ReNotification } from "../../reusable-antd-components/ReNotification";
+import { addBookmark, unbookmark } from "../../Redux/Slices/Bookmarks/KichensBookmarksSlices";
 
 export default function ViewKitchen() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const { data } = useAppSelector((store) => store.viewKitchen);
+  const { bookmarks } = useAppSelector((store) => store.KichensBookmarks);
 
   async function getKitchenData(id: string) {
     const data = await kitchen.findOne(id);
@@ -23,9 +30,22 @@ export default function ViewKitchen() {
   }
 
   async function bookmarkKitchen(id: string, type: "bookmark" | "unBookmark") {
-    const bookmark = await user.bookmark(id, "kitchen");
-    if (bookmark) {
-      // do something
+    let res;
+    if (type === "bookmark") {
+      res = await userApi.bookmark(id, "kitchen");
+      dispatch(addBookmark(id))
+    } else {
+      res = await userApi.unBookmark(id, "kitchen");
+      dispatch(unbookmark(id))
+    }
+    if (res) {
+      ReNotification({
+        header: "View Kitchen",
+        description: `Succesfully ${capitalizeFirstLetter(type)}`,
+        duration: 2,
+        placement: "topRight",
+        type: "success",
+      });
     }
   }
 
@@ -109,15 +129,24 @@ export default function ViewKitchen() {
           </p>
         </Space>
         <Space>
-          <Button
-            icon={<FontAwesomeIcon icon={faBookmark} />}
-            onClick={() => {
-              bookmarkKitchen(id, "bookmark");
-            }}
-          >
-            Bookmark
-          </Button>
-          <Button icon={<FontAwesomeIcon inverse icon={faShare} />}>Share</Button>
+          {!bookmarks?.find((id: string) => id === data._id)?.length ? (
+            <Button
+              onClick={() => {
+                bookmarkKitchen(id, "bookmark");
+              }}
+            >
+              Bookmark
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                bookmarkKitchen(id, "unBookmark");
+              }}
+            >
+              Unbookmarked
+            </Button>
+          )}
+          <Button>Share</Button>
         </Space>
       </Styles.Header>
       {/* menu */}

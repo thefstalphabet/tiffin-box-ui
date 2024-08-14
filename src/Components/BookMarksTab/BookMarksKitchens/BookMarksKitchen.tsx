@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReCard from "../../../reusable-antd-components/ReCard";
 import * as Styles from "./BookMarksKitchensStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,15 @@ import { BookmarksKitchensItem } from "../../../Configs/BookmarksKichensItems";
 import { Tag } from "antd";
 import { primaryColor } from "../../../Configs/GlobalColour";
 import ReEmpty from "../../../reusable-antd-components/ReEmpty";
+import { user as userApi } from "../../../Apis/User";
 export default function BookMarksKitchen() {
+  async function fetchBookmarkData() {
+    // const user = await userApi.findOne()
+  }
+
+  useEffect(() => {
+    fetchBookmarkData();
+  }, []);
   return (
     <Styles.Container
       className={`${!BookmarksKitchensItem?.length && "make-it-center"}`}
@@ -35,9 +43,7 @@ export default function BookMarksKitchen() {
           })}
         </div>
       ) : (
-        <ReEmpty
-          description="You don't have kichens."
-        />
+        <ReEmpty description="You don't have kichens." />
       )}
     </Styles.Container>
   );
