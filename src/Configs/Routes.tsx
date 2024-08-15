@@ -1,4 +1,5 @@
 import { auth } from "../Apis/Auth";
+import { BookMarksDishes, BookMarksKitchen } from "../Components";
 import { IRoutes } from "../Interfaces/Configs/Routes.interface";
 import {
   Home,
@@ -15,10 +16,9 @@ import {
   PrivacyPolicy,
   Orders,
   Payments,
-  Bookmarks,
   Settings,
   ViewKitchen,
-  Address
+  Address,
 } from "../Routes";
 import Testing from "../Routes/Testing/Testing";
 
@@ -115,10 +115,17 @@ const items: Array<IRoutes> = [
     protected: true,
   },
   {
-    path: "/bookmarks",
+    path: "/bookmarks/kitchen",
     header: true,
     sideMenu: true,
-    element: <Bookmarks />,
+    element: <BookMarksKitchen />,
+    protected: true,
+  },
+  {
+    path: "/bookmarks/dish",
+    header: true,
+    sideMenu: true,
+    element: <BookMarksDishes />,
     protected: true,
   },
   {

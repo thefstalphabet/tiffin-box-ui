@@ -38,6 +38,10 @@ class User extends MakeRequest {
   async unBookmark(id: string, type: TBookmarkType) {
     return this.makeApiRequest("post", `unbookmark/${type}/${id}`);
   }
+
+  async getBookmark(type: TBookmarkType) {
+    return this.makeApiRequest("get", `bookmark/${type}`);
+  }
 }
 
 export const user = new User("user");
