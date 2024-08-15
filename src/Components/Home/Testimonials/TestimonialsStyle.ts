@@ -1,9 +1,11 @@
 import styled from "styled-components";
-
+import { bgGrayDarker } from "../../../Configs/GlobalColour";
 export const Container = styled.div`
   h1 {
     text-align: center;
   }
+  background-color: ${bgGrayDarker};
+  padding: 2rem 0;
 `;
 
 export const CardContainer = styled.div`
@@ -11,7 +13,7 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  padding: 1rem;
+  padding: 2rem;
   margin-top: 50px;
   div {
     position: relative;

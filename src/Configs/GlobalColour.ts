@@ -4,3 +4,7 @@ export const primaryColor = "#00B96B"
 export const bgColour = "#ffffff"
 export const bgGray = "#FAFAFA" 
 export const bgDarkGray = "#8C8C8C" 
+export const bgGrayDark = "#FAFAFA" 
+export const bgGrayDarker = "#D3D3D3" 
+export const bgGaryDarkest = "#8C8C8C"
+
