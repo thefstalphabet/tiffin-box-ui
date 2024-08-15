@@ -11,7 +11,6 @@ import UserManagement from "./UserManagement/UserManagement";
 import TermsAndCondition from "./TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 import Orders from "./Orders/Orders";
-import Bookmarks from "./Bookmarks/Bookmarks";
 import Payments from "./Payments/Payments";
 import Settings from "./Settings/Settings"
 import ViewKitchen from './ViewKitchen/ViewKitchen';
@@ -31,7 +30,6 @@ export {
   PrivacyPolicy,
   Orders,
   Payments,
-  Bookmarks,
   Settings,
   ViewKitchen,
   Address

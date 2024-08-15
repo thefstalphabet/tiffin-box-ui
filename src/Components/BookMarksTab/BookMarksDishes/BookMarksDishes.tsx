@@ -1,7 +1,6 @@
 import React from "react";
-import * as Styles from "./BookMarksDishesStyle";
+import * as Styles from "../BookMarksKitchens/BookMarksKitchensStyle";
 import ReCard from "../../../reusable-antd-components/ReCard";
-import { kitchenImg } from "../../../Assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { BookmarksDishesItem } from "../../../Configs/BookmarksDishesItems";
@@ -16,14 +15,9 @@ export default function BookMarksDishes() {
       {!BookmarksDishesItem.length ? (
         <div className="cards">
           {BookmarksDishesItem?.map((item: any) => {
-            const { key, img, rating, tittle, address } = item;
+            const { key, rating, tittle, address } = item;
             return (
               <ReCard className="card" key={key}>
-                <img
-                  src={img}
-                  alt="Kichens Image"
-                  style={{ width: "100%", height: "auto" }}
-                />
                 <div className="header">
                   <h4>{tittle}</h4>
                   <Tag color={primaryColor} style={{ padding: "2px 3px" }}>
