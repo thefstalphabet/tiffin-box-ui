@@ -53,6 +53,7 @@ export default function SearchKitchens() {
           />
           <div className="search-bar-and-list">
             <ReSearchbar
+              allowClear
               className="search-bar"
               size="large"
               onSubmit={() => {}}

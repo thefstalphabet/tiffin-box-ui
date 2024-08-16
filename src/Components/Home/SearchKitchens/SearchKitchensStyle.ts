@@ -53,6 +53,7 @@ export const Content = styled.div`
       margin-top: 0.5rem;
       overflow-y: scroll;
       max-height: 20rem;
+      z-index: 123;
     }
   }
 `;

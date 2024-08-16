@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import * as Styles from "./ViewKitchenStyles";
 import { Button, Image, Space, Tag } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,14 +8,12 @@ import { kitchen } from "../../Apis/Kitchen";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { setData } from "../../Redux/Slices/Kitchen/ViewKitchenSlices";
 import {
-  capitalizeFirstLetter,
   formatTime,
   isCurrentTimeInRange,
 } from "../../Helper/Methods";
 import { veganMapping } from "../../Helper/Mappings";
 import { primaryColor } from "../../Configs/GlobalColour";
 import { user as userApi } from "../../Apis/User";
-import { ReNotification } from "../../reusable-antd-components/ReNotification";
 import { addBookmark, unbookmark } from "../../Redux/Slices/Bookmarks/KichensBookmarksSlices";
 
 export default function ViewKitchen() {
@@ -30,22 +28,12 @@ export default function ViewKitchen() {
   }
 
   async function bookmarkKitchen(id: string, type: "bookmark" | "unBookmark") {
-    let res;
     if (type === "bookmark") {
-      res = await userApi.bookmark(id, "kitchen");
-      dispatch(addBookmark(id))
+      await userApi.bookmark(id, "kitchen");
+      dispatch(addBookmark(data))
     } else {
-      res = await userApi.unBookmark(id, "kitchen");
-      dispatch(unbookmark(id))
-    }
-    if (res) {
-      ReNotification({
-        header: "View Kitchen",
-        description: `Succesfully ${capitalizeFirstLetter(type)}`,
-        duration: 2,
-        placement: "topRight",
-        type: "success",
-      });
+      await userApi.unBookmark(id, "kitchen");
+      dispatch(unbookmark(data))
     }
   }
 

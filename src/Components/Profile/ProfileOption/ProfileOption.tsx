@@ -22,14 +22,14 @@ export default function ProfileOption() {
   const { screenWidth } = useAppSelector((store) => store.screenResolution);
   const componentMap: { [key: string]: React.ReactNode } = {
     "1": <Orders />,
-    "2": <Payments />,
+    "2": <Address />,
     "4": <BookMarksKitchen />,
     "5": <BookMarksDishes />,
-    "6": <Settings />,
-    "7": <Address />,
+    "6": <Payments />,
+    "7": <Settings />,
   };
 
-  const [selectedComponent, setSelectedComponent] = useState<string>("orders");
+  const [selectedComponent, setSelectedComponent] = useState<string>("1");
 
   function findMenuItemByKey(key: string, items: any) {
     for (let item of items) {
@@ -66,9 +66,9 @@ export default function ProfileOption() {
     },
     {
       key: "2",
-      path: "payments",
-      label: "Payments",
-      icon: <FontAwesomeIcon icon={faCreditCard} />,
+      path: "address",
+      label: "Address",
+      icon: <FontAwesomeIcon icon={faLocationDot} />,
     },
     {
       key: "3",
@@ -94,16 +94,17 @@ export default function ProfileOption() {
     },
     {
       key: "6",
+      path: "payments",
+      label: "Payments",
+      icon: <FontAwesomeIcon icon={faCreditCard} />,
+    },
+    {
+      key: "7",
       path: "settings",
       label: "Settings",
       icon: <FontAwesomeIcon icon={faCog} />,
     },
-    {
-      key: "7",
-      path: "address",
-      label: "Address",
-      icon: <FontAwesomeIcon icon={faLocationDot} />,
-    },
+    
   ];
 
   return (

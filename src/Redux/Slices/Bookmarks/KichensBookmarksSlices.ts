@@ -21,7 +21,7 @@ const KichensBookmarkSlice = createSlice({
     },
     unbookmark(state, action: PayloadAction<string>) {
       state.bookmarks = state.bookmarks.filter(
-        (bookmark) => bookmark !== action.payload
+        (bookmark) => bookmark._id !== action.payload
       );
     },
   },

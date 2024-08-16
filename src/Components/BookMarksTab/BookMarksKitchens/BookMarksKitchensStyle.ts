@@ -10,9 +10,5 @@ export const Container = styled.div`
     .card {
       width: 15rem;
     }
-    .header {
-      display: flex;
-      justify-content: space-between;
-    }
   }
 `;

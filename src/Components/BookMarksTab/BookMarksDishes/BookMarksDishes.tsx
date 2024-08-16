@@ -1,12 +1,12 @@
 import React from "react";
 import * as Styles from "../BookMarksKitchens/BookMarksKitchensStyle";
-import ReCard from "../../../reusable-antd-components/ReCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { BookmarksDishesItem } from "../../../Configs/BookmarksDishesItems";
 import { Tag } from "antd";
 import { primaryColor } from "../../../Configs/GlobalColour";
 import ReEmpty from "../../../reusable-antd-components/ReEmpty";
+import ReCard from "../../../reusable-antd-components/ReCard";
 export default function BookMarksDishes() {
   return (
     <Styles.Container
