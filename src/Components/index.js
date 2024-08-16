@@ -16,6 +16,7 @@ import AddressForm from "./Profile/AddressForm/AddressForm";
 import BookMarksDishes from "./BookMarksTab/BookMarksDishes/BookMarksDishes";
 import BookMarksKitchen from "./BookMarksTab/BookMarksKitchens/BookMarksKitchen";
 import Testimonials from "./Home/Testimonials/Testimonials";
+import HowItWorks from "./Home/HowItWorks/HowItWorks";
 export {
   Header,
   SideMenu,
@@ -34,5 +35,6 @@ export {
   AddressForm,
   BookMarksDishes,
   BookMarksKitchen,
-  Testimonials
+  Testimonials,
+  HowItWorks
 };

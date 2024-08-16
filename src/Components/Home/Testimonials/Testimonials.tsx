@@ -14,7 +14,7 @@ export default function Testimonials() {
           return (
             <div key={key}>
               <img src={img} alt="Image not found" />
-              <Card>
+              <Card hoverable>
                 <h2>{title}</h2>
                 <p>{description}</p>
               </Card>

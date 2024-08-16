@@ -24,6 +24,6 @@ export {
   AdditionalRevenue,
   Custumer,
   UnderConstractionImg,
-  KichensImg
+  KichensImg,
 };
 
