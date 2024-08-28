@@ -7,7 +7,7 @@ const { Meta } = Card;
 export default function TopKitchen() {
   return (
     <Styles.Conatainer>
-      <h3>Top Kitchens</h3>
+      <h1>Top Kitchens</h1>
       <Styles.CardSection>
         {HomeCardItem.map((item: IHomeCardItem) => {
           const { key, img, title, description } = item;

@@ -4,7 +4,7 @@ export const Container = styled.div`
   text-align: center;
   padding: 0 3rem;
   h1 {
-    /* margin-bottom: 20px; */
+    font-size: 1.5rem;
   }
 `;
 
@@ -18,6 +18,7 @@ export const ContentCard = styled.div`
   padding: 1rem 0;
 h3{
   padding: 1rem 0;
+  font-size: 1rem;
 }
   @media (max-width: 768px) {
     display: flex;

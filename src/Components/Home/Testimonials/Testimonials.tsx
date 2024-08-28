@@ -13,9 +13,9 @@ export default function Testimonials() {
           const { key, img, title, description } = item;
           return (
             <div key={key}>
-              <img src={img} alt="Image not found" />
-              <Card hoverable>
-                <h2>{title}</h2>
+              <img src={img} alt="logo  not found" />
+              <Card style={{height:250 }} >
+                <h3>{title}</h3>
                 <p>{description}</p>
               </Card>
             </div>

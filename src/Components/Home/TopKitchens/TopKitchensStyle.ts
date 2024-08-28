@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const Conatainer = styled.div`
-  h3 {
+  h1 {
     align-self: center;
     text-align: center;
     font-size: 1.5rem;

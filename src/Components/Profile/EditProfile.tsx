@@ -54,7 +54,7 @@ export default function EditProfile() {
             setIsModalVisible(true);
           }}
         >
-          Edit profile
+          Edit Profile
         </Button>
       </div>
       <ProfileOption />
