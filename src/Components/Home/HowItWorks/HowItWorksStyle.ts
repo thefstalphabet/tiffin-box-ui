@@ -16,6 +16,9 @@ export const ContentCard = styled.div`
   gap: 3rem;
   text-align: center;
   padding: 1rem 0;
+  .step-container{
+    position: relative;
+  }
   img {
     height: 80px;
     width: 50px;
@@ -23,19 +26,19 @@ export const ContentCard = styled.div`
   h3 {
     font-size: 1rem;
   }
-  /* .arrow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 10px 0;
+  .arrow-container {
+    position: absolute;
+    right: -70px;
+    top: 0;
   }
   .arrow-image {
-    width: 50px;
-    height: 50px;
-  } */
+    width: 5rem;
+  }
   @media (max-width: 768px) {
     display: flex;
     flex-wrap: wrap;
+    .arrow-image, .arrow-container{
+      display: none;
+    }
   }
 `;

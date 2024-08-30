@@ -13,14 +13,14 @@ export default function HowItWorks() {
           const { key, img, title, description } = item;
           return (
             <div key={key} className="step-container">
+              <img src={img} alt="step" className="step-image" />
+              <h3>{title}</h3>
+              <p>{description}</p>
               {index < HowItWorksItem.length - 1 && (
                 <div className="arrow-container">
                   <img src={arrowImg} alt="arrow" className="arrow-image" />
                 </div>
               )}
-              <img src={img} alt="step" className="step-image" />  
-              <h3>{title}</h3>
-              <p>{description}</p>          
             </div>
           );
         })}
