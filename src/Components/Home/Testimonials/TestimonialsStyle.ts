@@ -6,7 +6,7 @@ export const Container = styled.div`
     font-size: 1.5rem;
   }
   background-color: ${bgGrayDarker};
-  padding: 1rem 0;
+  padding: 2rem 0;
 `;
 
 export const CardContainer = styled.div`

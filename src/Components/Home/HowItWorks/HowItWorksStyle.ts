@@ -21,7 +21,6 @@ export const ContentCard = styled.div`
     width: 50px;
   }
   h3 {
-    padding: 1rem 0;
     font-size: 1rem;
   }
   /* .arrow-container {
