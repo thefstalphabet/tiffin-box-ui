@@ -1,6 +1,6 @@
 export interface IHowItWorks {
     key: string;
-    step:number;
+    img: string;
     title: string;
     description: string;
 }
