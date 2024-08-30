@@ -20,6 +20,7 @@ export default function CreateUpdateUsersDrawer(props: IComponentProps) {
   const { visibility, setVisibility, type, selectedRecordData } = props;
 
   async function handleFormSubmit(values: any) {
+    values.status = values.status ? 1 : 0;
     if (type === "create") {
       const res = await user.create(values);
       dispatch(addUser(res));

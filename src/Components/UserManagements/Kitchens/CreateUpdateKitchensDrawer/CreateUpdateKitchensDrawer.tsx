@@ -22,6 +22,7 @@ export default function CreateUpdateKitchensDrawer(props: IComponentProps) {
     values["openingTime"] = values?.availability[0];
     values["closingTime"] = values?.availability[1];
     delete values?.availability;
+    values.status = values?.status ? 1 : 0;
     if (type === "create") {
       const res = await kitchen.create(values);
       dispatch(addKitchen(res));
