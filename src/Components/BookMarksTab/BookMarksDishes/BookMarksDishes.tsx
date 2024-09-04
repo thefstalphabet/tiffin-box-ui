@@ -1,12 +1,12 @@
 import React from "react";
 import * as Styles from "../BookMarksKitchens/BookMarksKitchensStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { BookmarksDishesItem } from "../../../Configs/BookmarksDishesItems";
 import { Tag } from "antd";
 import { primaryColor } from "../../../Configs/GlobalColour";
 import ReEmpty from "../../../reusable-antd-components/ReEmpty";
 import ReCard from "../../../reusable-antd-components/ReCard";
+import { Icons } from "../../../Assets/Icons/Icons";
 export default function BookMarksDishes() {
   return (
     <Styles.Container
@@ -21,7 +21,7 @@ export default function BookMarksDishes() {
                 <div className="header">
                   <h4>{tittle}</h4>
                   <Tag color={primaryColor} style={{ padding: "2px 3px" }}>
-                    {rating} <FontAwesomeIcon icon={faStar} />
+                    {rating} <FontAwesomeIcon icon={Icons?.faStar} />
                   </Tag>
                 </div>
                 <p>{address}</p>

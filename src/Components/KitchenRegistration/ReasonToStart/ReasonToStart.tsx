@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReasonToStartItems } from "../../../Configs/ReasonToStartItems";
 import { IReasonStartItem } from "../../../Interfaces/Configs/ReasonToStart.interface";
 import * as Styles from "./ReasonToStartStyle";

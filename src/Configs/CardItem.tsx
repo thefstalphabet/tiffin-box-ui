@@ -1,14 +1,13 @@
 import { ICardItem } from "../Interfaces/Configs/CardItem.interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUtensils,faUser} from "@fortawesome/free-solid-svg-icons";
-
+import { Icons } from "../Assets/Icons/Icons";
 export const CardItem: Array<ICardItem> = [
   {
     type: "kitchen",
-    icon: <FontAwesomeIcon icon={faUtensils} size="4x" />,
+    icon: <FontAwesomeIcon icon={Icons?.faUtensils} size="4x" />,
   },
   {
     type: "user",
-    icon: <FontAwesomeIcon icon={faUser} size="4x"/>,
+    icon: <FontAwesomeIcon icon={Icons?.faUser} size="4x"/>,
   },
 ];

@@ -1,11 +1,6 @@
 import React, { useEffect } from "react";
 import * as Styles from "./BookMarksKitchensStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBookmark,
-  faEye,
-  faLocationDot,
-} from "@fortawesome/free-solid-svg-icons";
 import { Space } from "antd";
 import ReEmpty from "../../../reusable-antd-components/ReEmpty";
 import { user as userApi } from "../../../Apis/User";
@@ -18,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { ReNotification } from "../../../reusable-antd-components/ReNotification";
 import { KichensImg } from "../../../Assets";
 import ReCard from "../../../reusable-antd-components/ReCard";
+import { Icons } from "../../../Assets/Icons/Icons";
 export default function BookMarksKitchen() {
   const { bookmarks } = useAppSelector((store) => store.KichensBookmarks);
   const dispatch = useAppDispatch();
@@ -67,13 +63,13 @@ export default function BookMarksKitchen() {
                 cover={<img alt="Kitchen Banner" src={KichensImg}/>}
                 actions={[
                   <FontAwesomeIcon
-                    icon={faBookmark}
+                    icon={Icons?.faBookmark}
                     onClick={() => {
                       handleCardActionClicks("unBookmark", _id);
                     }}
                   />,
                   <FontAwesomeIcon
-                    icon={faEye}
+                    icon={Icons?.faEye}
                     onClick={() => {
                       handleCardActionClicks("view", _id);
                     }}
@@ -83,7 +79,7 @@ export default function BookMarksKitchen() {
                 <Space direction="vertical">
                   <h4>{name}</h4>
                   <Space direction="horizontal">
-                    <FontAwesomeIcon icon={faLocationDot} />
+                    <FontAwesomeIcon icon={Icons?.faLocationDot} />
                     <p>{`${address},  ${city}`}</p>
                   </Space>
                 </Space>

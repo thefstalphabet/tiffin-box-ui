@@ -6,11 +6,7 @@ import { TDrawerType } from "../../Interfaces/Components/EditUpdateDrawer.interf
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { deleteaddress, setaddress } from "../../Redux/Slices/AddressSlices";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPenToSquare,
-  faPlus,
-  faTrashCan,
-} from "@fortawesome/free-solid-svg-icons";
+import { Icons } from "../../Assets/Icons/Icons";
 import ReEmpty from "../../reusable-antd-components/ReEmpty";
 import CreateUpdateAddressDrawer from "../../Components/Profile/AddressForm/CreateUpdateAddressDrawer/CreateUpdateAddressDrawer";
 import { user } from "../../Apis/User";
@@ -77,14 +73,14 @@ export default function Address() {
                     okText="Yes"
                     cancelText="No"
                   >
-                    <FontAwesomeIcon key="delete" icon={faTrashCan} />
+                    <FontAwesomeIcon key="delete" icon={Icons?.faTrashCan} />
                   </Popconfirm>,
                   <FontAwesomeIcon
                     key="edit"
                     onClick={() => {
                       handleCardClicks("update", item);
                     }}
-                    icon={faPenToSquare}
+                    icon={Icons?.faPenToSquare}
                   />,
                 ]}
               >
@@ -101,7 +97,7 @@ export default function Address() {
               handleCardClicks("create");
             }}
           >
-            <FontAwesomeIcon className="plus-icon" icon={faPlus} />
+            <FontAwesomeIcon className="plus-icon" icon={Icons?.faPlus} />
           </ReCard>
         </div>
       ) : (

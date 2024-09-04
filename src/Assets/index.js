@@ -4,11 +4,11 @@ import logoWithText from "./Logos/logo-no-background.png";
 import pageNotfoundImage from "../Assets/Images/pageNotfoundImage.jpg";
 import homeImg from "../Assets/Images/homeImg.jpg";
 import logo from "./Logos/logo.png";
-import Increased from "../Assets/Images/Increased.jpg";
-import AdditionalRevenue from "../Assets/Images/AdditionalRevenue.jpg";
-import Custumer from "../Assets/Images/Custumer.jpg";
+import Increased from "../Assets/Images/increase.svg";
+import Custumer from "../Assets/Images/customer.svg";
 import UnderConstractionImg from "../Assets/Images/UnderConstraction.png";
 import KichensImg from "../Assets/Images/KichensImg.jpg";
+import revenue from "../Assets/Images/revenue.svg"
 export {
   kitchenImg,
   logo,
@@ -17,9 +17,9 @@ export {
   homeImg,
   logoWithText,
   Increased,
-  AdditionalRevenue,
   Custumer,
   UnderConstractionImg,
   KichensImg,
+  revenue
 };
 

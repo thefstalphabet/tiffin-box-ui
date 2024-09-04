@@ -3,7 +3,7 @@ import ReTable from "../../../reusable-antd-components/ReTable/ReTable";
 import CreateUpdateKitchensDrawer from "./CreateUpdateKitchensDrawer/CreateUpdateKitchensDrawer";
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { Icons } from "../../../Assets/Icons/Icons";
 import { kitchen } from "../../../Apis/Kitchen";
 import { Popconfirm, Space, Tag } from "antd";
 import { formatTime } from "../../../Helper/Methods";
@@ -56,7 +56,7 @@ export default function Kitchens() {
         return (
           <Space>
             <FontAwesomeIcon
-              icon={faPenToSquare}
+              icon={Icons?.faPenToSquare}
               className="icon"
               onClick={() => {
                 setDrawerVisible(true);
@@ -73,7 +73,7 @@ export default function Kitchens() {
               okText="Yes"
               cancelText="No"
             >
-              <FontAwesomeIcon icon={faTrashCan} className="icon" />
+              <FontAwesomeIcon icon={Icons?.faTrashCan} className="icon" />
             </Popconfirm>
           </Space>
         );

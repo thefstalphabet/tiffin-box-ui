@@ -1,5 +1,5 @@
 import { IReasonStartItem } from "../Interfaces/Configs/ReasonToStart.interface";
-import {Increased,AdditionalRevenue,Custumer } from "../Assets";
+import {Increased,Custumer,revenue } from "../Assets";
 export const ReasonToStartItems: Array<IReasonStartItem> = [
   {
     key: "1",
@@ -9,7 +9,7 @@ export const ReasonToStartItems: Array<IReasonStartItem> = [
   },
   {
     key: "2",
-    icon: AdditionalRevenue,
+    icon: revenue,
     heading: "Additional Revenue",
     desc: "Our platform opens up new opportunities for you to generate additional revenue through subscription-based orders. This steady stream of income can complement their existing sales and contribute to overall business growth.",
   },

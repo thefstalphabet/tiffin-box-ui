@@ -1,11 +1,5 @@
 import { Avatar, Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleDown,
-  faArrowRightFromBracket,
-  faBars,
-  faBookmark,
-} from "@fortawesome/free-solid-svg-icons";
 import { menuItems } from "../../Configs/MenuItems";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
@@ -14,6 +8,7 @@ import {
   setCollapse,
 } from "../../Redux/Slices/SideMenuSlices";
 import * as Styles from "./HeaderStyles";
+import { Icons } from "../../Assets/Icons/Icons";
 import { logo } from "../../Assets";
 import { auth } from "../../Apis/Auth";
 import ReDropdown from "../../reusable-antd-components/ReDropdown";
@@ -51,12 +46,12 @@ export default function Header() {
               {user?.data?.name?.slice(0, 2)}
             </Avatar>
             <ReDropdown
-              child={<FontAwesomeIcon icon={faAngleDown} />}
+              child={<FontAwesomeIcon icon={Icons?.faAngleDown} />}
               items={[
                 {
                   key: "2",
                   label: "Bookmarks",
-                  icon: <FontAwesomeIcon icon={faBookmark} />,
+                  icon: <FontAwesomeIcon icon={Icons?.faBookmark} />,
                 },
                 {
                   key: "3",
@@ -69,7 +64,7 @@ export default function Header() {
                       Logout
                     </span>
                   ),
-                  icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+                  icon: <FontAwesomeIcon icon={Icons?.faArrowRightFromBracket} />,
                 },
               ]}
             />
@@ -95,7 +90,7 @@ export default function Header() {
           </>
         )}
         <FontAwesomeIcon
-          icon={faBars}
+          icon={Icons?.faBars}
           className="toggle-icon"
           onClick={() => {
             dispatch(setCollapse(!collapse));

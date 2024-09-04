@@ -4,12 +4,12 @@ import ReSearchbar from "../../../reusable-antd-components/ReSearchbar";
 import { kitchen } from "../../../Apis/Kitchen";
 import { Rate, Select, Space } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { mpCities } from "../../../Configs/MadhyaPradeshCities";
 import { useState } from "react";
 import ReList from "../../../reusable-antd-components/ReList";
 import NewHomeBg from "../../../Assets/Images/NewHomeBg.svg";
 import { veganMapping } from "../../../Helper/Mappings";
+import { Icons } from "../../../Assets/Icons/Icons";
 
 export default function SearchKitchens() {
   const [selectedCity, setSelectedCity] = useState<string>();
@@ -39,7 +39,7 @@ export default function SearchKitchens() {
         <Space.Compact className="search-bar">
           <Select
             onSelect={(value: string) => setSelectedCity(value)}
-            suffixIcon={<FontAwesomeIcon icon={faAngleDown} />}
+            suffixIcon={<FontAwesomeIcon icon={Icons?.faAngleDown} />}
             defaultValue={selectedCity}
             placeholder="Select City"
             size="large"

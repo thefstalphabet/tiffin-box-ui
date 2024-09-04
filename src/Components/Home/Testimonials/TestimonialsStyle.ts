@@ -4,6 +4,7 @@ export const Container = styled.div`
   h1 {
     text-align: center;
     font-size: 1.5rem;
+    margin-bottom: 2rem;
   }
   background-color: ${bgGrayDarker};
   padding: 2rem 0;
@@ -15,7 +16,6 @@ export const CardContainer = styled.div`
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
-  margin-top: 30px;
   
   div {
     position: relative;

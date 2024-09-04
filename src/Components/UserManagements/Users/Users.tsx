@@ -5,10 +5,7 @@ import CreateUpdateUsersDrawer from "./CreateUpdateUsersDrawer/CreateUpdateUsers
 import { TDrawerType } from "../../../Interfaces/Components/EditUpdateDrawer.interface";
 import { user } from "../../../Apis/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPenToSquare,
-  faTrashCan,
-} from "@fortawesome/free-solid-svg-icons";
+import { Icons } from "../../../Assets/Icons/Icons";
 import { Popconfirm, Space, Tag } from "antd";
 import {
   deleteUser,
@@ -57,7 +54,7 @@ export default function Users() {
         return (
           <Space>
             <FontAwesomeIcon
-              icon={faPenToSquare}
+              icon={Icons?.faPenToSquare}
               className="icon"
               onClick={() => {
                 setDrawerVisible(true);
@@ -74,7 +71,7 @@ export default function Users() {
               okText="Yes"
               cancelText="No"
             >
-              <FontAwesomeIcon icon={faTrashCan} className="icon" />
+              <FontAwesomeIcon icon={Icons?.faTrashCan} className="icon" />
             </Popconfirm>
           </Space>
         );

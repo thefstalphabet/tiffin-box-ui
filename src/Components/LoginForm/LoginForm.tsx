@@ -4,13 +4,13 @@ import { Button, Form, Card } from "antd";
 import ReForm from "../../reusable-antd-components/ReForm";
 import ReInput from "../../reusable-antd-components/ReFormFields/ReInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { capitalizeFirstLetter } from "../../Helper/Methods";
 import { CardItem } from "../../Configs/CardItem";
 import { ICardItem } from "../../Interfaces/Configs/CardItem.interface";
 import { auth } from "../../Apis/Auth";
 import { TLoginUserType } from "../../Interfaces/Apis/Auth.interface";
 import { ReNotification } from "../../reusable-antd-components/ReNotification";
+import { Icons } from "../../Assets/Icons/Icons";
 export default function LoginForm() {
   const [loginUserType, setLoginloginUserType] =
     useState<TLoginUserType>("kitchen");
@@ -65,7 +65,7 @@ export default function LoginForm() {
                   {loginUserType === type && (
                     <div className="customContextMenu">
                       <FontAwesomeIcon
-                        icon={faCircleCheck}
+                        icon={Icons?.faCircleCheck}
                         color="green"
                         size="2x"
                       />

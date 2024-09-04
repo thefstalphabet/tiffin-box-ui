@@ -3,15 +3,7 @@ import * as Styles from "./ProfileOptionStyle";
 import ReMenu from "../../../reusable-antd-components/ReMenu";
 import { Orders, Payments, Settings, Address } from "../../../Routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faShoppingCart,
-  faCreditCard,
-  faBookmark,
-  faCog,
-  faLocationDot,
-  faFireBurner,
-  faBowlFood,
-} from "@fortawesome/free-solid-svg-icons";
+import { Icons } from "../../../Assets/Icons/Icons";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../../Redux/Hooks";
 import { IReMenuItems } from "../../../reusable-antd-components/Interfaces/ReComponents.interface";
@@ -62,32 +54,32 @@ export default function ProfileOption() {
       key: "1",
       path: "orders",
       label: "Orders",
-      icon: <FontAwesomeIcon icon={faShoppingCart} />,
+      icon: <FontAwesomeIcon icon={Icons?.faShoppingCart} />,
     },
     {
       key: "2",
       path: "address",
       label: "Address",
-      icon: <FontAwesomeIcon icon={faLocationDot} />,
+      icon: <FontAwesomeIcon icon={Icons?.faLocationDot} />,
     },
     {
       key: "3",
       path: "bookmarks",
       label: "Bookmarks",
-      icon: <FontAwesomeIcon icon={faBookmark} />,
+      icon: <FontAwesomeIcon icon={Icons?.faBookmark} />,
       children: [
         {
           key: "4",
           path: "bookmarks/kitchen",
           label: "Kitchens",
-          icon: <FontAwesomeIcon icon={faFireBurner} />,
+          icon: <FontAwesomeIcon icon={Icons?.faFireBurner} />,
           protected: true,
         },
         {
           key: "5",
           path: "bookmarks/dish",
           label: "Dishes",
-          icon: <FontAwesomeIcon icon={faBowlFood} />,
+          icon: <FontAwesomeIcon icon={Icons?.faBowlFood} />,
           protected: true,
         },
       ],
@@ -96,13 +88,13 @@ export default function ProfileOption() {
       key: "6",
       path: "payments",
       label: "Payments",
-      icon: <FontAwesomeIcon icon={faCreditCard} />,
+      icon: <FontAwesomeIcon icon={Icons?.faCreditCard} />,
     },
     {
       key: "7",
       path: "settings",
       label: "Settings",
-      icon: <FontAwesomeIcon icon={faCog} />,
+      icon: <FontAwesomeIcon icon={Icons?.faCog} />,
     },
     
   ];

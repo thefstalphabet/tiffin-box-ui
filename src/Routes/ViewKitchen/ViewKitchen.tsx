@@ -3,6 +3,7 @@ import * as Styles from "./ViewKitchenStyles";
 import { Button, Image, Space, Tag } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { Icons } from "../../Assets/Icons/Icons";
 import { useParams } from "react-router-dom";
 import { kitchen } from "../../Apis/Kitchen";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
@@ -93,7 +94,7 @@ export default function ViewKitchen() {
               return (
                 <div className="stat">
                   <Tag color={primaryColor} style={{ padding: "2px 3px" }}>
-                    {ele?.raiting} <FontAwesomeIcon icon={faStar} />
+                    {ele?.raiting} <FontAwesomeIcon icon={Icons?.faStar} />
                   </Tag>
                   <div className="stat-text">
                     <span>{ele?.totalRating}</span>

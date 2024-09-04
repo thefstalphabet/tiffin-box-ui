@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { menuItems } from "../../Configs/MenuItems";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Icons } from "../../Assets/Icons/Icons";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { setActiveItemKey, setCollapse } from "../../Redux/Slices/SideMenuSlices";
@@ -19,7 +19,7 @@ export default function SideMenu() {
           onClick={() => {
             dispatch(setCollapse(!collapse));
           }}
-          icon={faXmark}
+          icon={Icons?.faXmark}
         />
       </div>
       <ReMenu
